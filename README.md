@@ -62,7 +62,8 @@ ColonySeries/
 ```
 
 工程细节：[`docs/ENGINEERING.md`](docs/ENGINEERING.md)  
-设计权威：[`docs/design/mod-design-review.md`](docs/design/mod-design-review.md)
+设计权威：[`docs/design/mod-design-review.md`](docs/design/mod-design-review.md)  
+**代理/Claude 公约**：[`CLAUDE.md`](CLAUDE.md)（在本仓库内协作必读）
 
 ---
 

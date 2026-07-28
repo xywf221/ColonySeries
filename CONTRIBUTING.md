@@ -2,9 +2,10 @@
 
 ## Before you write code
 
-1. Read [`docs/design/mod-design-review.md`](docs/design/mod-design-review.md) — playability is the product.
-2. Read [`docs/ENGINEERING.md`](docs/ENGINEERING.md) — build system contract.
-3. Pass the design five gates for any new feature:
+1. Read [`CLAUDE.md`](CLAUDE.md) — short engineering charter (humans + agents).
+2. Read [`docs/design/mod-design-review.md`](docs/design/mod-design-review.md) — playability is the product.
+3. Read [`docs/ENGINEERING.md`](docs/ENGINEERING.md) — build system contract.
+4. Pass the design five gates for any new feature:
    - Player agency
    - Meaningful stakes
    - Readable failure
