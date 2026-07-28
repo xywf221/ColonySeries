@@ -6,18 +6,22 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 MODS_DIR="$ROOT/mods"
 
 # Game root: env > sibling of ColonySeries > explicit
+# Directory.Build.props resolves RimWorldDir (sibling install or RIMWORLD_DIR).
+# Still pass -p when we can detect the game, so logs are explicit.
+RW_ARGS=()
 if [[ -n "${RIMWORLD_DIR:-}" ]]; then
   RW="$RIMWORLD_DIR"
+  # Ensure trailing separator for older csproj concat
+  [[ "$RW" == */ ]] || [[ "$RW" == *\\ ]] || RW="${RW}/"
+  RW_ARGS=(-p:RimWorldDir="$RW")
+  echo "RimWorldDir=$RW (from env)"
 elif [[ -f "$ROOT/../RimWorldWin64_Data/Managed/Assembly-CSharp.dll" ]]; then
-  RW="$(cd "$ROOT/.." && pwd)"
-elif [[ -f "$ROOT/../RimWorldWin64.exe" ]] || [[ -d "$ROOT/../RimWorldWin64_Data" ]]; then
-  RW="$(cd "$ROOT/.." && pwd)"
+  RW="$(cd "$ROOT/.." && pwd)/"
+  RW_ARGS=(-p:RimWorldDir="$RW")
+  echo "RimWorldDir=$RW (sibling)"
 else
-  echo "Set RIMWORLD_DIR to your RimWorld install root (folder with RimWorldWin64_Data)." >&2
-  exit 1
+  echo "RimWorldDir=auto (Directory.Build.props / per-csproj)"
 fi
-
-echo "RimWorldDir=$RW"
 echo "Mods source=$MODS_DIR"
 echo
 
@@ -28,7 +32,7 @@ skipped=0
 while IFS= read -r -d '' csproj; do
   name="$(basename "$(dirname "$csproj")")"
   echo "---- build $name ----"
-  if dotnet build "$csproj" -c Release -p:RimWorldDir="$RW"; then
+  if dotnet build "$csproj" -c Release "${RW_ARGS[@]+"${RW_ARGS[@]}"}"; then
     built=$((built + 1))
   else
     echo "FAILED: $csproj" >&2

@@ -1,0 +1,22 @@
+<Project>
+  <!--
+    Imported automatically by every csproj under ColonySeries/.
+    Ensures RimWorldDir points at the game install when building from the monorepo
+    (csproj relative climb would land on ColonySeries, not the game root).
+  -->
+  <PropertyGroup>
+    <!-- 1) Explicit -p:RimWorldDir=... or env RIMWORLD_DIR wins (normalized below). -->
+    <RimWorldDir Condition="'$(RimWorldDir)' == '' and '$(RIMWORLD_DIR)' != ''">$(RIMWORLD_DIR)</RimWorldDir>
+
+    <!-- 2) Sibling layout: ColonySeries/ next to RimWorldWin64_Data/ -->
+    <_ColonySeriesRoot>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)'))</_ColonySeriesRoot>
+    <_SiblingGame>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\'))</_SiblingGame>
+    <RimWorldDir Condition="'$(RimWorldDir)' == '' and Exists('$(_SiblingGame)RimWorldWin64_Data\Managed\Assembly-CSharp.dll')">$(_SiblingGame)</RimWorldDir>
+
+    <!-- 3) Leave empty → individual csproj default (Mods/Name/... climb) still applies when deployed. -->
+
+    <!-- Normalize trailing slash so ManagedDir concat is safe. -->
+    <RimWorldDir Condition="'$(RimWorldDir)' != ''">$([System.IO.Path]::GetFullPath('$(RimWorldDir)'))</RimWorldDir>
+    <RimWorldDir Condition="'$(RimWorldDir)' != '' and !HasTrailingSlash('$(RimWorldDir)')">$(RimWorldDir)\</RimWorldDir>
+  </PropertyGroup>
+</Project>
