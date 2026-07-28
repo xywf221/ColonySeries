@@ -101,17 +101,21 @@ Textures/              （部分包）
 - [Harmony](https://steamcommunity.com/sharedfiles/filedetails/?id=2009463077)（`brrainz.harmony`）
 - 编译：.NET SDK（`net472` 目标），引用游戏 `Assembly-CSharp` + Harmony
 
-各 csproj 可移植：
+各 csproj 可移植。仓库根有 `Directory.Build.props`：
+
+- 若 `ColonySeries/` 与游戏根**同级**（推荐），自动找到 `../RimWorldWin64_Data`
+- 或设 `RIMWORLD_DIR` / `-p:RimWorldDir=...`（路径会自动补尾斜杠）
 
 ```bash
-dotnet build -p:RimWorldDir="E:/RimWorld-v1.6.4850"
-# 或
-export RIMWORLD_DIR="E:/RimWorld-v1.6.4850"
+# 通常直接：
+dotnet build mods/DeadDrop/1.6/Source/DeadDrop/DeadDrop.csproj -c Release
+
+# 游戏不在同级时：
+export RIMWORLD_DIR="D:/Games/RimWorld"
+./scripts/build-all.sh
 ```
 
-默认假设布局：`ColonySeries` 与游戏根目录相邻，或仍从  
-`<RimWorld>/Mods/<Name>/1.6/Source/...` 解析向上四级到游戏根。  
-**从 monorepo 编译时请显式传 `RimWorldDir`。**
+Deploy 回 `Mods/<Name>/` 后，旧的「向上四级」相对路径仍可用。
 
 ---
 
