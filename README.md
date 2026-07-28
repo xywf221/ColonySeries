@@ -1,11 +1,42 @@
-# ColonySeries — RimWorld 1.6 模组系列仓库
+# ColonySeries — RimWorld 1.6 工程级模组 monorepo
 
 一套**有代价、可设置、轻松模式、事件驱动**的殖民地模组。  
 气质：维护循环 + 玩家动词（赶工 / 预支 / 接灰单），**不做心情税农场**。
 
-> 本仓库是 **源码 monorepo**。游戏实际加载路径仍是  
-> `<RimWorld>/Mods/<ModName>/`  
-> 用 `scripts/deploy.ps1` / `scripts/deploy.sh` 同步过去。
+> **源码真相**在本仓库 `mods/`。游戏加载路径仍是 `<RimWorld>/Mods/<Name>/`，用 deploy 同步。
+
+| | |
+|--|--|
+| 目标游戏 | RimWorld **1.6** |
+| 包数量 | **14**（见 [`catalog.json`](catalog.json)） |
+| 作者品牌 | `ColonySeries` |
+| 构建 | `Directory.Build.props` + identity-only csproj |
+| 校验 | `scripts/validate-mods` → 0 error 为门禁 |
+
+---
+
+## 30 秒上手
+
+```bash
+# 推荐：把本仓库放在游戏根旁
+#   RimWorld-v1.6.4850/
+#   ├── RimWorldWin64_Data/
+#   ├── Mods/
+#   └── ColonySeries/     ← 这里
+
+cd ColonySeries
+./scripts/validate-mods.sh
+./scripts/build-all.sh
+./scripts/deploy.sh
+```
+
+游戏不在同级时：
+
+```bash
+export RIMWORLD_DIR="D:/Games/RimWorld"
+./scripts/build-all.sh
+./scripts/deploy.sh "$RIMWORLD_DIR/Mods"
+```
 
 ---
 
@@ -13,177 +44,109 @@
 
 ```
 ColonySeries/
-├── README.md                 ← 本文件
-├── LICENSE                   ← 占位（按需改）
-├── .gitignore
+├── Directory.Build.props / .targets   ← 共享 TFM、RimWorldDir、Harmony、引用
+├── catalog.json                       ← 机读包清单（sync-catalog 生成）
+├── CONTRIBUTING.md
+├── CHANGELOG.md
 ├── docs/
-│   ├── design/
-│   │   ├── mod-design-review.md   ← 可玩性权威评审
-│   │   └── todo.md                ← 实现状态表
-│   └── archive/
-│       └── NOT_SHIPPED.md         ← D 档不独立包说明
-├── mods/                     ← 每个子目录 = 一个可加载 mod
-│   ├── Landworks/
-│   ├── Fieldcraft/
-│   ├── PersonalKit/
-│   ├── TraitExtractor/
-│   ├── DeadDrop/
-│   ├── ArtisanMark/
-│   ├── WorkshopWear/
-│   ├── RumorMill/
-│   ├── Ledger/
-│   ├── QuarantineLine/
-│   ├── SalvageAtlas/
-│   ├── ApprenticeBond/
-│   ├── FordRights/
-│   └── WatchRoster/
-├── scripts/
-│   ├── build-all.sh / .ps1        ← 编译全部
-│   ├── deploy.sh / .ps1           ← 同步到游戏 Mods/
-│   └── list-mods.sh
-└── tools/                    ← 可选脚手架 / 贴图工具（空可放）
+│   ├── ENGINEERING.md                 ← 构建契约
+│   ├── REPO_LAYOUT.md
+│   ├── design/                        ← 可玩性评审 + 状态表
+│   └── archive/NOT_SHIPPED.md
+├── mods/<Name>/                       ← 一文件夹 = 一个 packageId
+│   ├── About/  LoadFolders.xml  README.md
+│   └── 1.6/{Assemblies,Defs,Languages,Source}
+└── scripts/
+    ├── build-all / deploy / validate-mods
+    ├── new-mod / sync-catalog / list-mods
 ```
 
-### 每个 `mods/<Name>/` 内部（标准 RimWorld 包）
-
-```
-About/                 packageId、描述
-LoadFolders.xml
-README.md
-DEVIATIONS.md          （若有设计偏差）
-1.6/
-  Assemblies/*.dll
-  Defs/ …
-  Languages/English|ChineseSimplified/…
-  Source/<Name>/*.csproj + *.cs
-Textures/              （部分包）
-```
-
-**不要**把整个 `RimWorld/Mods`（含 Steam 数字 ID 工坊包）推进本仓库。
-
----
-
-## 模组一览（14）
-
-### 既有系列
-| 模组 | packageId | 定位 |
-|------|-----------|------|
-| 垦壤 Landworks | `landworks.terraforming` | 有代价地形改造 |
-| 田作 Fieldcraft | `fieldcraft.soilbudget` | 地力维护 |
-| PersonalKit | `personal.kit` | 个人 QoL / 谈价 |
-| Trait Extractor | `landworks.traitextractor` | 特性提取与血清 |
-
-### S / A
-| 模组 | packageId | 定位 |
-|------|-----------|------|
-| Dead Drop | `deaddrop.greymarket` | 边缘灰单 |
-| Artisan Mark | `artisanmark.maker` | 匠人署名叙事 |
-| Workshop Wear | `workshopwear.maintenance` | 工坊赶工/磨损 |
-| Rumor Mill | `rumormill.reputation` | 事迹口碑 |
-| Ledger | `ledger.colonybooks` | 信用预支杠杆 |
-
-### B / C
-| 模组 | packageId | 定位 |
-|------|-----------|------|
-| Apprentice Bond | `apprenticebond.mentor` | 1:1 学徒 XP |
-| Quarantine Line | `quarantineline.isolation` | 有病才醒的检疫 |
-| Salvage Atlas | `salvageatlas.reverse` | 械战残骸图谱 |
-| Watch Posts | `watchroster.nightwatch` | 岗哨预警 |
-| Ford Rights | `fordrights.river` | 有河渡口彩蛋 |
-
+工程细节：[`docs/ENGINEERING.md`](docs/ENGINEERING.md)  
 设计权威：[`docs/design/mod-design-review.md`](docs/design/mod-design-review.md)
 
 ---
 
-## 依赖
+## 模组一览
 
-- RimWorld **1.6**
-- [Harmony](https://steamcommunity.com/sharedfiles/filedetails/?id=2009463077)（`brrainz.harmony`）
-- 编译：.NET SDK（`net472` 目标），引用游戏 `Assembly-CSharp` + Harmony
+### 既有系列
+| 模组 | packageId |
+|------|-----------|
+| 垦壤 Landworks | `landworks.terraforming` |
+| 田作 Fieldcraft | `fieldcraft.soilbudget` |
+| PersonalKit | `personal.kit` |
+| Trait Extractor | `landworks.traitextractor` |
 
-各 csproj 可移植。仓库根有 `Directory.Build.props`：
+### S / A
+| 模组 | packageId |
+|------|-----------|
+| Dead Drop | `deaddrop.greymarket` |
+| Artisan Mark | `artisanmark.maker` |
+| Workshop Wear | `workshopwear.maintenance` |
+| Rumor Mill | `rumormill.reputation` |
+| Ledger | `ledger.colonybooks` |
 
-- 若 `ColonySeries/` 与游戏根**同级**（推荐），自动找到 `../RimWorldWin64_Data`
-- 或设 `RIMWORLD_DIR` / `-p:RimWorldDir=...`（路径会自动补尾斜杠）
+### B / C
+| 模组 | packageId |
+|------|-----------|
+| Apprentice Bond | `apprenticebond.mentor` |
+| Quarantine Line | `quarantineline.isolation` |
+| Salvage Atlas | `salvageatlas.reverse` |
+| Watch Posts | `watchroster.nightwatch` |
+| Ford Rights | `fordrights.river` |
 
-```bash
-# 通常直接：
-dotnet build mods/DeadDrop/1.6/Source/DeadDrop/DeadDrop.csproj -c Release
-
-# 游戏不在同级时：
-export RIMWORLD_DIR="D:/Games/RimWorld"
-./scripts/build-all.sh
-```
-
-Deploy 回 `Mods/<Name>/` 后，旧的「向上四级」相对路径仍可用。
-
----
-
-## 常用命令
-
-### 编译全部
-
-```bash
-# Git Bash / WSL
-./scripts/build-all.sh
-
-# PowerShell
-./scripts/build-all.ps1
-```
-
-### 部署到游戏 Mods 目录
-
-默认目标：`../Mods`（即与 `ColonySeries` 同级的游戏 `Mods/`）。
-
-```bash
-./scripts/deploy.sh
-# 或
-./scripts/deploy.ps1 -GameModsDir "E:/RimWorld-v1.6.4850/Mods"
-```
-
-部署为 **镜像同步**（robocopy/rsync 风格）：用仓库 `mods/<Name>` 覆盖游戏侧同名文件夹。  
-**不会**动 Steam 数字 ID 目录。
-
-### 开发工作流（推荐）
-
-1. 在本仓库改 `mods/Foo/...`
-2. `build-all` 或单包 `dotnet build`
-3. `deploy` → 游戏 `Mods/Foo`
-4. 重启 / 热更读档测试
-
-也可把 `ColonySeries/mods` **junction/symlink** 进游戏 Mods（高级，Windows 需管理员或开发者模式）。
+完整字段见 `catalog.json`。D 档不独立包见 `docs/archive/NOT_SHIPPED.md`。
 
 ---
 
-## 设计公约（摘要）
+## 构建契约（摘要）
 
-1. 玩家有主动决策（按钮 / 指定 / 接单）  
+每个 `mods/Foo/1.6/Source/Foo/Foo.csproj` **只写身份**：
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>Foo</AssemblyName>
+    <RootNamespace>Foo</RootNamespace>
+    <ColonySeriesNeedsHarmony>true</ColonySeriesNeedsHarmony>
+  </PropertyGroup>
+</Project>
+```
+
+- `TargetFramework=net472`、输出到 `1.6/Assemblies/`、游戏程序集引用 → `Directory.Build.*`
+- `ColonySeriesNeedsHarmony=false` 仅用于无 Harmony 代码的包（PersonalKit、TraitExtractor）
+- RimWorldDir 解析：`-p` / `RIMWORLD_DIR` / 同级游戏根 / 部署后的四级上溯
+
+---
+
+## 常用脚本
+
+| 命令 | 作用 |
+|------|------|
+| `./scripts/validate-mods.sh` | 结构 + 公约门禁 |
+| `./scripts/build-all.sh` | Release 编译全部 |
+| `./scripts/deploy.sh` | 镜像到 `../Mods` |
+| `./scripts/new-mod.sh Name id.pkg` | 脚手架新包 |
+| `./scripts/sync-catalog.sh` | 重写 `catalog.json` |
+| `./scripts/list-mods.sh` | 打印 packageId 表 |
+
+PowerShell 孪生：`build-all.ps1` / `deploy.ps1` / `validate-mods.ps1`。
+
+---
+
+## 设计公约
+
+1. 玩家主动决策  
 2. 决策改变局面，失败可读  
-3. 不与原版双重征税（默认设置）  
+3. 默认设置不与原版双重征税  
 4. 总开关 + 轻松模式  
-5. 事件/有界脉冲，禁止 `map.AllCells` 主路径  
-6. soft-link，不硬依赖兄弟包  
-7. 中英 Keyed + 必要 DefInject  
-8. 各包 README；有意偏离写 DEVIATIONS  
-
-明确不做：免费超级装备、无代价传送、暗扣银、暗开门、只报表无决策。
+5. 事件/有界脉冲，禁止热路径 `map.AllCells`  
+6. soft-link，不硬绑全系列  
+7. 中英 Keyed  
+8. 有意偏离写 `DEVIATIONS.md`  
 
 ---
 
-## Git
+## 许可
 
-```bash
-cd ColonySeries
-git status
-```
-
-建议 remote 自建（GitHub/Gitea）。  
-**提交 DLL**：当前选择 **提交已编译 DLL**，方便不编译直接部署；若只想要源码，从 `.gitignore` 取消 Assemblies 注释并删掉已跟踪 dll。
-
----
-
-## 版本
-
-- 目标游戏：RimWorld 1.6.x  
-- 系列文档日期：2026-07-28  
-- Ledger v2 预支入口修复：同日后续提交
+见 `LICENSE`（发布前请换成你选定的正式许可证）。  
+Harmony / RimWorld 本体遵循各自条款；本仓库不附带游戏程序集。

@@ -1,81 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <!--
-    Portable build: no drive-letter paths.
-    Layout assumed (default):
-      <RimWorld>/Mods/Landworks/1.6/Source/Landworks/Landworks.csproj
-    Override when needed:
-      dotnet build -p:RimWorldDir="D:\Games\RimWorld"
-      or set env RIMWORLD_DIR
-      or -p:HarmonyPath="...\0Harmony.dll"
+    Identity only. Shared TFM / refs / RimWorldDir / Harmony live in
+    ColonySeries/Directory.Build.props + Directory.Build.targets.
   -->
   <PropertyGroup>
-    <TargetFramework>net472</TargetFramework>
     <AssemblyName>Landworks</AssemblyName>
     <RootNamespace>Landworks</RootNamespace>
-    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-    <DebugType>none</DebugType>
-    <Optimize>true</Optimize>
-    <LangVersion>latest</LangVersion>
-    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
-    <Deterministic>true</Deterministic>
-    <!-- DLL goes next to the 1.6 content folder, regardless of machine -->
-    <OutputPath>$(MSBuildThisFileDirectory)..\..\Assemblies\</OutputPath>
+    <ColonySeriesNeedsHarmony>true</ColonySeriesNeedsHarmony>
   </PropertyGroup>
-
-  <PropertyGroup>
-    <!-- 1) -p:RimWorldDir=...  2) env RIMWORLD_DIR  3) walk up from this csproj to game root -->
-    <RimWorldDir Condition="'$(RimWorldDir)' == '' and '$(RIMWORLD_DIR)' != ''">$(RIMWORLD_DIR)</RimWorldDir>
-    <RimWorldDir Condition="'$(RimWorldDir)' == ''">$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\..\..\..\..\'))</RimWorldDir>
-    <!-- normalize trailing slash -->
-    <RimWorldDir>$([System.IO.Path]::GetFullPath('$(RimWorldDir)'))</RimWorldDir>
-    <RimWorldDir Condition="!HasTrailingSlash('$(RimWorldDir)')">$(RimWorldDir)\</RimWorldDir>
-
-    <ManagedDir>$(RimWorldDir)RimWorldWin64_Data\Managed\</ManagedDir>
-    <!-- Steam/Proton or renamed folders: allow override -->
-    <ManagedDir Condition="'$(ManagedDirOverride)' != ''">$(ManagedDirOverride)</ManagedDir>
-  </PropertyGroup>
-
-  <!-- Prefer a local Harmony install if present; otherwise Lib.Harmony NuGet (compile-only). -->
-  <PropertyGroup>
-    <HarmonyPath Condition="'$(HarmonyPath)' == '' and Exists('$(RimWorldDir)Mods\2009463077\Current\Assemblies\0Harmony.dll')">$(RimWorldDir)Mods\2009463077\Current\Assemblies\0Harmony.dll</HarmonyPath>
-    <HarmonyPath Condition="'$(HarmonyPath)' == '' and Exists('$(RimWorldDir)Mods\brrainz.harmony\Current\Assemblies\0Harmony.dll')">$(RimWorldDir)Mods\brrainz.harmony\Current\Assemblies\0Harmony.dll</HarmonyPath>
-    <HarmonyPath Condition="'$(HarmonyPath)' == '' and Exists('$(RimWorldDir)Mods\Harmony\Assemblies\0Harmony.dll')">$(RimWorldDir)Mods\Harmony\Assemblies\0Harmony.dll</HarmonyPath>
-  </PropertyGroup>
-
-  <Target Name="ValidateRimWorldRefs" BeforeTargets="ResolveAssemblyReferences">
-    <Error
-      Condition="!Exists('$(ManagedDir)Assembly-CSharp.dll')"
-      Text="Assembly-CSharp.dll not found at '$(ManagedDir)'. Set RimWorldDir to your game root, e.g. dotnet build -p:RimWorldDir=&quot;C:\Path\To\RimWorld&quot; or set env RIMWORLD_DIR." />
-  </Target>
-
-  <ItemGroup>
-    <Reference Include="Assembly-CSharp">
-      <HintPath>$(ManagedDir)Assembly-CSharp.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="UnityEngine.CoreModule">
-      <HintPath>$(ManagedDir)UnityEngine.CoreModule.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="UnityEngine.IMGUIModule">
-      <HintPath>$(ManagedDir)UnityEngine.IMGUIModule.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="UnityEngine.TextRenderingModule">
-      <HintPath>$(ManagedDir)UnityEngine.TextRenderingModule.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(HarmonyPath)' != ''">
-    <Reference Include="0Harmony">
-      <HintPath>$(HarmonyPath)</HintPath>
-      <Private>false</Private>
-    </Reference>
-  </ItemGroup>
-
-  <!-- Fallback when no local Harmony mod is installed next to the game -->
-  <ItemGroup Condition="'$(HarmonyPath)' == ''">
-    <PackageReference Include="Lib.Harmony" Version="2.3.6" PrivateAssets="all" ExcludeAssets="runtime" />
-  </ItemGroup>
 </Project>

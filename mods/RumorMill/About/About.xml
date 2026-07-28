@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
   <name>流言口碑 Rumor Mill</name>
-  <author>RumorMill</author>
+  <author>ColonySeries</author>
   <packageId>rumormill.reputation</packageId>
   <supportedVersions>
     <li>1.6</li>

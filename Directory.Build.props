@@ -1,22 +1,65 @@
 <Project>
   <!--
-    Imported automatically by every csproj under ColonySeries/.
-    Ensures RimWorldDir points at the game install when building from the monorepo
-    (csproj relative climb would land on ColonySeries, not the game root).
+    ColonySeries shared MSBuild props.
+    Imported automatically before every csproj under this repo.
+
+    Per-mod csproj should ONLY set:
+      AssemblyName, RootNamespace
+      optional: ColonySeriesNeedsHarmony=false (PersonalKit, TraitExtractor)
   -->
+
   <PropertyGroup>
-    <!-- 1) Explicit -p:RimWorldDir=... or env RIMWORLD_DIR wins (normalized below). -->
+    <ColonySeriesRoot>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)'))</ColonySeriesRoot>
+    <ColonySeriesNeedsHarmony Condition="'$(ColonySeriesNeedsHarmony)' == ''">true</ColonySeriesNeedsHarmony>
+
+    <!-- Language / TFM -->
+    <TargetFramework>net472</TargetFramework>
+    <LangVersion>12.0</LangVersion>
+    <Nullable>disable</Nullable>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <Deterministic>true</Deterministic>
+    <DebugType>none</DebugType>
+    <Optimize Condition="'$(Configuration)' == 'Release'">true</Optimize>
+    <Optimize Condition="'$(Configuration)' != 'Release'">false</Optimize>
+
+    <!-- Ship next to 1.6 content: Source/ModName -> 1.6/Assemblies -->
+    <OutputPath>$(MSBuildProjectDirectory)\..\..\Assemblies\</OutputPath>
+    <OutDir>$(OutputPath)</OutDir>
+  </PropertyGroup>
+
+  <!-- RimWorld install resolution -->
+  <PropertyGroup>
+    <!-- 1) -p:RimWorldDir / env -->
     <RimWorldDir Condition="'$(RimWorldDir)' == '' and '$(RIMWORLD_DIR)' != ''">$(RIMWORLD_DIR)</RimWorldDir>
 
-    <!-- 2) Sibling layout: ColonySeries/ next to RimWorldWin64_Data/ -->
-    <_ColonySeriesRoot>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)'))</_ColonySeriesRoot>
+    <!-- 2) ColonySeries sitting next to the game root -->
     <_SiblingGame>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\'))</_SiblingGame>
     <RimWorldDir Condition="'$(RimWorldDir)' == '' and Exists('$(_SiblingGame)RimWorldWin64_Data\Managed\Assembly-CSharp.dll')">$(_SiblingGame)</RimWorldDir>
 
-    <!-- 3) Leave empty → individual csproj default (Mods/Name/... climb) still applies when deployed. -->
+    <!-- 3) Deployed layout: Game/Mods/Name/1.6/Source/Name climb 4 -->
+    <_ClimbFromProject>$([System.IO.Path]::GetFullPath('$(MSBuildProjectDirectory)\..\..\..\..\'))</_ClimbFromProject>
+    <RimWorldDir Condition="'$(RimWorldDir)' == '' and Exists('$(_ClimbFromProject)RimWorldWin64_Data\Managed\Assembly-CSharp.dll')">$(_ClimbFromProject)</RimWorldDir>
 
-    <!-- Normalize trailing slash so ManagedDir concat is safe. -->
+    <!-- Normalize -->
     <RimWorldDir Condition="'$(RimWorldDir)' != ''">$([System.IO.Path]::GetFullPath('$(RimWorldDir)'))</RimWorldDir>
     <RimWorldDir Condition="'$(RimWorldDir)' != '' and !HasTrailingSlash('$(RimWorldDir)')">$(RimWorldDir)\</RimWorldDir>
+
+    <ManagedDir Condition="'$(ManagedDir)' == ''">$(RimWorldDir)RimWorldWin64_Data\Managed\</ManagedDir>
+    <ManagedDir Condition="'$(ManagedDirOverride)' != ''">$(ManagedDirOverride)</ManagedDir>
   </PropertyGroup>
+
+  <!-- Harmony path search (reference added in Directory.Build.targets) -->
+  <PropertyGroup Condition="'$(ColonySeriesNeedsHarmony)' == 'true'">
+    <HarmonyPath Condition="'$(HarmonyPath)' == '' and Exists('$(RimWorldDir)Mods\2009463077\Current\Assemblies\0Harmony.dll')">$(RimWorldDir)Mods\2009463077\Current\Assemblies\0Harmony.dll</HarmonyPath>
+    <HarmonyPath Condition="'$(HarmonyPath)' == '' and Exists('$(RimWorldDir)Mods\brrainz.harmony\Current\Assemblies\0Harmony.dll')">$(RimWorldDir)Mods\brrainz.harmony\Current\Assemblies\0Harmony.dll</HarmonyPath>
+    <HarmonyPath Condition="'$(HarmonyPath)' == '' and Exists('$(RimWorldDir)Mods\Harmony\Assemblies\0Harmony.dll')">$(RimWorldDir)Mods\Harmony\Assemblies\0Harmony.dll</HarmonyPath>
+    <HarmonyPath Condition="'$(HarmonyPath)' == '' and Exists('$(RimWorldDir)Mods\2009463077\Assemblies\0Harmony.dll')">$(RimWorldDir)Mods\2009463077\Assemblies\0Harmony.dll</HarmonyPath>
+  </PropertyGroup>
+
+  <!-- NuGet fallback only when no local Harmony DLL -->
+  <ItemGroup Condition="'$(ColonySeriesNeedsHarmony)' == 'true' and '$(HarmonyPath)' == ''">
+    <PackageReference Include="Lib.Harmony" Version="2.3.6" PrivateAssets="all" ExcludeAssets="runtime" />
+  </ItemGroup>
 </Project>

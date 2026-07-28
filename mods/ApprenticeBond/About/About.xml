@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
   <name>学徒契约 Apprentice Bond</name>
-  <author>ApprenticeBond</author>
+  <author>ColonySeries</author>
   <packageId>apprenticebond.mentor</packageId>
   <supportedVersions>
     <li>1.6</li>

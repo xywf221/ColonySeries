@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Manifest>
+  <identifier>personal.kit</identifier>
+  <version>1.0.0</version>
+  <loadAfter>
+    <li>Ludeon.RimWorld</li>
+  </loadAfter>
+</Manifest>

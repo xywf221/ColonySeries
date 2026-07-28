@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
   <name>工坊损耗 Workshop Wear</name>
-  <author>WorkshopWear</author>
+  <author>ColonySeries</author>
   <packageId>workshopwear.maintenance</packageId>
   <supportedVersions>
     <li>1.6</li>

@@ -1,0 +1,164 @@
+{
+  "schema": 1,
+  "series": "ColonySeries",
+  "game": "RimWorld",
+  "targetVersion": "1.6",
+  "generated": "2026-07-28",
+  "packCount": 14,
+  "packs": [
+    {
+      "folder": "ApprenticeBond",
+      "name": "学徒契约 Apprentice Bond",
+      "packageId": "apprenticebond.mentor",
+      "author": "ColonySeries",
+      "needsHarmony": true,
+      "hasDll": true,
+      "hasCsproj": true,
+      "hasDeviations": true,
+      "path": "mods/ApprenticeBond"
+    },
+    {
+      "folder": "ArtisanMark",
+      "name": "匠人署名 Artisan Mark",
+      "packageId": "artisanmark.maker",
+      "author": "ColonySeries",
+      "needsHarmony": true,
+      "hasDll": true,
+      "hasCsproj": true,
+      "hasDeviations": true,
+      "path": "mods/ArtisanMark"
+    },
+    {
+      "folder": "DeadDrop",
+      "name": "黑市邮筒 Dead Drop",
+      "packageId": "deaddrop.greymarket",
+      "author": "ColonySeries",
+      "needsHarmony": true,
+      "hasDll": true,
+      "hasCsproj": true,
+      "hasDeviations": true,
+      "path": "mods/DeadDrop"
+    },
+    {
+      "folder": "Fieldcraft",
+      "name": "田作 Fieldcraft",
+      "packageId": "fieldcraft.soilbudget",
+      "author": "ColonySeries",
+      "needsHarmony": true,
+      "hasDll": true,
+      "hasCsproj": true,
+      "hasDeviations": false,
+      "path": "mods/Fieldcraft"
+    },
+    {
+      "folder": "FordRights",
+      "name": "河权渡口 Ford Rights",
+      "packageId": "fordrights.river",
+      "author": "ColonySeries",
+      "needsHarmony": true,
+      "hasDll": true,
+      "hasCsproj": true,
+      "hasDeviations": true,
+      "path": "mods/FordRights"
+    },
+    {
+      "folder": "Landworks",
+      "name": "垦壤工程 Landworks",
+      "packageId": "landworks.terraforming",
+      "author": "ColonySeries",
+      "needsHarmony": true,
+      "hasDll": true,
+      "hasCsproj": true,
+      "hasDeviations": false,
+      "path": "mods/Landworks"
+    },
+    {
+      "folder": "Ledger",
+      "name": "聚落账房 Ledger",
+      "packageId": "ledger.colonybooks",
+      "author": "ColonySeries",
+      "needsHarmony": true,
+      "hasDll": true,
+      "hasCsproj": true,
+      "hasDeviations": true,
+      "path": "mods/Ledger"
+    },
+    {
+      "folder": "PersonalKit",
+      "name": "个人小工具 PersonalKit",
+      "packageId": "personal.kit",
+      "author": "ColonySeries",
+      "needsHarmony": false,
+      "hasDll": true,
+      "hasCsproj": true,
+      "hasDeviations": false,
+      "path": "mods/PersonalKit"
+    },
+    {
+      "folder": "QuarantineLine",
+      "name": "疫线检疫 Quarantine Line",
+      "packageId": "quarantineline.isolation",
+      "author": "ColonySeries",
+      "needsHarmony": true,
+      "hasDll": true,
+      "hasCsproj": true,
+      "hasDeviations": true,
+      "path": "mods/QuarantineLine"
+    },
+    {
+      "folder": "RumorMill",
+      "name": "流言口碑 Rumor Mill",
+      "packageId": "rumormill.reputation",
+      "author": "ColonySeries",
+      "needsHarmony": true,
+      "hasDll": true,
+      "hasCsproj": true,
+      "hasDeviations": true,
+      "path": "mods/RumorMill"
+    },
+    {
+      "folder": "SalvageAtlas",
+      "name": "残骸图谱 Salvage Atlas",
+      "packageId": "salvageatlas.reverse",
+      "author": "ColonySeries",
+      "needsHarmony": true,
+      "hasDll": true,
+      "hasCsproj": true,
+      "hasDeviations": true,
+      "path": "mods/SalvageAtlas"
+    },
+    {
+      "folder": "TraitExtractor",
+      "name": "特性提取器 Trait Extractor",
+      "packageId": "landworks.traitextractor",
+      "author": "ColonySeries",
+      "needsHarmony": false,
+      "hasDll": true,
+      "hasCsproj": true,
+      "hasDeviations": false,
+      "path": "mods/TraitExtractor"
+    },
+    {
+      "folder": "WatchRoster",
+      "name": "边防岗哨 Watch Posts",
+      "packageId": "watchroster.nightwatch",
+      "author": "ColonySeries",
+      "needsHarmony": true,
+      "hasDll": true,
+      "hasCsproj": true,
+      "hasDeviations": true,
+      "path": "mods/WatchRoster"
+    },
+    {
+      "folder": "WorkshopWear",
+      "name": "工坊损耗 Workshop Wear",
+      "packageId": "workshopwear.maintenance",
+      "author": "ColonySeries",
+      "needsHarmony": true,
+      "hasDll": true,
+      "hasCsproj": true,
+      "hasDeviations": true,
+      "path": "mods/WorkshopWear"
+    }
+  ]
+}

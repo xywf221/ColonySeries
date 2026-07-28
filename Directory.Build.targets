@@ -1,0 +1,44 @@
+<Project>
+  <!--
+    ColonySeries shared targets. Runs AFTER each csproj body so per-mod
+    ColonySeriesNeedsHarmony / AssemblyName overrides are already applied.
+  -->
+
+  <Target Name="ColonySeries_ValidateRimWorldRefs" BeforeTargets="ResolveAssemblyReferences">
+    <Error
+      Condition="'$(RimWorldDir)' == '' or !Exists('$(ManagedDir)Assembly-CSharp.dll')"
+      Text="ColonySeries: Assembly-CSharp.dll not found. RimWorldDir='$(RimWorldDir)' ManagedDir='$(ManagedDir)'. Place ColonySeries next to the game install, or set RIMWORLD_DIR / -p:RimWorldDir=..." />
+  </Target>
+
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>$(ManagedDir)Assembly-CSharp.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(ManagedDir)UnityEngine.CoreModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>$(ManagedDir)UnityEngine.IMGUIModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>$(ManagedDir)UnityEngine.TextRenderingModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(ColonySeriesNeedsHarmony)' == 'true' and '$(HarmonyPath)' != ''">
+    <Reference Include="0Harmony">
+      <HintPath>$(HarmonyPath)</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <Target Name="ColonySeries_AnnounceOutput" AfterTargets="Build">
+    <Message
+      Importance="High"
+      Text="ColonySeries: $(AssemblyName) -> $(OutputPath)$(AssemblyName).dll (Harmony=$(ColonySeriesNeedsHarmony))" />
+  </Target>
+</Project>

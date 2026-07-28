@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
   <name>田作 Fieldcraft</name>
-  <author>Fieldcraft</author>
+  <author>ColonySeries</author>
   <packageId>fieldcraft.soilbudget</packageId>
   <supportedVersions>
     <li>1.6</li>
