@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <LW_Designator_Excavate_Label>excavate soil</LW_Designator_Excavate_Label>
+  <LW_Designator_Excavate_Desc>Dig soil, marsh, gravel and similar ground for fill material. Leaves poorer terrain behind. Mass is conserved: every bag of fill came from somewhere.</LW_Designator_Excavate_Desc>
+  <LW_CannotExcavateBuilding>Cannot excavate under a building.</LW_CannotExcavateBuilding>
+  <LW_CannotExcavateTerrain>Cannot excavate {0}.</LW_CannotExcavateTerrain>
+  <LW_NeedBasicEarthworks>Requires basic earthworks research.</LW_NeedBasicEarthworks>
+
+  <LW_Stabilizer_Online>Stabilizer online (radius {0}). Geological stress: {1}</LW_Stabilizer_Online>
+  <LW_Stabilizer_Offline>Stabilizer offline. Geological stress: {0}</LW_Stabilizer_Offline>
+
+  <LW_StressLetter_Label>Geological stress rising</LW_StressLetter_Label>
+  <LW_StressLetter_Text>Terraforming has raised geological stress to {0}.\n\n{1}\n\nPowered soil stabilizers, less drainage and fewer artificial soils will ease the pressure. High stress invites backlash events.</LW_StressLetter_Text>
+  <LW_StressLetter_Medium>The land is strained, but not yet critical.</LW_StressLetter_Medium>
+  <LW_StressLetter_High>High risk: backlash incidents are much more likely.</LW_StressLetter_High>
+  <LW_StressLetter_Critical>Critical! Large artificial farms may collapse in a single backlash.</LW_StressLetter_Critical>
+
+  <LW_Settings_SectionBalance>Balance</LW_Settings_SectionBalance>
+  <LW_Settings_SectionStabilizer>Soil stabilizer</LW_Settings_SectionStabilizer>
+  <LW_Settings_SectionPerformance>Performance</LW_Settings_SectionPerformance>
+  <LW_Settings_SectionToggles>Toggles</LW_Settings_SectionToggles>
+
+  <LW_Settings_StressGain>Stress gain multiplier: {0}x</LW_Settings_StressGain>
+  <LW_Settings_StressDecay>Natural stress decay per game hour: {0}</LW_Settings_StressDecay>
+  <LW_Settings_ExcavateStress>Stress per excavation: {0}</LW_Settings_ExcavateStress>
+  <LW_Settings_DegradeDays>Amended soil lifetime without stabilizer (days): {0}</LW_Settings_DegradeDays>
+  <LW_Settings_TilledDays>Tilled seedbed lifetime (days): {0}</LW_Settings_TilledDays>
+  <LW_Settings_FillYield>Fill yield multiplier: {0}x</LW_Settings_FillYield>
+  <LW_Settings_ExcavateWork>Excavation work multiplier: {0}x</LW_Settings_ExcavateWork>
+  <LW_Settings_BacklashSeverity>Backlash severity: {0}x</LW_Settings_BacklashSeverity>
+  <LW_Settings_BacklashMinStress>Minimum stress for backlash: {0}</LW_Settings_BacklashMinStress>
+
+  <LW_Settings_StabilizerRadius>Stabilizer radius: {0}</LW_Settings_StabilizerRadius>
+  <LW_Settings_StabilizerRelief>Stabilizer stress relief per day: {0}</LW_Settings_StabilizerRelief>
+
+  <LW_Settings_PerformanceHint>Performance sliders only affect the background pulse, not game rules. Defaults are cheap; on huge maps with huge engineered farms, lower max cells/pulse or raise the interval.</LW_Settings_PerformanceHint>
+  <LW_Settings_RareTickInterval>Background pulse interval (ticks, 2500 ≈ 1 game hour): {0}</LW_Settings_RareTickInterval>
+  <LW_Settings_MaxDegradesPerPulse>Max degrade cells processed per pulse: {0}</LW_Settings_MaxDegradesPerPulse>
+
+  <LW_Settings_EnableBacklash>Enable geological backlash incidents</LW_Settings_EnableBacklash>
+  <LW_Settings_EasyMode>Easy mode (softer stress and backlash)</LW_Settings_EasyMode>
+  <LW_Settings_EasyModeHint>For players who want light terraforming without harsh geology. Material and labour costs remain.</LW_Settings_EasyModeHint>
+  <LW_Settings_ResetDefaults>Reset to defaults</LW_Settings_ResetDefaults>
+
+</LanguageData>

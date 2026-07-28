@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PersonalKit_SettingsCategory>Personal Kit</PersonalKit_SettingsCategory>
+
+  <PersonalKit_Section_Trade>Trade</PersonalKit_Section_Trade>
+  <PersonalKit_TradePrice_Desc>RimWorld 1.6 caps TradePriceImprovement at about 40%. Older versions had no hard cap. Restore the uncapped behaviour, or set a custom ceiling.</PersonalKit_TradePrice_Desc>
+  <PersonalKit_TradePrice_Uncapped>No negotiation bonus cap (recommended, old-style)</PersonalKit_TradePrice_Uncapped>
+  <PersonalKit_TradePrice_UncappedTip>Uncheck to set a custom percentage cap.</PersonalKit_TradePrice_UncappedTip>
+  <PersonalKit_TradePrice_UncappedHint>Currently uncapped. Social skill and trait trade bonuses apply fully.</PersonalKit_TradePrice_UncappedHint>
+  <PersonalKit_TradePrice_Max>Negotiation bonus cap: {0}%</PersonalKit_TradePrice_Max>
+  <PersonalKit_ResetDefaults>Reset to mod defaults (uncapped)</PersonalKit_ResetDefaults>
+  <PersonalKit_RestoreVanillaCap>Restore vanilla 40% cap</PersonalKit_RestoreVanillaCap>
+</LanguageData>

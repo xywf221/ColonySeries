@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ResearchProjectDef>
+    <defName>TE_TraitExtraction</defName>
+    <label>neural trait extraction</label>
+    <description>Map personality-linked neural patterns and extract them into injectable serums. Extremely invasive. Requires advanced medical infrastructure. Even successful operations traumatize the brain.</description>
+    <baseCost>2800</baseCost>
+    <techLevel>Industrial</techLevel>
+    <prerequisites>
+      <li>HospitalBed</li>
+      <li>MedicineProduction</li>
+    </prerequisites>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <requiredResearchFacilities>
+      <li>MultiAnalyzer</li>
+    </requiredResearchFacilities>
+    <researchViewX>14.00</researchViewX>
+    <researchViewY>1.00</researchViewY>
+    <generalRules>
+      <rulesStrings>
+        <li>subject->trait extraction</li>
+        <li>subject_story->catalogued personality engrams on a glitterworld neuro-ward</li>
+        <li>subject_gerund->extracting traits</li>
+      </rulesStrings>
+    </generalRules>
+  </ResearchProjectDef>
+</Defs>

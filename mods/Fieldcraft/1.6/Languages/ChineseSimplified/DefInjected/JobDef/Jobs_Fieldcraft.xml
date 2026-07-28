@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <FC_TopdressSoil.reportString>正在给 TargetA 追肥。</FC_TopdressSoil.reportString>
+  <FC_IrrigatePaddy.reportString>正在灌溉 TargetA。</FC_IrrigatePaddy.reportString>
+  <FC_DrainPaddy.reportString>正在排干 TargetA。</FC_DrainPaddy.reportString>
+  <FC_PlowInPlant.reportString>正在耕入 TargetA。</FC_PlowInPlant.reportString>
+</LanguageData>

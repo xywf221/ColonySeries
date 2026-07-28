@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <FC_PaddyDry.label>干水田</FC_PaddyDry.label>
+  <FC_PaddyDry.description>整平待灌的田床。肥力中等。灌水后成为淹水田，更适合水稻。纳入地力预算跟踪。</FC_PaddyDry.description>
+
+  <FC_PaddyFlooded.label>淹水田</FC_PaddyFlooded.label>
+  <FC_PaddyFlooded.description>浅淹的稻田。水稻生长更好，多数其他作物略不适。灌水期间地力漏失更慢。地力耗尽可能干涸。筑田与维护要花工时——不是免费超级土。</FC_PaddyFlooded.description>
+</LanguageData>

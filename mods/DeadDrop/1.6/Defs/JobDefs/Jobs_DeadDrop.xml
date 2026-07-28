@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <JobDef>
+    <defName>DD_ServiceDeadDrop</defName>
+    <driverClass>DeadDrop.JobDriver_ServiceDeadDrop</driverClass>
+    <reportString>servicing dead drop TargetA.</reportString>
+    <allowOpportunisticPrefix>false</allowOpportunisticPrefix>
+  </JobDef>
+</Defs>

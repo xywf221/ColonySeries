@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>特性提取器 Trait Extractor</name>
+  <author>Landworks</author>
+  <packageId>landworks.traitextractor</packageId>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <description>
+通过高风险脑神经手术提取 pawn 的特性，封装为特性血清后再注射给其他人。
+
+平衡要点：
+• 高科研究门槛（医院床 + 医药生产 + 多重分析仪）
+• 提取需闪耀世界医药、中性胺与提取套件
+• 成功也必然留下神经创伤；失败可能脑损/死亡
+• 对囚犯/访客提取视为严重侵犯
+• 血清注射有排异与冷却，冲突特性需处理
+• 场景强制特性、基因带来的特性不可提取
+
+不是“免费复制好特性”的作弊模组。
+  </description>
+  <loadAfter>
+    <li>Ludeon.RimWorld</li>
+  </loadAfter>
+</ModMetaData>

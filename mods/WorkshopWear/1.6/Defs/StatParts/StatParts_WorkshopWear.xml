@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!--
+    WorkTableWorkSpeedFactor parts are injected in code (ThingCompInjector.InjectStatPart)
+    so we do not patch vanilla StatDef XML. Wear still accrues on bill completion via Harmony.
+  -->
+</Defs>

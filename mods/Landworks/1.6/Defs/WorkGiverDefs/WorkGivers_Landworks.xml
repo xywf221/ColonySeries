@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <WorkGiverDef>
+    <defName>LW_ExcavateSoil</defName>
+    <label>excavate soil</label>
+    <giverClass>Landworks.WorkGiver_ExcavateSoil</giverClass>
+    <workType>Mining</workType>
+    <priorityInType>40</priorityInType>
+    <verb>excavate</verb>
+    <gerund>excavating</gerund>
+    <tagToGive>Fieldwork</tagToGive>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+  </WorkGiverDef>
+</Defs>

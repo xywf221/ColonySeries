@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <TE_SettingsCategory>特性提取器</TE_SettingsCategory>
+  <TE_Settings_SectionBalance>平衡</TE_Settings_SectionBalance>
+  <TE_Settings_SectionToggles>规则</TE_Settings_SectionToggles>
+  <TE_Settings_MaxTraits>注射后每人最多特性数：{0}</TE_Settings_MaxTraits>
+  <TE_Settings_InjectSuccess>注射成功率：{0}%</TE_Settings_InjectSuccess>
+  <TE_Settings_ScarChance>提取时永久神经疤痕几率：{0}%</TE_Settings_ScarChance>
+  <TE_Settings_CooldownDays>手术冷却（天）：{0}</TE_Settings_CooldownDays>
+  <TE_Settings_AllowColonistExtract>允许从殖民者身上提取特性</TE_Settings_AllowColonistExtract>
+  <TE_Settings_AllowConflictReplace>允许注射时替换冲突特性</TE_Settings_AllowConflictReplace>
+  <TE_Settings_BlockGeneTraits>禁止提取基因绑定特性</TE_Settings_BlockGeneTraits>
+  <TE_Settings_BlockScenForced>禁止提取场景强制特性</TE_Settings_BlockScenForced>
+  <TE_Settings_EasyMode>轻松模式（创伤更轻 / 成功率更高 / 冷却更短）</TE_Settings_EasyMode>
+  <TE_Settings_EasyModeHint>仍需套件、闪耀世界医药与研究，只是没那么狠。</TE_Settings_EasyModeHint>
+  <TE_Settings_Reset>恢复默认</TE_Settings_Reset>
+
+  <TE_ExtractLabel>提取人格特性（可选 {0} 个）</TE_ExtractLabel>
+  <TE_ExtractRandom>随机提取一项</TE_ExtractRandom>
+  <TE_SerumEmpty>空特性血清</TE_SerumEmpty>
+  <TE_SerumEmptyDesc>这支小瓶里没有神经图式。</TE_SerumEmptyDesc>
+  <TE_SerumLabel>特性血清（{0}）</TE_SerumLabel>
+  <TE_SerumDesc>包含人格图式：{0}\n{1}</TE_SerumDesc>
+  <TE_SerumSource>来源：{0}</TE_SerumSource>
+  <TE_SerumSource_Market>黑市现货</TE_SerumSource_Market>
+  <TE_SerumInspect>图式：{0}</TE_SerumInspect>
+
+  <TE_Reason_NoTrait>没有特性。</TE_Reason_NoTrait>
+  <TE_Reason_NoStory>目标没有人格数据。</TE_Reason_NoStory>
+  <TE_Reason_ScenForced>{0} 是场景强制特性，无法提取。</TE_Reason_ScenForced>
+  <TE_Reason_GeneBound>{0} 绑定基因，无法提取。</TE_Reason_GeneBound>
+  <TE_Reason_Suppressed>{0} 当前被抑制。</TE_Reason_Suppressed>
+  <TE_Reason_Cooldown>神经恢复锁定中——暂时不能再做特性手术。</TE_Reason_Cooldown>
+  <TE_Reason_AlreadyHas>已经拥有 {0}。</TE_Reason_AlreadyHas>
+  <TE_Reason_Conflict>与以下特性冲突：{0}</TE_Reason_Conflict>
+  <TE_Reason_MaxTraits>会超过特性数量上限（{0}）。</TE_Reason_MaxTraits>
+  <TE_Reason_SerumEmpty>血清没有特性图式。</TE_Reason_SerumEmpty>
+
+  <TE_ConfirmInject>把 {1} 注射给 {0}？</TE_ConfirmInject>
+  <TE_ConfirmConflicts>将移除冲突特性：{0}</TE_ConfirmConflicts>
+  <TE_ConfirmRisk>排异失败率约 {0}%。</TE_ConfirmRisk>
+
+  <TE_Msg_NoExtractable>{0} 没有可提取的特性。</TE_Msg_NoExtractable>
+  <TE_Msg_ExtractSuccess>已从 {0} 提取 {1}，制成特性血清。</TE_Msg_ExtractSuccess>
+  <TE_Msg_InjectSuccess>{0} 整合了特性：{1}。</TE_Msg_InjectSuccess>
+  <TE_Msg_InjectReplaced> 已替换：{0}。</TE_Msg_InjectReplaced>
+  <TE_Msg_InjectReject>{0} 排异了特性血清（{1}）。图式在免疫反应中损毁。</TE_Msg_InjectReject>
+</LanguageData>

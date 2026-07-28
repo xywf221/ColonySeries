@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ResearchTabDef>
+    <defName>Landworks</defName>
+    <label>Landworks</label>
+    <generalTitle>Landworks research</generalTitle>
+    <generalDescription>Terraforming, soil science and drainage technologies. Every gain costs labour, materials, or geological risk.</generalDescription>
+  </ResearchTabDef>
+</Defs>

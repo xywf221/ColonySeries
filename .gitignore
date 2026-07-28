@@ -1,0 +1,42 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*~
+.vs/
+.idea/
+*.user
+*.suo
+*.userosscache
+
+# Build junk (keep Assemblies/*.dll for deploy-without-build)
+**/bin/
+**/obj/
+*.pdb
+*.mdb
+
+# Decompiled reference dumps (never ship)
+**/_decomp/
+**/*decompiled*
+
+# Local scratch
+tools/_local/
+scripts/.cache/
+*.log
+*.tmp
+
+# Secrets / local overrides
+.env
+.env.*
+RIMWORLD_DIR.local
+*.local.json
+
+# Optional: uncomment to STOP tracking DLLs (source-only repo)
+# mods/*/1.6/Assemblies/*.dll
+# mods/*/Assemblies/*.dll
+
+# Never commit the game install or Steam workshop tree if someone clones oddly
+/RimWorldWin64_Data/
+/RimWorldWin64.exe
+UnityPlayer.dll

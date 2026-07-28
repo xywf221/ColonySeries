@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThingDef ParentName="BenchBase">
+    <defName>FC_CompostPit</defName>
+    <label>compost pit</label>
+    <description>A shallow pit for turning plant matter into field compost. Faster and cleaner throughput than a crafting spot, still labour-intensive. Unpowered. Smells bad.</description>
+    <thingClass>Building_WorkTable</thingClass>
+    <graphicData>
+      <texPath>Things/Building/CompostPit</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1.5</drawSize>
+      <damageData>
+        <rect>(0.1,0.1,0.8,0.8)</rect>
+      </damageData>
+      <shadowData>
+        <volume>(0.9, 0.25, 0.9)</volume>
+      </shadowData>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <pathCost>30</pathCost>
+    <fillPercent>0.25</fillPercent>
+    <rotatable>false</rotatable>
+    <size>(2,2)</size>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <WorkToBuild>1200</WorkToBuild>
+      <Flammability>0.5</Flammability>
+      <Beauty>-8</Beauty>
+      <Mass>25</Mass>
+      <Cleanliness>-15</Cleanliness>
+    </statBases>
+    <costList>
+      <WoodLog>40</WoodLog>
+      <Steel>10</Steel>
+    </costList>
+    <building>
+      <isEdifice>true</isEdifice>
+      <ai_chillDestination>false</ai_chillDestination>
+      <destroySound>BuildingDestroyed_Soft_Small</destroySound>
+      <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+    </building>
+    <inspectorTabs>
+      <li>ITab_Bills</li>
+    </inspectorTabs>
+    <comps>
+      <li Class="CompProperties_Forbiddable" />
+    </comps>
+    <designationCategory>Fieldcraft</designationCategory>
+    <uiOrder>1000</uiOrder>
+    <researchPrerequisites>
+      <li>FC_CompostWorks</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>3</constructionSkillPrerequisite>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <placeWorkers>
+      <li>PlaceWorker_PreventInteractionSpotOverlap</li>
+    </placeWorkers>
+  </ThingDef>
+
+  <!-- Pit recipes: better ratios than crafting spot -->
+  <RecipeDef>
+    <defName>FC_MakeCompostFromHay_Pit</defName>
+    <label>make field compost from hay</label>
+    <description>Efficient composting of hay in a dedicated pit.</description>
+    <jobString>Making field compost.</jobString>
+    <workAmount>350</workAmount>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <effectWorking>Cook</effectWorking>
+    <allowMixingIngredients>false</allowMixingIngredients>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Hay</li>
+          </thingDefs>
+        </filter>
+        <count>12</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Hay</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <FC_Compost>6</FC_Compost>
+    </products>
+    <workSkill>Plants</workSkill>
+    <skillRequirements>
+      <Plants>2</Plants>
+    </skillRequirements>
+    <researchPrerequisite>FC_CompostWorks</researchPrerequisite>
+    <recipeUsers>
+      <li>FC_CompostPit</li>
+    </recipeUsers>
+  </RecipeDef>
+
+  <RecipeDef>
+    <defName>FC_MakeCompostFromWood_Pit</defName>
+    <label>make field compost from wood pulp</label>
+    <description>Pit-compost wood pulp. Still worse than hay, but usable.</description>
+    <jobString>Making field compost from wood.</jobString>
+    <workAmount>650</workAmount>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <effectWorking>ConstructDirt</effectWorking>
+    <allowMixingIngredients>false</allowMixingIngredients>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>WoodLog</li>
+          </thingDefs>
+        </filter>
+        <count>16</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>WoodLog</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <FC_Compost>5</FC_Compost>
+    </products>
+    <workSkill>Plants</workSkill>
+    <skillRequirements>
+      <Plants>3</Plants>
+    </skillRequirements>
+    <researchPrerequisite>FC_CompostWorks</researchPrerequisite>
+    <recipeUsers>
+      <li>FC_CompostPit</li>
+    </recipeUsers>
+  </RecipeDef>
+
+</Defs>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <SA_FieldPatch_Armor.label>野战护板贴片</SA_FieldPatch_Armor.label>
+  <SA_FieldPatch_Armor.description>用机械体护甲板废料临时捆焊在装备上。仅短时护甲，会消退。</SA_FieldPatch_Armor.description>
+  <SA_FieldPatch_Armor.stages.0.label>轻废料</SA_FieldPatch_Armor.stages.0.label>
+  <SA_FieldPatch_Armor.stages.1.label>层叠废料</SA_FieldPatch_Armor.stages.1.label>
+  <SA_FieldPatch_Armor.stages.2.label>野战甲壳</SA_FieldPatch_Armor.stages.2.label>
+  <SA_FieldPatch_Optics.label>拼装光学</SA_FieldPatch_Optics.label>
+  <SA_FieldPatch_Optics.description>传感玻璃贴在面罩上。限时轻微瞄准辅助——不是永久全图伤害加成。</SA_FieldPatch_Optics.description>
+  <SA_FieldPatch_Optics.stages.0.label>脏玻璃</SA_FieldPatch_Optics.stages.0.label>
+  <SA_FieldPatch_Optics.stages.1.label>调校镜片</SA_FieldPatch_Optics.stages.1.label>
+  <SA_FieldPatch_Optics.stages.2.label>传感器套件</SA_FieldPatch_Optics.stages.2.label>
+  <SA_FieldPatch_Coolant.label>冷却滴注装置</SA_FieldPatch_Coolant.label>
+  <SA_FieldPatch_Coolant.description>背负式机械冷却回路。短暂改善耐热；满功率可能略慢。</SA_FieldPatch_Coolant.description>
+  <SA_FieldPatch_Coolant.stages.0.label>滴注</SA_FieldPatch_Coolant.stages.0.label>
+  <SA_FieldPatch_Coolant.stages.1.label>循环中</SA_FieldPatch_Coolant.stages.1.label>
+  <SA_FieldPatch_Coolant.stages.2.label>超频回路</SA_FieldPatch_Coolant.stages.2.label>
+</LanguageData>

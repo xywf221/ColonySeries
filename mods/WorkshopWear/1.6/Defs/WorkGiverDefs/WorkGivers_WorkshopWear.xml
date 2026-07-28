@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- Cheap, fast, partial restore. Priority higher so it gets done when lightly worn. -->
+  <WorkGiverDef>
+    <defName>WW_SlapdashRepair</defName>
+    <label>slapdash repair workstation</label>
+    <giverClass>WorkshopWear.WorkGiver_SlapdashRepair</giverClass>
+    <workType>Crafting</workType>
+    <verb>slapdash-repair</verb>
+    <gerund>slapdash-repairing</gerund>
+    <priorityInType>48</priorityInType>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+  </WorkGiverDef>
+
+  <!-- Slow, components, full restore + clear jam. Slightly higher priority when jammed/worn. -->
+  <WorkGiverDef>
+    <defName>WW_ProperRepair</defName>
+    <label>properly repair workstation</label>
+    <giverClass>WorkshopWear.WorkGiver_ProperRepair</giverClass>
+    <workType>Crafting</workType>
+    <verb>overhaul</verb>
+    <gerund>overhauling</gerund>
+    <priorityInType>55</priorityInType>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+  </WorkGiverDef>
+</Defs>

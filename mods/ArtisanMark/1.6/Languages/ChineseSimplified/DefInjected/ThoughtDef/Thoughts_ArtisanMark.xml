@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <AM_SelfMadeGear.stages.0.label>亲手所制</AM_SelfMadeGear.stages.0.label>
+  <AM_SelfMadeGear.stages.0.description>我穿着自己亲手做的东西。尺寸和针脚都是按我的意思来的。</AM_SelfMadeGear.stages.0.description>
+
+  <AM_LegacyGear.stages.0.label>来自{0}的遗物</AM_LegacyGear.stages.0.label>
+  <AM_LegacyGear.stages.0.description>这是{0}做的。人已经不在了，可手艺还护着我。</AM_LegacyGear.stages.0.description>
+
+</LanguageData>

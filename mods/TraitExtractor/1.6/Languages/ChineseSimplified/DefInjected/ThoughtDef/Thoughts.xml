@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <TE_HadTraitExtracted.stages.0.label>被提取了特性</TE_HadTraitExtracted.stages.0.label>
+  <TE_HadTraitExtracted.stages.0.description>他们切开我的意识，拿走了让我成为我的东西。</TE_HadTraitExtracted.stages.0.description>
+
+  <TE_WitnessedExtraction.stages.0.label>目睹特性提取</TE_WitnessedExtraction.stages.0.label>
+  <TE_WitnessedExtraction.stages.0.description>我看见有人在医院里被人挖走了人格。</TE_WitnessedExtraction.stages.0.description>
+
+  <TE_InjectedTrait.stages.0.label>新特性正在定着</TE_InjectedTrait.stages.0.label>
+  <TE_InjectedTrait.stages.0.description>定着之前，脑子里像住了个陌生人。</TE_InjectedTrait.stages.0.description>
+</LanguageData>

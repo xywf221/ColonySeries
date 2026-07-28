@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <IncidentDef>
+    <defName>FR_FordFlood</defName>
+    <label>ford flood</label>
+    <category>Misc</category>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    <workerClass>FordRights.IncidentWorker_FordFlood</workerClass>
+    <baseChance>0.35</baseChance>
+    <minRefireDays>14</minRefireDays>
+    <letterLabel>Ford flood</letterLabel>
+    <letterText>High water smashes against your river ford. The crossing needs repair before tolls and fishing resume fully.</letterText>
+    <letterDef>NegativeEvent</letterDef>
+  </IncidentDef>
+</Defs>

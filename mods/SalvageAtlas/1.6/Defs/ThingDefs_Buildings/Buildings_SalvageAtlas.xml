@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef ParentName="BenchBase">
+    <defName>SA_SalvageBench</defName>
+    <label>salvage bench</label>
+    <description>Catalog mech fragments into atlas progress and spend that progress on bounded unlocks: one-shot schematics, short field patches, and teardown recipes. Parallel to vanilla research - does not grant research points.</description>
+    <thingClass>SalvageAtlas.Building_SalvageBench</thingClass>
+    <graphicData>
+      <texPath>Things/Building/SalvageBench</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2.2, 1.4)</drawSize>
+      <shadowData>
+        <volume>(1.8, 0.3, 0.7)</volume>
+      </shadowData>
+    </graphicData>
+    <uiIconPath>Things/Building/SalvageBench</uiIconPath>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <pathCost>50</pathCost>
+    <fillPercent>0.45</fillPercent>
+    <rotatable>true</rotatable>
+    <size>(2,1)</size>
+    <statBases>
+      <MaxHitPoints>180</MaxHitPoints>
+      <WorkToBuild>2200</WorkToBuild>
+      <Flammability>0.6</Flammability>
+      <Beauty>-2</Beauty>
+      <Mass>55</Mass>
+      <Cleanliness>-4</Cleanliness>
+    </statBases>
+    <costList>
+      <Steel>80</Steel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+    </costList>
+    <building>
+      <isEdifice>true</isEdifice>
+      <ai_chillDestination>false</ai_chillDestination>
+    </building>
+    <hasInteractionCell>True</hasInteractionCell>
+    <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+    <comps>
+      <li Class="CompProperties_Forbiddable" />
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>120</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_Flickable" />
+    </comps>
+    <designationCategory>SA_Salvage</designationCategory>
+    <uiOrder>1000</uiOrder>
+    <researchPrerequisites>
+      <li>SA_SalvageBasics</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>4</constructionSkillPrerequisite>
+    <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+    <placeWorkers>
+      <li>PlaceWorker_PreventInteractionSpotOverlap</li>
+    </placeWorkers>
+    <tickerType>Never</tickerType>
+  </ThingDef>
+</Defs>

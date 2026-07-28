@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ResearchProjectDef>
+    <defName>FC_SoilBudgeting</defName>
+    <label>soil budgeting</label>
+    <description>Track and restore field fertility as a budget. Harvests draw down soil strength; compost topdressing and residue return refill it. Exhausted budgets slow growth and can collapse engineered soils into hardpan. Pairs with Landworks terraforming when that mod is present.</description>
+    <baseCost>700</baseCost>
+    <techLevel>Neolithic</techLevel>
+    <tab>Fieldcraft</tab>
+    <researchViewX>0.00</researchViewX>
+    <researchViewY>0.00</researchViewY>
+    <tags>
+      <li>TribalStart</li>
+    </tags>
+    <generalRules>
+      <rulesStrings>
+        <li>subject->soil budgeting</li>
+        <li>subject_story->kept a dustworld farm alive through careful fallow cycles</li>
+        <li>subject_gerund->budgeting soil strength</li>
+      </rulesStrings>
+    </generalRules>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>FC_CompostWorks</defName>
+    <label>compost works</label>
+    <description>Build compost pits and process hay, wood pulp, or plant residue into field compost for topdressing. More throughput than a crafting spot; still slow, dirty work.</description>
+    <baseCost>800</baseCost>
+    <techLevel>Neolithic</techLevel>
+    <tab>Fieldcraft</tab>
+    <prerequisites>
+      <li>FC_SoilBudgeting</li>
+    </prerequisites>
+    <researchViewX>1.00</researchViewX>
+    <researchViewY>0.00</researchViewY>
+    <tags>
+      <li>TribalStart</li>
+    </tags>
+    <generalRules>
+      <rulesStrings>
+        <li>subject->compost works</li>
+        <li>subject_story->ran a municipal compost yard that fed three villages</li>
+        <li>subject_gerund->running compost works</li>
+      </rulesStrings>
+    </generalRules>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>FC_CropRotation</defName>
+    <label>crop rotation</label>
+    <description>Mark fields as fallow to slowly restore soil budget without planting. Inspect tools show last crop. Repeated mono-cropping of the same plant on a cell drains soil harder — rotate or rest the land.</description>
+    <baseCost>900</baseCost>
+    <techLevel>Medieval</techLevel>
+    <tab>Fieldcraft</tab>
+    <prerequisites>
+      <li>FC_SoilBudgeting</li>
+    </prerequisites>
+    <researchViewX>1.00</researchViewX>
+    <researchViewY>1.00</researchViewY>
+    <generalRules>
+      <rulesStrings>
+        <li>subject->crop rotation</li>
+        <li>subject_story->taught three-field fallow cycles to frontier farmers</li>
+        <li>subject_gerund->rotating crops</li>
+      </rulesStrings>
+    </generalRules>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>FC_PaddyWorks</defName>
+    <label>paddy works</label>
+    <description>Form dry paddy beds and flood them for rice. Flooded paddies boost rice growth and hold soil budget better, but need labour to maintain. Unmaintained flooded paddies may dry out when soil is starved. Pairs naturally with Landworks drainage when present.</description>
+    <baseCost>1400</baseCost>
+    <techLevel>Medieval</techLevel>
+    <tab>Fieldcraft</tab>
+    <prerequisites>
+      <li>FC_SoilBudgeting</li>
+    </prerequisites>
+    <researchViewX>2.00</researchViewX>
+    <researchViewY>0.00</researchViewY>
+    <generalRules>
+      <rulesStrings>
+        <li>subject->paddy works</li>
+        <li>subject_story->built terraced paddies that outlasted three monsoons</li>
+        <li>subject_gerund->flooding paddies</li>
+      </rulesStrings>
+    </generalRules>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>FC_GreenManure</defName>
+    <label>green manuring</label>
+    <description>Grow clover-style green manure and plow plants back into the soil to restore budget without harvest yield. Also unlocks plow-in orders for haygrass and other suitable crops.</description>
+    <baseCost>1000</baseCost>
+    <techLevel>Medieval</techLevel>
+    <tab>Fieldcraft</tab>
+    <prerequisites>
+      <li>FC_CropRotation</li>
+      <li>FC_CompostWorks</li>
+    </prerequisites>
+    <researchViewX>2.00</researchViewX>
+    <researchViewY>1.00</researchViewY>
+    <generalRules>
+      <rulesStrings>
+        <li>subject->green manuring</li>
+        <li>subject_story->turned exhausted plots green again with plow-down clover</li>
+        <li>subject_gerund->plowing green manure</li>
+      </rulesStrings>
+    </generalRules>
+  </ResearchProjectDef>
+
+</Defs>

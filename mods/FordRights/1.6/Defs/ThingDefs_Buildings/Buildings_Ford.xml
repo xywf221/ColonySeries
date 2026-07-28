@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>FR_FordCrossing</defName>
+    <label>river ford</label>
+    <description>A simple riverside crossing and toll post. Must sit next to water. Trader caravans and visitors may leave a small passage fee (capped per day and season). Colonists can fish here slowly. Rare floods damage the ford — repair it with vanilla tools. Idle and nearly free on maps without water.</description>
+    <thingClass>FordRights.Building_FordCrossing</thingClass>
+    <category>Building</category>
+    <graphicData>
+      <texPath>Things/Building/FordCrossing</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1.2, 1.2)</drawSize>
+      <damageData>
+        <rect>(0.1,0.15,0.8,0.7)</rect>
+      </damageData>
+      <shadowData>
+        <volume>(0.75, 0.2, 0.55)</volume>
+        <offset>(0, 0, -0.05)</offset>
+      </shadowData>
+    </graphicData>
+    <uiIconPath>UI/Designators/Ford</uiIconPath>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <pathCost>14</pathCost>
+    <fillPercent>0.25</fillPercent>
+    <rotatable>false</rotatable>
+    <statBases>
+      <MaxHitPoints>180</MaxHitPoints>
+      <WorkToBuild>1200</WorkToBuild>
+      <Flammability>0.2</Flammability>
+      <Beauty>1</Beauty>
+      <Mass>55</Mass>
+    </statBases>
+    <costList>
+      <WoodLog>40</WoodLog>
+      <Steel>25</Steel>
+    </costList>
+    <building>
+      <isEdifice>true</isEdifice>
+      <ai_chillDestination>false</ai_chillDestination>
+      <destroySound>BuildingDestroyed_Wood_Big</destroySound>
+      <expandHomeArea>false</expandHomeArea>
+      <repairable>true</repairable>
+    </building>
+    <size>(1,1)</size>
+    <designationCategory>Misc</designationCategory>
+    <uiOrder>2520</uiOrder>
+    <researchPrerequisites>
+      <li>FR_RiverRights</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>3</constructionSkillPrerequisite>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <placeWorkers>
+      <li>FordRights.PlaceWorker_FordNearWater</li>
+    </placeWorkers>
+    <comps>
+      <li Class="CompProperties_Forbiddable" />
+    </comps>
+    <tickerType>Never</tickerType>
+    <drawerType>MapMeshOnly</drawerType>
+  </ThingDef>
+
+</Defs>

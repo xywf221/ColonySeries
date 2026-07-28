@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <SA_DoSalvageMech.label>搜刮机械体</SA_DoSalvageMech.label>
+  <SA_DoSalvageMech.verb>搜刮</SA_DoSalvageMech.verb>
+  <SA_DoSalvageMech.gerund>搜刮</SA_DoSalvageMech.gerund>
+  <SA_DoAnalyze.label>分析机械碎片</SA_DoAnalyze.label>
+  <SA_DoAnalyze.verb>分析</SA_DoAnalyze.verb>
+  <SA_DoAnalyze.gerund>分析</SA_DoAnalyze.gerund>
+  <SA_DoTeardown.label>拆解残骸</SA_DoTeardown.label>
+  <SA_DoTeardown.verb>拆解</SA_DoTeardown.verb>
+  <SA_DoTeardown.gerund>拆解</SA_DoTeardown.gerund>
+</LanguageData>

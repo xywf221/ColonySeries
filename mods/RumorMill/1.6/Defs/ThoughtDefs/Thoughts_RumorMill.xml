@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThoughtDef>
+    <defName>RM_OpinionFromRumor</defName>
+    <thoughtClass>RumorMill.Thought_RumorSocial</thoughtClass>
+    <workerClass>RumorMill.ThoughtWorker_RumorOpinion</workerClass>
+    <validWhileDespawned>true</validWhileDespawned>
+    <developmentalStageFilter>Adult</developmentalStageFilter>
+    <stages>
+      <!-- Opinion comes from Thought_RumorSocial.OpinionOffset(); stages only supply labels. -->
+      <li>
+        <label>good word</label>
+        <description>I've heard things about them.</description>
+      </li>
+      <li>
+        <label>ill word</label>
+        <description>I've heard things about them.</description>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>RM_CommendedOther</defName>
+    <durationDays>2</durationDays>
+    <stackLimit>3</stackLimit>
+    <stackedEffectMultiplier>0.75</stackedEffectMultiplier>
+    <stages>
+      <li>
+        <label>gave a commendation</label>
+        <description>I put in a good word for someone. Feels proper.</description>
+        <baseMoodEffect>2</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>RM_WasCommended</defName>
+    <durationDays>3</durationDays>
+    <stackLimit>2</stackLimit>
+    <stackedEffectMultiplier>0.5</stackedEffectMultiplier>
+    <stages>
+      <li>
+        <label>was commended</label>
+        <description>Someone spoke up for me in front of the colony.</description>
+        <baseMoodEffect>3</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>RM_WasCommendedSocial</defName>
+    <thoughtClass>Thought_MemorySocial</thoughtClass>
+    <durationDays>3</durationDays>
+    <stackLimit>2</stackLimit>
+    <stages>
+      <li>
+        <label>commended me</label>
+        <description>They spoke up for me.</description>
+        <baseOpinionOffset>8</baseOpinionOffset>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>

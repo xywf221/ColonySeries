@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Dry paddy bed: formed from soil, ready for flooding. -->
+  <TerrainDef>
+    <defName>FC_PaddyDry</defName>
+    <label>dry paddy</label>
+    <description>A levelled field bed prepared for flooding. Moderately fertile. Flood it to make a flooded paddy preferred by rice. Counts toward soil budget tracking.</description>
+    <texturePath>Terrain/Surfaces/MarshyTerrain</texturePath>
+    <edgeType>FadeRough</edgeType>
+    <renderPrecedence>337</renderPrecedence>
+    <pathCost>4</pathCost>
+    <fertility>1.05</fertility>
+    <generatedFilth>Filth_Dirt</generatedFilth>
+    <filthAcceptanceMask>
+      <li>Unnatural</li>
+    </filthAcceptanceMask>
+    <takeFootprints>true</takeFootprints>
+    <categoryType>Soil</categoryType>
+    <statBases>
+      <Beauty>-2</Beauty>
+      <BeautyOutdoors>0</BeautyOutdoors>
+      <Cleanliness>-2</Cleanliness>
+    </statBases>
+    <affordances>
+      <li>Light</li>
+      <li>Medium</li>
+      <li>Heavy</li>
+      <li>GrowSoil</li>
+      <li>Diggable</li>
+      <li>Walkable</li>
+    </affordances>
+    <tags>
+      <li>Soil</li>
+      <li>Fieldcraft</li>
+      <li>Paddy</li>
+    </tags>
+    <tools>
+      <li>
+        <label>dirt</label>
+        <capacities>
+          <li>KickMaterialInEyes</li>
+        </capacities>
+        <hediff>DirtInEyes</hediff>
+        <cooldownTime>1.5</cooldownTime>
+      </li>
+    </tools>
+  </TerrainDef>
+
+  <!-- Flooded paddy: rice bonus, slower budget leak, higher path cost. -->
+  <TerrainDef>
+    <defName>FC_PaddyFlooded</defName>
+    <label>flooded paddy</label>
+    <description>A shallow flooded rice field. Excellent for rice, awkward for most other crops. Holds soil budget better while watered. May dry out if the soil budget collapses. Labour to form and maintain — not free super-soil.</description>
+    <texturePath>Terrain/Surfaces/Marsh</texturePath>
+    <edgeType>FadeRough</edgeType>
+    <renderPrecedence>336</renderPrecedence>
+    <pathCost>12</pathCost>
+    <fertility>1.2</fertility>
+    <generatedFilth>Filth_Dirt</generatedFilth>
+    <filthAcceptanceMask>
+      <li>Unnatural</li>
+    </filthAcceptanceMask>
+    <takeFootprints>true</takeFootprints>
+    <categoryType>Soil</categoryType>
+    <extraDeteriorationFactor>1.5</extraDeteriorationFactor>
+    <statBases>
+      <Beauty>-3</Beauty>
+      <BeautyOutdoors>-1</BeautyOutdoors>
+      <Cleanliness>-3</Cleanliness>
+    </statBases>
+    <affordances>
+      <li>Light</li>
+      <li>Medium</li>
+      <li>GrowSoil</li>
+      <li>Diggable</li>
+      <li>Walkable</li>
+    </affordances>
+    <tags>
+      <li>Soil</li>
+      <li>Fieldcraft</li>
+      <li>Paddy</li>
+      <li>Flooded</li>
+    </tags>
+    <tools>
+      <li>
+        <label>mud</label>
+        <capacities>
+          <li>KickMaterialInEyes</li>
+        </capacities>
+        <hediff>DirtInEyes</hediff>
+        <cooldownTime>1.5</cooldownTime>
+      </li>
+    </tools>
+  </TerrainDef>
+
+</Defs>

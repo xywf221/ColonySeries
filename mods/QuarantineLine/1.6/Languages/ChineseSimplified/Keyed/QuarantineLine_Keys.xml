@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <QL_SettingsCategory>疫线检疫</QL_SettingsCategory>
+  <QL_Settings_SectionMaster>总控</QL_Settings_SectionMaster>
+  <QL_Settings_Enabled>启用疫线检疫</QL_Settings_Enabled>
+  <QL_Settings_SpreadModifiers>启用接触/传播修正</QL_Settings_SpreadModifiers>
+  <QL_Settings_SpreadModifiersHint>关闭后：仍可划检疫区与隔离协议、心情仍生效；本模组不再额外播种传染病。</QL_Settings_SpreadModifiersHint>
+  <QL_Settings_EasyMode>轻松模式</QL_Settings_EasyMode>
+  <QL_Settings_EasyModeHint>传播更低、心情惩罚更轻，商队事件更少出鼠疫。</QL_Settings_EasyModeHint>
+  <QL_Settings_SectionBalance>平衡</QL_Settings_SectionBalance>
+  <QL_Settings_VisitRisk>探视风险（每脉冲）：{0}%</QL_Settings_VisitRisk>
+  <QL_Settings_BaseExposure>日常接触风险（每脉冲）：{0}%</QL_Settings_BaseExposure>
+  <QL_Settings_IsolationReduction>严格隔离遏制率：{0}%</QL_Settings_IsolationReduction>
+  <QL_Settings_PatientMood>患者心情惩罚（开放隔离区）：{0}</QL_Settings_PatientMood>
+  <QL_Settings_StrictMoodExtra>严格隔离额外惩罚：{0}</QL_Settings_StrictMoodExtra>
+  <QL_Settings_DoctorWorkloadMood>医护负荷心情（严格）：{0}</QL_Settings_DoctorWorkloadMood>
+  <QL_Settings_SectionEvents>稀有事件</QL_Settings_SectionEvents>
+  <QL_Settings_CaravanDisease>商队带病事件</QL_Settings_CaravanDisease>
+  <QL_Settings_AnimalSource>动物疫源事件</QL_Settings_AnimalSource>
+  <QL_Settings_EventsHint>故事生成器低概率；独立于原版疾病事件。</QL_Settings_EventsHint>
+  <QL_Settings_SectionPerformance>性能</QL_Settings_SectionPerformance>
+  <QL_Settings_RareTick>疫情脉冲间隔（tick）：{0}</QL_Settings_RareTick>
+  <QL_Settings_SleepHint>玩家地图上无传染病时组件完全休眠——不做接触演算。</QL_Settings_SleepHint>
+  <QL_Settings_Reset>恢复默认</QL_Settings_Reset>
+
+  <QL_Designator_Mark_Label>标记检疫区</QL_Designator_Mark_Label>
+  <QL_Designator_Mark_Desc>将格子划为检疫病房。病患在此更易被遏制；健康者探视会提高感染风险。</QL_Designator_Mark_Desc>
+  <QL_Designator_Release_Label>解除检疫</QL_Designator_Release_Label>
+  <QL_Designator_Release_Desc>清除格子上的检疫标记。</QL_Designator_Release_Desc>
+  <QL_Designator_Isolation_Label>隔离协议</QL_Designator_Isolation_Label>
+  <QL_Designator_Isolation_Desc>点击任意格子切换本图「严格隔离」。严格模式降低爆发传播，但加重患者孤独与医护负荷。</QL_Designator_Isolation_Desc>
+
+  <QL_Disabled>疫线检疫已在设置中关闭。</QL_Disabled>
+  <QL_AlreadyMarked>已是检疫区。</QL_AlreadyMarked>
+  <QL_NotMarked>不是检疫格子。</QL_NotMarked>
+
+  <QL_Gizmo_Strict_Label>严格隔离</QL_Gizmo_Strict_Label>
+  <QL_Gizmo_Strict_Desc>切换地图隔离协议。收容病患则传播↓；患者与医生心情承压。</QL_Gizmo_Strict_Desc>
+  <QL_Gizmo_SendToWard_Label>在此设检疫</QL_Gizmo_SendToWard_Label>
+  <QL_Gizmo_SendToWard_Desc>以该病患为中心划一小块检疫区。</QL_Gizmo_SendToWard_Desc>
+  <QL_Gizmo_ReleasePatient_Label>解除本格</QL_Gizmo_ReleasePatient_Label>
+  <QL_Gizmo_ReleasePatient_Desc>清除该患者所在格的检疫标记。</QL_Gizmo_ReleasePatient_Desc>
+
+  <QL_Msg_StrictOn>严格隔离协议：开——距离与门控更重要；患者更孤独，医护更忙。</QL_Msg_StrictOn>
+  <QL_Msg_StrictOff>严格隔离协议：关——开放病房（仍好过病患自由活动）。</QL_Msg_StrictOff>
+  <QL_Msg_CaughtDisease>{0} 因接触感染了{1}。</QL_Msg_CaughtDisease>
+  <QL_Msg_DoctorCaught>医生 {0} 在护理时感染了{1}。</QL_Msg_DoctorCaught>
+  <QL_Msg_PatientWardSeeded>已在 {0} 周围划出检疫区。</QL_Msg_PatientWardSeeded>
+  <QL_Msg_PatientCellReleased>已解除 {0} 所在格检疫。</QL_Msg_PatientCellReleased>
+
+  <QL_Letter_OutbreakTitle>传染病</QL_Letter_OutbreakTitle>
+  <QL_Letter_OutbreakBody>地图上有人携带传染病。\n\n建筑→检疫：划病房，可选严格隔离。探视提高传播；严格隔离降低爆发，但患者心情↓、医护负荷↑。\n\n原版医药与免疫仍生效——本模组只轻调接触风险。</QL_Letter_OutbreakBody>
+  <QL_Letter_OutbreakBodyStrict>有人在病，且严格隔离已开启。保持病房封闭并安排护理。</QL_Letter_OutbreakBodyStrict>
+
+  <QL_Letter_CaravanDiseaseTitle>路热</QL_Letter_CaravanDiseaseTitle>
+  <QL_Letter_CaravanDiseaseBody>{0} 在与旅人接触后出现热病——{1}。尽快检疫。</QL_Letter_CaravanDiseaseBody>
+  <QL_Letter_AnimalSourceTitle>病畜</QL_Letter_AnimalSourceTitle>
+  <QL_Letter_AnimalSourceBody>殖民地动物 {0} 患上{1}。让殖民者远离，或把畜栏划入检疫。</QL_Letter_AnimalSourceBody>
+
+  <QL_Inspect_Quarantined>{0}：在检疫病房</QL_Inspect_Quarantined>
+  <QL_Inspect_IsolatedStrict>{0}：严格隔离中</QL_Inspect_IsolatedStrict>
+  <QL_Inspect_VisitingWard>{0}：探视检疫区（风险）</QL_Inspect_VisitingWard>
+  <QL_Inspect_SickUncontained>{0}：有传染性，未在病房</QL_Inspect_SickUncontained>
+
+  <QL_Status_Disabled>疫线检疫已关</QL_Status_Disabled>
+  <QL_Status_Sleeping>休眠（无传染病）。检疫格：{0}</QL_Status_Sleeping>
+  <QL_Status_Awake>运转中——携带者 {0}，检疫格 {1}，协议：{2}</QL_Status_Awake>
+  <QL_Status_Strict>严格</QL_Status_Strict>
+  <QL_Status_Open>开放病房</QL_Status_Open>
+
+</LanguageData>

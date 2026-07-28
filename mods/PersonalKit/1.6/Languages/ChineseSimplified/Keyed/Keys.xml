@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PersonalKit_SettingsCategory>个人小工具</PersonalKit_SettingsCategory>
+
+  <PersonalKit_Section_Trade>交易</PersonalKit_Section_Trade>
+  <PersonalKit_TradePrice_Desc>原版 1.6 将「交易价格改善」(TradePriceImprovement) 的上限锁在约 40%。更早版本没有这个硬顶。可在此恢复无上限，或自定义上限。</PersonalKit_TradePrice_Desc>
+  <PersonalKit_TradePrice_Uncapped>不设谈判加成上限（推荐，接近旧版）</PersonalKit_TradePrice_Uncapped>
+  <PersonalKit_TradePrice_UncappedTip>关闭后可手动指定百分比上限。</PersonalKit_TradePrice_UncappedTip>
+  <PersonalKit_TradePrice_UncappedHint>当前：无上限。社交技能与特质带来的交易加成可完整生效。</PersonalKit_TradePrice_UncappedHint>
+  <PersonalKit_TradePrice_Max>谈判加成上限：{0}%</PersonalKit_TradePrice_Max>
+  <PersonalKit_ResetDefaults>恢复本模组默认（无上限）</PersonalKit_ResetDefaults>
+  <PersonalKit_RestoreVanillaCap>恢复原版 40% 上限</PersonalKit_RestoreVanillaCap>
+</LanguageData>

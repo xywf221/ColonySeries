@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <JobDef>
+    <defName>SA_SalvageMechCorpse</defName>
+    <driverClass>SalvageAtlas.JobDriver_SalvageMechCorpse</driverClass>
+    <reportString>salvaging TargetA.</reportString>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+  <JobDef>
+    <defName>SA_AnalyzeFragments</defName>
+    <driverClass>SalvageAtlas.JobDriver_AnalyzeFragments</driverClass>
+    <reportString>analyzing mech fragments at TargetA.</reportString>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+  <JobDef>
+    <defName>SA_TeardownWreckJob</defName>
+    <driverClass>SalvageAtlas.JobDriver_TeardownWreck</driverClass>
+    <reportString>tearing down TargetA.</reportString>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+</Defs>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <LW_SoilFill.label>填土</LW_SoilFill.label>
+  <LW_SoilFill.description>挖出的泥土，用于填补贫瘠地面、筑堤或浅水复垦。又重又脏，几乎不值钱——却是改地的命脉。质量守恒：每一袋填土都来自地图上的别处。</LW_SoilFill.description>
+
+  <LW_Compost.label>堆肥</LW_Compost.label>
+  <LW_Compost.description>腐熟的有机物，用于改良土壤。掺入普通地面可形成人工沃土——极肥，但生物性不稳定。没有土壤稳定器或不定期补肥，会随时间退化。</LW_Compost.description>
+
+  <LW_SoilStabilizer.label>土壤稳定器</LW_SoilStabilizer.label>
+  <LW_SoilStabilizer.description>工业土壤管理装置。通电时在大范围内维持人工土壤不退化，并缓慢释放地形改造造成的地质压力。断电无效。大面积工程农田的必需品。</LW_SoilStabilizer.description>
+</LanguageData>

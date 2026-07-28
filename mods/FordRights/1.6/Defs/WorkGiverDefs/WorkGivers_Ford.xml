@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <WorkGiverDef>
+    <defName>FR_FishAtFord</defName>
+    <label>fish at ford</label>
+    <giverClass>FordRights.WorkGiver_FishAtFord</giverClass>
+    <workType>Hunting</workType>
+    <priorityInType>20</priorityInType>
+    <verb>fish</verb>
+    <gerund>fishing at</gerund>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+  </WorkGiverDef>
+</Defs>

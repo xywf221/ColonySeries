@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <AssemblyName>ApprenticeBond</AssemblyName>
+    <RootNamespace>ApprenticeBond</RootNamespace>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <LangVersion>latest</LangVersion>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <Deterministic>true</Deterministic>
+    <OutputPath>$(MSBuildThisFileDirectory)..\..\Assemblies\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RimWorldDir Condition="'$(RimWorldDir)' == '' and '$(RIMWORLD_DIR)' != ''">$(RIMWORLD_DIR)</RimWorldDir>
+    <!-- csproj lives at Mods/ApprenticeBond/1.6/Source/ApprenticeBond → five levels up is RimWorld root -->
+    <RimWorldDir Condition="'$(RimWorldDir)' == ''">$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\..\..\..\..\'))</RimWorldDir>
+    <RimWorldDir>$([System.IO.Path]::GetFullPath('$(RimWorldDir)'))</RimWorldDir>
+    <RimWorldDir Condition="!HasTrailingSlash('$(RimWorldDir)')">$(RimWorldDir)\</RimWorldDir>
+    <ManagedDir>$(RimWorldDir)RimWorldWin64_Data\Managed\</ManagedDir>
+    <ManagedDir Condition="'$(ManagedDirOverride)' != ''">$(ManagedDirOverride)</ManagedDir>
+  </PropertyGroup>
+  <PropertyGroup>
+    <HarmonyPath Condition="'$(HarmonyPath)' == '' and Exists('$(RimWorldDir)Mods\2009463077\Current\Assemblies\0Harmony.dll')">$(RimWorldDir)Mods\2009463077\Current\Assemblies\0Harmony.dll</HarmonyPath>
+    <HarmonyPath Condition="'$(HarmonyPath)' == '' and Exists('$(RimWorldDir)Mods\brrainz.harmony\Current\Assemblies\0Harmony.dll')">$(RimWorldDir)Mods\brrainz.harmony\Current\Assemblies\0Harmony.dll</HarmonyPath>
+    <HarmonyPath Condition="'$(HarmonyPath)' == '' and Exists('$(RimWorldDir)Mods\Harmony\Assemblies\0Harmony.dll')">$(RimWorldDir)Mods\Harmony\Assemblies\0Harmony.dll</HarmonyPath>
+  </PropertyGroup>
+  <Target Name="ValidateRimWorldRefs" BeforeTargets="ResolveAssemblyReferences">
+    <Error Condition="!Exists('$(ManagedDir)Assembly-CSharp.dll')" Text="Assembly-CSharp.dll not found at '$(ManagedDir)'. Set RimWorldDir." />
+  </Target>
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp"><HintPath>$(ManagedDir)Assembly-CSharp.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.CoreModule"><HintPath>$(ManagedDir)UnityEngine.CoreModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.IMGUIModule"><HintPath>$(ManagedDir)UnityEngine.IMGUIModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.TextRenderingModule"><HintPath>$(ManagedDir)UnityEngine.TextRenderingModule.dll</HintPath><Private>false</Private></Reference>
+  </ItemGroup>
+  <ItemGroup Condition="'$(HarmonyPath)' != ''">
+    <Reference Include="0Harmony"><HintPath>$(HarmonyPath)</HintPath><Private>false</Private></Reference>
+  </ItemGroup>
+  <ItemGroup Condition="'$(HarmonyPath)' == ''">
+    <PackageReference Include="Lib.Harmony" Version="2.3.6" PrivateAssets="all" ExcludeAssets="runtime" />
+  </ItemGroup>
+</Project>

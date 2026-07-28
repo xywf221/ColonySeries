@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>个人小工具 PersonalKit</name>
+  <author>Personal</author>
+  <packageId>personal.kit</packageId>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <description>
+个人向小功能集合。功能会随需要逐步追加。
+
+当前功能：
+• 交易谈判加成上限 — 原版 1.6 将 TradePriceImprovement 锁在约 40%。可在模组设置中取消上限，或自定义百分比上限。
+
+无需 Harmony。
+  </description>
+  <loadAfter>
+    <li>Ludeon.RimWorld</li>
+  </loadAfter>
+</ModMetaData>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <QL_Quarantined.stages.0.label>被检疫</QL_Quarantined.stages.0.label>
+  <QL_Quarantined.stages.0.description>我被关在隔离病房。也许有必要——仍旧孤独。</QL_Quarantined.stages.0.description>
+  <QL_Quarantined.stages.1.label>严格隔离</QL_Quarantined.stages.1.label>
+  <QL_Quarantined.stages.1.description>门关死了，访客被拦下。殖民地在防我。</QL_Quarantined.stages.1.description>
+
+  <QL_VisitingWard.stages.0.label>探视病区</QL_VisitingWard.stages.0.label>
+  <QL_VisitingWard.stages.0.description>我在检疫区里和病人待着。感觉冒险。</QL_VisitingWard.stages.0.description>
+
+  <QL_IsolationRounds.stages.0.label>隔离巡诊</QL_IsolationRounds.stages.0.label>
+  <QL_IsolationRounds.stages.0.description>严格隔离意味着更谨慎的护理、防护麻烦和来回奔波。医护更累。</QL_IsolationRounds.stages.0.description>
+</LanguageData>

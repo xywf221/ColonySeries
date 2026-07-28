@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Manifest>
+  <identifier>salvageatlas.reverse</identifier>
+  <version>1.0.0</version>
+  <dependencies>
+    <li>brrainz.harmony</li>
+  </dependencies>
+  <incompatibleWith />
+  <loadAfter>
+    <li>brrainz.harmony</li>
+  </loadAfter>
+</Manifest>

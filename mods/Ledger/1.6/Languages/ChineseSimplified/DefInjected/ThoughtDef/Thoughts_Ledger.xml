@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <LD_LowFoodReserve.stages.0.label>粮库见底</LD_LowFoodReserve.stages.0.label>
+  <LD_LowFoodReserve.stages.0.description>储备低于账房目标，大家对晚饭发慌。</LD_LowFoodReserve.stages.0.description>
+  <LD_LowMedReserve.stages.0.label>药箱空虚</LD_LowMedReserve.stages.0.label>
+  <LD_LowMedReserve.stages.0.description>药品低于储备目标，一场恶战就够呛。</LD_LowMedReserve.stages.0.description>
+  <LD_BadCredit.stages.0.label>信用扫地</LD_BadCredit.stages.0.label>
+  <LD_BadCredit.stages.0.description>商人说我们赖账。耻辱感挥之不去。</LD_BadCredit.stages.0.description>
+</LanguageData>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <AB_Bonded.stages.0.label>学徒契约（{0}）</AB_Bonded.stages.0.label>
+  <AB_Bonded.stages.0.description>我受学徒契约约束。教与学让我们更锋利。</AB_Bonded.stages.0.description>
+
+  <AB_BondFormed.stages.0.label>新立学徒契约</AB_BondFormed.stages.0.label>
+  <AB_BondFormed.stages.0.description>我们订立了师徒契约。有方向的感觉真好。</AB_BondFormed.stages.0.description>
+
+  <AB_BondBroken.stages.0.label>契约解除</AB_BondBroken.stages.0.label>
+  <AB_BondBroken.stages.0.description>学徒契约被拆开了。路像被截断一样。</AB_BondBroken.stages.0.description>
+
+  <AB_MentorDied.stages.0.label>导师身亡</AB_MentorDied.stages.0.label>
+  <AB_MentorDied.stages.0.description>我的导师没了。课停了——心里也空了一块。</AB_MentorDied.stages.0.description>
+
+  <AB_GraduatedMentor.stages.0.label>学徒出师</AB_GraduatedMentor.stages.0.label>
+  <AB_GraduatedMentor.stages.0.description>我的学徒完成了契约。为一起付出的努力骄傲。</AB_GraduatedMentor.stages.0.description>
+
+  <AB_GraduatedApprentice.stages.0.label>出师</AB_GraduatedApprentice.stages.0.label>
+  <AB_GraduatedApprentice.stages.0.description>我完成了学徒期。可以凭自己的手艺站稳了。</AB_GraduatedApprentice.stages.0.description>
+
+</LanguageData>

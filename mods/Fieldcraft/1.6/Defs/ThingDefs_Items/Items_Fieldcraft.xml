@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThingDef ParentName="ResourceBase">
+    <defName>FC_Compost</defName>
+    <label>field compost</label>
+    <description>Aged organic matter for topdressing fields. Restores soil budget without fully rebuilding the terrain. Distinct from industrial soil amendments used in heavy terraforming — either type can topdress when both mods are loaded.</description>
+    <graphicData>
+      <texPath>Things/Item/Compost</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>0.85</drawSize>
+    </graphicData>
+    <stackLimit>75</stackLimit>
+    <resourceReadoutPriority>Middle</resourceReadoutPriority>
+    <techLevel>Neolithic</techLevel>
+    <statBases>
+      <MarketValue>1.1</MarketValue>
+      <Mass>0.45</Mass>
+      <Flammability>0.6</Flammability>
+      <DeteriorationRate>3</DeteriorationRate>
+      <MaxHitPoints>50</MaxHitPoints>
+      <WorkToMake>400</WorkToMake>
+    </statBases>
+    <thingCategories>
+      <li>Manufactured</li>
+    </thingCategories>
+    <comps>
+      <li Class="CompProperties_Rottable">
+        <daysToRotStart>60</daysToRotStart>
+        <rotDestroys>true</rotDestroys>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <!-- Crafting-spot fallback recipes (always available after soil budgeting) -->
+  <RecipeDef>
+    <defName>FC_MakeCompostFromHay_Spot</defName>
+    <label>make field compost from hay</label>
+    <description>Compost hay into field topdressing. Slow at a crafting spot; build a compost pit for better throughput.</description>
+    <jobString>Making field compost.</jobString>
+    <workAmount>500</workAmount>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <effectWorking>Cook</effectWorking>
+    <allowMixingIngredients>false</allowMixingIngredients>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Hay</li>
+          </thingDefs>
+        </filter>
+        <count>15</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Hay</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <FC_Compost>5</FC_Compost>
+    </products>
+    <workSkill>Plants</workSkill>
+    <skillRequirements>
+      <Plants>2</Plants>
+    </skillRequirements>
+    <researchPrerequisite>FC_SoilBudgeting</researchPrerequisite>
+    <recipeUsers>
+      <li>CraftingSpot</li>
+    </recipeUsers>
+  </RecipeDef>
+
+  <RecipeDef>
+    <defName>FC_MakeCompostFromWood_Spot</defName>
+    <label>make field compost from wood pulp</label>
+    <description>Break wood into coarse field compost. Less efficient than hay.</description>
+    <jobString>Making field compost from wood.</jobString>
+    <workAmount>850</workAmount>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <effectWorking>ConstructDirt</effectWorking>
+    <allowMixingIngredients>false</allowMixingIngredients>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>WoodLog</li>
+          </thingDefs>
+        </filter>
+        <count>20</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>WoodLog</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <FC_Compost>4</FC_Compost>
+    </products>
+    <workSkill>Plants</workSkill>
+    <skillRequirements>
+      <Plants>3</Plants>
+    </skillRequirements>
+    <researchPrerequisite>FC_SoilBudgeting</researchPrerequisite>
+    <recipeUsers>
+      <li>CraftingSpot</li>
+    </recipeUsers>
+  </RecipeDef>
+
+</Defs>

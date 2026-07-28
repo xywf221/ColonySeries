@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <JobDef>
+    <defName>LW_ExcavateSoil</defName>
+    <driverClass>Landworks.JobDriver_ExcavateSoil</driverClass>
+    <reportString>excavating soil.</reportString>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+</Defs>

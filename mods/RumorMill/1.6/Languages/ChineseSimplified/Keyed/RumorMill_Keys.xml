@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RM_SettingsCategory>流言口碑</RM_SettingsCategory>
+  <RM_Settings_Enabled>启用流言口碑</RM_Settings_Enabled>
+  <RM_Settings_EasyMode>轻松模式（效果更弱，负面更快消退）</RM_Settings_EasyMode>
+  <RM_Settings_EasyModeHint>标签仍只来自事迹；幅度与衰减更温和。</RM_Settings_EasyModeHint>
+  <RM_Settings_SectionBalance>平衡</RM_Settings_SectionBalance>
+  <RM_Settings_SectionAgency>玩家能动</RM_Settings_SectionAgency>
+  <RM_Settings_SectionHooks>事迹挂钩</RM_Settings_SectionHooks>
+  <RM_Settings_DecayDays>无强化时标签衰减（天）：{0}</RM_Settings_DecayDays>
+  <RM_Settings_RecruitEffect>招募/谈判影响（%）：{0}</RM_Settings_RecruitEffect>
+  <RM_Settings_TradeEffect>贸易价格影响（%）：{0}</RM_Settings_TradeEffect>
+  <RM_Settings_SocialEffect>内部社交意见（±）：{0}</RM_Settings_SocialEffect>
+  <RM_Settings_EnableCommend>启用表彰 Gizmo / 作业</RM_Settings_EnableCommend>
+  <RM_Settings_EnableChatSpread>闲聊会强化已知流言</RM_Settings_EnableChatSpread>
+  <RM_Settings_ChatSpreadHint>只在真实社交互动时触发——没有每小时全员扫描。</RM_Settings_ChatSpreadHint>
+  <RM_Settings_HookReliable>可靠（护理/救治）</RM_Settings_HookReliable>
+  <RM_Settings_HookBloody>手黑（处决/器官）</RM_Settings_HookBloody>
+  <RM_Settings_HookSqueamish>怕血（目睹人类死亡）</RM_Settings_HookSqueamish>
+  <RM_Settings_HookNerved>被抽过神经（特性提取软联动）</RM_Settings_HookNerved>
+  <RM_Settings_HookWar>战英雄 / 逃兵（袭击击杀 / 恐慌逃跑）</RM_Settings_HookWar>
+  <RM_Settings_Reset>恢复默认</RM_Settings_Reset>
+
+  <RM_Tag_Reliable>可靠</RM_Tag_Reliable>
+  <RM_Tag_BloodyHands>手黑</RM_Tag_BloodyHands>
+  <RM_Tag_Squeamish>怕血</RM_Tag_Squeamish>
+  <RM_Tag_Nerved>被抽过神经</RM_Tag_Nerved>
+  <RM_Tag_WarHero>战英雄</RM_Tag_WarHero>
+  <RM_Tag_Deserter>逃兵</RM_Tag_Deserter>
+
+  <RM_TagDesc_Reliable>多次把人从血泊里捞回来，病床边信得过。</RM_TagDesc_Reliable>
+  <RM_TagDesc_BloodyHands>处决、收割、恶意动刀的事在聚落传开了。</RM_TagDesc_BloodyHands>
+  <RM_TagDesc_Squeamish>见多了人死，再踩到血会发僵。</RM_TagDesc_Squeamish>
+  <RM_TagDesc_Nerved>有人说这人上过神经刀。商队听了不自在。</RM_TagDesc_Nerved>
+  <RM_TagDesc_WarHero>袭击来时站着杀完的人。聚落爱讲这故事。</RM_TagDesc_WarHero>
+  <RM_TagDesc_Deserter>危难时崩了、跑了。很难装作没看见。</RM_TagDesc_Deserter>
+
+  <RM_InspectHeader>流言：</RM_InspectHeader>
+  <RM_Strength>（{0} 阶）</RM_Strength>
+
+  <RM_Msg_Reliable>{0} 开始有了「可靠」的口碑。</RM_Msg_Reliable>
+  <RM_Msg_BloodyHands>{0} 开始有了「手黑」的口碑。</RM_Msg_BloodyHands>
+  <RM_Msg_BloodyHands_Execute>{0} 的处决成了聚落闲话。</RM_Msg_BloodyHands_Execute>
+  <RM_Msg_BloodyHands_Organ>{0} 的器官活计成了聚落闲话。</RM_Msg_BloodyHands_Organ>
+  <RM_Msg_Squeamish>有人私下说 {0} 见血发怵。</RM_Msg_Squeamish>
+  <RM_Msg_Nerved>风声传开：{0} 挨过神经提取。</RM_Msg_Nerved>
+  <RM_Msg_WarHero>人们开始称 {0} 为战英雄。</RM_Msg_WarHero>
+  <RM_Msg_Deserter>人们开始称 {0} 为逃兵。</RM_Msg_Deserter>
+  <RM_Msg_TagFaded>{0} 的流言（{1}）淡了。</RM_Msg_TagFaded>
+  <RM_Msg_CommendSoftened>{0} 表彰了 {1}——「{2}」的闲话轻了一档。</RM_Msg_CommendSoftened>
+  <RM_Msg_CommendCleared>{0} 表彰了 {1}——「{2}」的流言被压下去了。</RM_Msg_CommendCleared>
+  <RM_Msg_CommendReliable>{0} 表彰了 {1}——「可靠」的话多了起来。</RM_Msg_CommendReliable>
+  <RM_Msg_CommendNeedSpeaker>请再选一名殖民者作发言人，或只选目标进行自述。</RM_Msg_CommendNeedSpeaker>
+
+  <RM_Gizmo_Commend>表彰</RM_Gizmo_Commend>
+  <RM_Gizmo_CommendDesc>命令殖民者为对方说好话：削弱一档负面流言，或强化「可靠」。可选发言人+目标，或只选目标。</RM_Gizmo_CommendDesc>
+
+  <RM_TradeTooltip>口碑面孔（{0}）：{1}</RM_TradeTooltip>
+  <RM_Stat_Negotiation>流言口碑：{0}</RM_Stat_Negotiation>
+  <RM_Stat_Trade>贸易口碑：{0}</RM_Stat_Trade>
+  <RM_Thought_RumorLabel>流言：{0}</RM_Thought_RumorLabel>
+</LanguageData>

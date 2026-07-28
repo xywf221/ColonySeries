@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <SA_SalvageBasics.label>残骸基础</SA_SalvageBasics.label>
+  <SA_SalvageBasics.description>学会从机械残骸上剥离数据碎片，并在残骸台编目。碎片进度独立于研究管理器。</SA_SalvageBasics.description>
+</LanguageData>

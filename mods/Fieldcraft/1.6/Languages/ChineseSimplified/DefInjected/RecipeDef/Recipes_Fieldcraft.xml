@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <FC_MakeCompostFromHay_Spot.label>用干草制作田作堆肥</FC_MakeCompostFromHay_Spot.label>
+  <FC_MakeCompostFromHay_Spot.description>把干草沤成追肥用堆肥。制作点较慢；建堆肥坑效率更好。</FC_MakeCompostFromHay_Spot.description>
+  <FC_MakeCompostFromHay_Spot.jobString>制作田作堆肥。</FC_MakeCompostFromHay_Spot.jobString>
+
+  <FC_MakeCompostFromWood_Spot.label>用木浆制作田作堆肥</FC_MakeCompostFromWood_Spot.label>
+  <FC_MakeCompostFromWood_Spot.description>把木材沤成粗堆肥。效率低于干草。</FC_MakeCompostFromWood_Spot.description>
+  <FC_MakeCompostFromWood_Spot.jobString>用木材制作田作堆肥。</FC_MakeCompostFromWood_Spot.jobString>
+
+  <FC_MakeCompostFromHay_Pit.label>用干草制作田作堆肥</FC_MakeCompostFromHay_Pit.label>
+  <FC_MakeCompostFromHay_Pit.description>在专用堆肥坑中高效沤制干草。</FC_MakeCompostFromHay_Pit.description>
+  <FC_MakeCompostFromHay_Pit.jobString>制作田作堆肥。</FC_MakeCompostFromHay_Pit.jobString>
+
+  <FC_MakeCompostFromWood_Pit.label>用木浆制作田作堆肥</FC_MakeCompostFromWood_Pit.label>
+  <FC_MakeCompostFromWood_Pit.description>在堆肥坑中沤制木浆。仍不如干草，但可用。</FC_MakeCompostFromWood_Pit.description>
+  <FC_MakeCompostFromWood_Pit.jobString>用木材制作田作堆肥。</FC_MakeCompostFromWood_Pit.jobString>
+</LanguageData>

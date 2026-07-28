@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <SA_SalvageMechCorpse.reportString>正在搜刮TargetA。</SA_SalvageMechCorpse.reportString>
+  <SA_AnalyzeFragments.reportString>正在TargetA分析机械碎片。</SA_AnalyzeFragments.reportString>
+  <SA_TeardownWreckJob.reportString>正在拆解TargetA。</SA_TeardownWreckJob.reportString>
+</LanguageData>

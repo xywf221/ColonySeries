@@ -1,0 +1,73 @@
+<Solution>
+  <Folder Name="/mods/" />
+  <Folder Name="/mods/ApprenticeBond/" />
+  <Folder Name="/mods/ApprenticeBond/1.6/" />
+  <Folder Name="/mods/ApprenticeBond/1.6/Source/">
+    <Project Path="mods/ApprenticeBond/1.6/Source/ApprenticeBond/ApprenticeBond.csproj" />
+  </Folder>
+  <Folder Name="/mods/ArtisanMark/" />
+  <Folder Name="/mods/ArtisanMark/1.6/" />
+  <Folder Name="/mods/ArtisanMark/1.6/Source/">
+    <Project Path="mods/ArtisanMark/1.6/Source/ArtisanMark/ArtisanMark.csproj" />
+  </Folder>
+  <Folder Name="/mods/DeadDrop/" />
+  <Folder Name="/mods/DeadDrop/1.6/" />
+  <Folder Name="/mods/DeadDrop/1.6/Source/">
+    <Project Path="mods/DeadDrop/1.6/Source/DeadDrop/DeadDrop.csproj" />
+  </Folder>
+  <Folder Name="/mods/Fieldcraft/" />
+  <Folder Name="/mods/Fieldcraft/1.6/" />
+  <Folder Name="/mods/Fieldcraft/1.6/Source/">
+    <Project Path="mods/Fieldcraft/1.6/Source/Fieldcraft/Fieldcraft.csproj" />
+  </Folder>
+  <Folder Name="/mods/FordRights/" />
+  <Folder Name="/mods/FordRights/1.6/" />
+  <Folder Name="/mods/FordRights/1.6/Source/">
+    <Project Path="mods/FordRights/1.6/Source/FordRights/FordRights.csproj" />
+  </Folder>
+  <Folder Name="/mods/Landworks/" />
+  <Folder Name="/mods/Landworks/1.6/" />
+  <Folder Name="/mods/Landworks/1.6/Source/">
+    <Project Path="mods/Landworks/1.6/Source/Landworks/Landworks.csproj" />
+  </Folder>
+  <Folder Name="/mods/Ledger/" />
+  <Folder Name="/mods/Ledger/1.6/" />
+  <Folder Name="/mods/Ledger/1.6/Source/">
+    <Project Path="mods/Ledger/1.6/Source/Ledger/Ledger.csproj" />
+  </Folder>
+  <Folder Name="/mods/PersonalKit/" />
+  <Folder Name="/mods/PersonalKit/1.6/" />
+  <Folder Name="/mods/PersonalKit/1.6/Source/">
+    <Project Path="mods/PersonalKit/1.6/Source/PersonalKit/PersonalKit.csproj" />
+  </Folder>
+  <Folder Name="/mods/QuarantineLine/" />
+  <Folder Name="/mods/QuarantineLine/1.6/" />
+  <Folder Name="/mods/QuarantineLine/1.6/Source/">
+    <Project Path="mods/QuarantineLine/1.6/Source/QuarantineLine/QuarantineLine.csproj" />
+  </Folder>
+  <Folder Name="/mods/RumorMill/" />
+  <Folder Name="/mods/RumorMill/1.6/" />
+  <Folder Name="/mods/RumorMill/1.6/Source/">
+    <Project Path="mods/RumorMill/1.6/Source/RumorMill/RumorMill.csproj" />
+  </Folder>
+  <Folder Name="/mods/SalvageAtlas/" />
+  <Folder Name="/mods/SalvageAtlas/1.6/" />
+  <Folder Name="/mods/SalvageAtlas/1.6/Source/">
+    <Project Path="mods/SalvageAtlas/1.6/Source/SalvageAtlas/SalvageAtlas.csproj" />
+  </Folder>
+  <Folder Name="/mods/TraitExtractor/" />
+  <Folder Name="/mods/TraitExtractor/1.6/" />
+  <Folder Name="/mods/TraitExtractor/1.6/Source/">
+    <Project Path="mods/TraitExtractor/1.6/Source/TraitExtractor/TraitExtractor.csproj" />
+  </Folder>
+  <Folder Name="/mods/WatchRoster/" />
+  <Folder Name="/mods/WatchRoster/1.6/" />
+  <Folder Name="/mods/WatchRoster/1.6/Source/">
+    <Project Path="mods/WatchRoster/1.6/Source/WatchRoster/WatchRoster.csproj" />
+  </Folder>
+  <Folder Name="/mods/WorkshopWear/" />
+  <Folder Name="/mods/WorkshopWear/1.6/" />
+  <Folder Name="/mods/WorkshopWear/1.6/Source/">
+    <Project Path="mods/WorkshopWear/1.6/Source/WorkshopWear/WorkshopWear.csproj" />
+  </Folder>
+</Solution>

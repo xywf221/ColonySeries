@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>流言口碑 Rumor Mill</name>
+  <author>RumorMill</author>
+  <packageId>rumormill.reputation</packageId>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <description>
+流言口碑 —— 事迹驱动的轻量社交标签。不做 RNG 贴条，不做心情税农场。
+
+标签只从真实事件写入（最多 2 个/人，可衰减）：
+• 可靠：多次成功护理
+• 手黑：处决 / 器官收割
+• 怕血：目睹人类死亡（轻触，避开原版双重税）
+• 被抽过神经：Trait Extractor 软联动
+• 战英雄 / 逃兵：袭击中击杀或恐慌逃跑
+（抠门：跳过——难以公平检测）
+
+效果（可感但非定局）：招募/谈判 ±约8%，贸易价 ±3～5%，内部意见 ±约10。
+玩家动词：表彰（Commend）Gizmo/作业；闲聊会强化已知流言。
+
+设置：总开关、轻松模式、幅度、衰减天数、各挂钩开关。
+  </description>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+      <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+    <li>Ludeon.RimWorld</li>
+  </loadAfter>
+</ModMetaData>

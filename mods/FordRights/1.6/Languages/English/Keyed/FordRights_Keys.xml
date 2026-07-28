@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <FR_SettingsCategory>Ford Rights</FR_SettingsCategory>
+  <FR_Settings_SectionMaster>Master</FR_Settings_SectionMaster>
+  <FR_Settings_SectionToll>Passage tolls</FR_Settings_SectionToll>
+  <FR_Settings_SectionFishing>Fishing</FR_Settings_SectionFishing>
+  <FR_Settings_SectionFlood>Flood</FR_Settings_SectionFlood>
+  <FR_Settings_Enabled>Enable Ford Rights systems</FR_Settings_Enabled>
+  <FR_Settings_EasyMode>Easy mode</FR_Settings_EasyMode>
+  <FR_Settings_EasyModeHint>Lower tolls slightly, faster fish cooldown, much milder floods. Still needs water + research + a ford.</FR_Settings_EasyModeHint>
+  <FR_Settings_TollsEnabled>Collect passage tolls from traders / visitors / travelers</FR_Settings_TollsEnabled>
+  <FR_Settings_TollMin>Toll silver min: {0}</FR_Settings_TollMin>
+  <FR_Settings_TollMax>Toll silver max: {0}</FR_Settings_TollMax>
+  <FR_Settings_DailyTollCount>Max toll events per day: {0}</FR_Settings_DailyTollCount>
+  <FR_Settings_DailySilverCap>Daily silver cap: {0}</FR_Settings_DailySilverCap>
+  <FR_Settings_SeasonalSilverCap>Seasonal (15-day) silver cap: {0}</FR_Settings_SeasonalSilverCap>
+  <FR_Settings_FishingEnabled>Allow fishing at fords</FR_Settings_FishingEnabled>
+  <FR_Settings_FishingCooldownHours>Fishing cooldown (hours): {0}</FR_Settings_FishingCooldownHours>
+  <FR_Settings_FishPerCatch>Fish per catch: {0}</FR_Settings_FishPerCatch>
+  <FR_Settings_FloodEnabled>Allow ford flood incidents</FR_Settings_FloodEnabled>
+  <FR_Settings_FloodDamage>Flood damage to max HP %: {0}</FR_Settings_FloodDamage>
+  <FR_Settings_Reset>Reset defaults</FR_Settings_Reset>
+
+  <FR_Place_NeedWater>Must place next to water</FR_Place_NeedWater>
+
+  <FR_Toll_Disabled>Tolls disabled</FR_Toll_Disabled>
+  <FR_Toll_DailyCountCap>Daily toll count cap reached ({0})</FR_Toll_DailyCountCap>
+  <FR_Toll_DailySilverCap>Daily silver cap reached ({0})</FR_Toll_DailySilverCap>
+  <FR_Toll_SeasonalSilverCap>Seasonal silver cap reached ({0})</FR_Toll_SeasonalSilverCap>
+
+  <FR_Traveler>traveler</FR_Traveler>
+  <FR_Traveler_Trader>trader caravan</FR_Traveler_Trader>
+  <FR_Traveler_Visitor>visitor group</FR_Traveler_Visitor>
+  <FR_Traveler_Traveler>traveler group</FR_Traveler_Traveler>
+
+  <FR_Message_TollCollected>Ford toll: +{0} silver from {1}.</FR_Message_TollCollected>
+  <FR_Message_FishQueued>Fishing queued at the ford.</FR_Message_FishQueued>
+  <FR_Message_FishNotReady>The ford is not ready to fish yet.</FR_Message_FishNotReady>
+  <FR_Message_FishCaught>{0} caught {1}× {2} at the ford.</FR_Message_FishCaught>
+  <FR_Message_FishFailedWater>Cannot finish fishing — ford not operational.</FR_Message_FishFailedWater>
+
+  <FR_Gizmo_QueueFish>Queue fishing</FR_Gizmo_QueueFish>
+  <FR_Gizmo_QueueFishDesc>Mark this ford for a Hunting colonist to fish. Slow catch, long cooldown — garnish food, not a fishery.</FR_Gizmo_QueueFishDesc>
+
+  <FR_Float_Fish>Fish at ford ({0})</FR_Float_Fish>
+  <FR_Float_CannotReach>Cannot reach ford</FR_Float_CannotReach>
+  <FR_Float_NotOperational>Ford not operational (needs water / repair)</FR_Float_NotOperational>
+  <FR_Float_FishCooldown>Ford fishing on cooldown</FR_Float_FishCooldown>
+
+  <FR_Inspect_NoMapWater>Map water: none (systems idle)</FR_Inspect_NoMapWater>
+  <FR_Inspect_WaterOk>Adjacent water: yes</FR_Inspect_WaterOk>
+  <FR_Inspect_NoAdjacentWater>Adjacent water: no — idle</FR_Inspect_NoAdjacentWater>
+  <FR_Inspect_IdleNoWater>Idle: place next to water to collect tolls and fish.</FR_Inspect_IdleNoWater>
+  <FR_Inspect_NeedsRepair>Needs repair before tolls / fishing (below 35% HP).</FR_Inspect_NeedsRepair>
+  <FR_Inspect_FishReady>Fishing: ready</FR_Inspect_FishReady>
+  <FR_Inspect_FishCooldown>Fishing ready in ~{0}h</FR_Inspect_FishCooldown>
+  <FR_Inspect_TollToday>Tolls today: {0}/{1} events, {2}/{3} silver</FR_Inspect_TollToday>
+  <FR_Inspect_TollSeason>Season window silver: {0}/{1}</FR_Inspect_TollSeason>
+  <FR_Inspect_Stats>Lifetime: {0}  Silver: {1}  Fish: {2}  Floods: {3}</FR_Inspect_Stats>
+
+  <FR_Letter_FloodTitle>Ford flood</FR_Letter_FloodTitle>
+  <FR_Letter_FloodBody>High water hammered {0} river ford(s). Repair the crossing before full toll and fishing service resumes. Damage is visible on the building — nothing was silently deleted.</FR_Letter_FloodBody>
+
+</LanguageData>

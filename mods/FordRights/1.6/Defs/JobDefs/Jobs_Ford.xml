@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <JobDef>
+    <defName>FR_FishAtFord</defName>
+    <driverClass>FordRights.JobDriver_FishAtFord</driverClass>
+    <reportString>fishing at TargetA.</reportString>
+    <allowOpportunisticPrefix>false</allowOpportunisticPrefix>
+  </JobDef>
+</Defs>

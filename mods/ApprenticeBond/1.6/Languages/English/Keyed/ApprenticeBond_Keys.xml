@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <AB_SettingsCategory>Apprentice Bond</AB_SettingsCategory>
+  <AB_Settings_Enabled>Enable Apprentice Bond</AB_Settings_Enabled>
+  <AB_Settings_EasyMode>Easy mode (slightly higher share + daily cap)</AB_Settings_EasyMode>
+  <AB_Settings_EasyModeHint>Still one mentor + one apprentice, one skill, same-room only. No multi-web.</AB_Settings_EasyModeHint>
+
+  <AB_Settings_SectionXp>XP share</AB_Settings_SectionXp>
+  <AB_Settings_ApprenticeShare>Apprentice share of mentor XP: {0}%</AB_Settings_ApprenticeShare>
+  <AB_Settings_MentorTeach>Mentor teaching bonus: {0}%</AB_Settings_MentorTeach>
+  <AB_Settings_DailyCap>Apprentice daily bond XP hard cap: {0}</AB_Settings_DailyCap>
+
+  <AB_Settings_SectionGrad>Graduation</AB_Settings_SectionGrad>
+  <AB_Settings_GradDays>Min days for time-based graduation: {0}</AB_Settings_GradDays>
+  <AB_Settings_GradLevelGap>Level gap (apprentice ≥ mentor − N): {0}</AB_Settings_GradLevelGap>
+  <AB_Settings_AutoSuggestGrad>Suggest graduation when eligible</AB_Settings_AutoSuggestGrad>
+
+  <AB_Settings_SectionMood>Mood</AB_Settings_SectionMood>
+  <AB_Settings_MoodEnabled>Enable bond mood thoughts</AB_Settings_MoodEnabled>
+  <AB_Settings_BondMood>Active bond mood: {0}</AB_Settings_BondMood>
+  <AB_Settings_BreakMood>Bond broken mood: {0}</AB_Settings_BreakMood>
+  <AB_Settings_DeathMood>Mentor died mood: {0}</AB_Settings_DeathMood>
+  <AB_Settings_GradMood>Graduation mood: {0}</AB_Settings_GradMood>
+
+  <AB_Settings_SectionLate>Late game</AB_Settings_SectionLate>
+  <AB_Settings_ColonyHint>Colony size hint threshold: {0}</AB_Settings_ColonyHint>
+  <AB_Settings_ShowColonyHint>Warn when colony is large (bonds are mid-game tools)</AB_Settings_ShowColonyHint>
+  <AB_Settings_DissolveAll>Dissolve all bonds now</AB_Settings_DissolveAll>
+  <AB_Settings_Reset>Reset defaults</AB_Settings_Reset>
+
+  <AB_Gizmo_FormBond>Form apprentice bond</AB_Gizmo_FormBond>
+  <AB_Gizmo_FormBondDesc>This colonist becomes mentor. Target one free apprentice, then pick a single skill where the mentor is higher. One bond per pawn — no multi-web.</AB_Gizmo_FormBondDesc>
+  <AB_Gizmo_BreakBond>Break apprentice bond</AB_Gizmo_BreakBond>
+  <AB_Gizmo_BreakBondDesc>End the bond between {0} (mentor) and {1} (apprentice) on {2}. Temporary mood hit.</AB_Gizmo_BreakBondDesc>
+  <AB_Gizmo_Graduate>Graduate apprentice</AB_Gizmo_Graduate>
+  <AB_Gizmo_GraduateDesc>End the bond with a graduation celebration for {0} ({1}). Small positive mood instead of break penalty.</AB_Gizmo_GraduateDesc>
+
+  <AB_Confirm_BreakBond>Break the apprentice bond of {0} teaching {1} ({2})?</AB_Confirm_BreakBond>
+  <AB_Confirm_Graduate>Graduate {0} from {1}'s teaching of {2}?</AB_Confirm_Graduate>
+
+  <AB_Float_SkillChoice>{0}  (mentor {1} / apprentice {2})</AB_Float_SkillChoice>
+
+  <AB_Inspect_Mentor>Mentoring {0} in {1} (today bond XP shared: {2})</AB_Inspect_Mentor>
+  <AB_Inspect_Apprentice>Apprentice of {0} in {1} (bond XP today: {2}/{3})</AB_Inspect_Apprentice>
+
+  <AB_Fail_Disabled>Apprentice Bond is disabled in mod settings.</AB_Fail_Disabled>
+  <AB_Fail_Invalid>Invalid mentor, apprentice, or skill.</AB_Fail_Invalid>
+  <AB_Fail_Self>A pawn cannot mentor themselves.</AB_Fail_Self>
+  <AB_Fail_NotColonist>Both must be living humanlike colonists with skills.</AB_Fail_NotColonist>
+  <AB_Fail_MentorBusy>{0} is already in an apprentice bond.</AB_Fail_MentorBusy>
+  <AB_Fail_ApprenticeBusy>{0} is already in an apprentice bond.</AB_Fail_ApprenticeBusy>
+  <AB_Fail_NoSkills>Skills unavailable.</AB_Fail_NoSkills>
+  <AB_Fail_SkillDisabled>{0} is disabled for one of them.</AB_Fail_SkillDisabled>
+  <AB_Fail_MentorNotHigher>{0}'s {1} must be higher than {2}'s.</AB_Fail_MentorNotHigher>
+  <AB_Fail_NoCandidateSkill>No skill where the mentor is higher and both can learn it.</AB_Fail_NoCandidateSkill>
+
+  <AB_Msg_BondFormed>{0} now mentors {1} in {2}.</AB_Msg_BondFormed>
+  <AB_Msg_BondBroken>bond ended</AB_Msg_BondBroken>
+  <AB_Msg_BondBrokenDetail>Apprentice bond ended ({0} / {1}): {2}</AB_Msg_BondBrokenDetail>
+  <AB_Msg_Graduated>{0} graduated from {1}'s teaching of {2}.</AB_Msg_Graduated>
+  <AB_Msg_ReadyToGraduate>{0} is ready to graduate from {1} ({2}). Use the Graduate gizmo.</AB_Msg_ReadyToGraduate>
+  <AB_Msg_MentorDied>Mentor {0} died — {1}'s apprentice bond ends in grief.</AB_Msg_MentorDied>
+  <AB_Msg_ApprenticeDied>Apprentice {0} died — bond with mentor {1} ends.</AB_Msg_ApprenticeDied>
+  <AB_Msg_DissolvedAll>Dissolved {0} apprentice bond(s).</AB_Msg_DissolvedAll>
+  <AB_Msg_NoGame>No active game — open a save first.</AB_Msg_NoGame>
+  <AB_Msg_ColonySizeHint>Colony has {0} colonists (hint threshold {1}). Apprentice bonds are mid-game tools — consider graduating or dissolving extras.</AB_Msg_ColonySizeHint>
+
+  <AB_Reason_PlayerBroke>player dissolved</AB_Reason_PlayerBroke>
+  <AB_Reason_Dissolved>bulk dissolve</AB_Reason_Dissolved>
+
+</LanguageData>

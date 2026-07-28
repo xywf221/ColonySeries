@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <LD_SettingsCategory>聚落账房</LD_SettingsCategory>
+  <LD_Settings_Enabled>启用账房 v2（信用与债务）</LD_Settings_Enabled>
+  <LD_Settings_Easy>轻松模式（惩罚更轻，讨债仅信件）</LD_Settings_Easy>
+  <LD_Settings_EnableDraw>允许「预支信用」按钮（玩家主动赊借）</LD_Settings_EnableDraw>
+  <LD_Settings_DebtMult>赊购上限倍率（×信用）：{0}</LD_Settings_DebtMult>
+  <LD_Settings_DueDays>债务期限（天）：{0}</LD_Settings_DueDays>
+  <LD_Settings_MinCreditCredit>最低可赊信用：{0}</LD_Settings_MinCreditCredit>
+  <LD_Settings_ForceWeekly>强制每周账本信</LD_Settings_ForceWeekly>
+  <LD_Settings_ReserveMood>可选：低餐储备心情（默认关）</LD_Settings_ReserveMood>
+  <LD_Settings_AllowCollection>违约时允许敌对讨债尝试</LD_Settings_AllowCollection>
+  <LD_Settings_V2Hint>v2 是杠杆：预支银币、还债、展期或违约。无电费税、无永久全局加价。</LD_Settings_V2Hint>
+  <LD_Settings_DrawHint>预支会在殖民者旁掉落银币，并向可见非敌对派系记一笔有到期日的债。上限 = 信用 × 倍率 − 已欠。</LD_Settings_DrawHint>
+  <LD_Settings_Reset>恢复默认</LD_Settings_Reset>
+
+  <LD_UnknownCreditor>灰市债主</LD_UnknownCreditor>
+  <LD_TabTip>信用 {0}/100 · 欠债 {1} · 可赊 {2}</LD_TabTip>
+
+  <LD_Gizmo_Status>账房状态</LD_Gizmo_Status>
+  <LD_Gizmo_Draw>预支信用（可赊 {0}）</LD_Gizmo_Draw>
+  <LD_Gizmo_DrawDesc>以殖民地信用（{0}/100）预支银币。额度 {1}，{2} 日内到期。必须偿还或展期。</LD_Gizmo_DrawDesc>
+  <LD_Gizmo_Repay>偿还最旧 {0}</LD_Gizmo_Repay>
+  <LD_Gizmo_RepayDesc>向 {0} 偿还 {1} 银（取用地图银币），提升信用。</LD_Gizmo_RepayDesc>
+  <LD_Gizmo_RepayMenu>选择还债（{0} 笔）</LD_Gizmo_RepayMenu>
+  <LD_Gizmo_RepayMenuDesc>从地图银币中选择要偿还的债务。</LD_Gizmo_RepayMenuDesc>
+  <LD_Gizmo_ExtendMenu>展期一笔债</LD_Gizmo_ExtendMenu>
+  <LD_Gizmo_ExtendDesc>每笔债可展期一次：新到期日，信用小损。</LD_Gizmo_ExtendDesc>
+
+  <LD_Float_DrawAmount>预支 {0} 银（债主：{1}）</LD_Float_DrawAmount>
+  <LD_Float_RepayDebt>还 {0} 给 {1}（约 {2} 时）— 现有 {3}</LD_Float_RepayDebt>
+  <LD_Float_ExtendDebt>展期欠 {1} 的 {0} 银</LD_Float_ExtendDebt>
+  <LD_Float_AlreadyExtended>{0}→{1}（已展期）</LD_Float_AlreadyExtended>
+
+  <LD_Msg_Disabled>账房已关闭。</LD_Msg_Disabled>
+  <LD_Msg_DrawDisabled>设置中已关闭预支信用。</LD_Msg_DrawDisabled>
+  <LD_Msg_CreditTooLow>信用 {0} 低于可赊门槛（{1}）。</LD_Msg_CreditTooLow>
+  <LD_Msg_NoRoom>可赊额度 {0} 低于最低预支（{1}）。</LD_Msg_NoRoom>
+  <LD_Msg_DrawCooldown>约 {0} 小时后才能再次预支。</LD_Msg_DrawCooldown>
+  <LD_Msg_SpawnFailed>无法在地图上放置预支的银币。</LD_Msg_SpawnFailed>
+  <LD_Msg_NeedSilver>需要 {0} 银（现有 {1}）。</LD_Msg_NeedSilver>
+  <LD_Msg_Repaid>已还 {0} 银。信用 {1}。</LD_Msg_Repaid>
+  <LD_Msg_Extended>债务 {0} 已展期。信用 {1}。</LD_Msg_Extended>
+  <LD_Msg_Drew>经 {1} 预支 {0} 银。信用 {2}。</LD_Msg_Drew>
+
+  <LD_Letter_DebtOpenedTitle>记入债务</LD_Letter_DebtOpenedTitle>
+  <LD_Letter_DebtOpenedBody>我们欠 {1} 共 {0} 银，{2} 日内到期。信用 {3}/100。</LD_Letter_DebtOpenedBody>
+  <LD_Letter_DueTitle>债务到期</LD_Letter_DueTitle>
+  <LD_Letter_DueBody>应付 {1} 的 {0} 银已到期。信用 {2}/100。尽快偿还，否则违约。</LD_Letter_DueBody>
+  <LD_Letter_DefaultTitle>已违约</LD_Letter_DefaultTitle>
+  <LD_Letter_DefaultBody>对 {1} 的 {0} 银违约。信用 {2}/100。关系约 −{3}。</LD_Letter_DefaultBody>
+  <LD_Letter_DefaultCollectors>讨债的人可能找上门。</LD_Letter_DefaultCollectors>
+  <LD_Letter_StatusTitle>账房</LD_Letter_StatusTitle>
+  <LD_Letter_StatusIntro>信用 {0}/100。未偿 {1}。可再赊 {2}。</LD_Letter_StatusIntro>
+  <LD_Letter_StatusDebt>• 欠 {1} {0} 银（约 {2} 时到期）</LD_Letter_StatusDebt>
+</LanguageData>

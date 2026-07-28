@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <DesignationCategoryDef>
+    <defName>Landworks</defName>
+    <label>landworks</label>
+    <order>650</order>
+    <specialDesignatorClasses>
+      <li>Designator_Cancel</li>
+      <li>Designator_Deconstruct</li>
+      <li>Landworks.Designator_ExcavateSoil</li>
+    </specialDesignatorClasses>
+  </DesignationCategoryDef>
+
+  <DesignationDef>
+    <defName>LW_Excavate</defName>
+    <texturePath>UI/Designators/Excavate</texturePath>
+    <targetType>Cell</targetType>
+    <removeIfBuildingDespawned>true</removeIfBuildingDespawned>
+  </DesignationDef>
+
+</Defs>

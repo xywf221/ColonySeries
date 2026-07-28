@@ -1,0 +1,53 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!--
+    Portable build: no drive-letter paths.
+    Default layout: <RimWorld>/Mods/PersonalKit/1.6/Source/PersonalKit/
+    Override: -p:RimWorldDir="..."  or env RIMWORLD_DIR
+  -->
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <AssemblyName>PersonalKit</AssemblyName>
+    <RootNamespace>PersonalKit</RootNamespace>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <LangVersion>latest</LangVersion>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <Deterministic>true</Deterministic>
+    <OutputPath>$(MSBuildThisFileDirectory)..\..\Assemblies\</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <RimWorldDir Condition="'$(RimWorldDir)' == '' and '$(RIMWORLD_DIR)' != ''">$(RIMWORLD_DIR)</RimWorldDir>
+    <RimWorldDir Condition="'$(RimWorldDir)' == ''">$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\..\..\..\..\'))</RimWorldDir>
+    <RimWorldDir>$([System.IO.Path]::GetFullPath('$(RimWorldDir)'))</RimWorldDir>
+    <RimWorldDir Condition="!HasTrailingSlash('$(RimWorldDir)')">$(RimWorldDir)\</RimWorldDir>
+    <ManagedDir>$(RimWorldDir)RimWorldWin64_Data\Managed\</ManagedDir>
+    <ManagedDir Condition="'$(ManagedDirOverride)' != ''">$(ManagedDirOverride)</ManagedDir>
+  </PropertyGroup>
+
+  <Target Name="ValidateRimWorldRefs" BeforeTargets="ResolveAssemblyReferences">
+    <Error
+      Condition="!Exists('$(ManagedDir)Assembly-CSharp.dll')"
+      Text="Assembly-CSharp.dll not found at '$(ManagedDir)'. Set RimWorldDir, e.g. -p:RimWorldDir=&quot;C:\Path\To\RimWorld&quot; or env RIMWORLD_DIR." />
+  </Target>
+
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>$(ManagedDir)Assembly-CSharp.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(ManagedDir)UnityEngine.CoreModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>$(ManagedDir)UnityEngine.IMGUIModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>$(ManagedDir)UnityEngine.TextRenderingModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+</Project>

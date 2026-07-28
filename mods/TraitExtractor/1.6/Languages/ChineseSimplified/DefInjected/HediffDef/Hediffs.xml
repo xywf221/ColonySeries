@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <TE_NeuralTrauma.label>神经提取创伤</TE_NeuralTrauma.label>
+  <TE_NeuralTrauma.labelNoun>神经提取创伤</TE_NeuralTrauma.labelNoun>
+  <TE_NeuralTrauma.description>侵入性人格图式提取造成的急性创伤。大脑重塑期间意识与操作能力受损。</TE_NeuralTrauma.description>
+  <TE_NeuralTrauma.stages.0.label>恢复中</TE_NeuralTrauma.stages.0.label>
+
+  <TE_NeuroAdaptation.label>神经适应</TE_NeuroAdaptation.label>
+  <TE_NeuroAdaptation.labelNoun>神经适应反应</TE_NeuroAdaptation.labelNoun>
+  <TE_NeuroAdaptation.description>大脑正在整合注入的人格图式。会引起恶心、意识模糊与短暂技能波动。</TE_NeuroAdaptation.description>
+  <TE_NeuroAdaptation.stages.0.label>适应中</TE_NeuroAdaptation.stages.0.label>
+
+  <TE_NeuralScar.label>神经提取疤痕</TE_NeuralScar.label>
+  <TE_NeuralScar.labelNoun>神经提取疤痕</TE_NeuralScar.labelNoun>
+  <TE_NeuralScar.description>激进提取在人格相关神经组织上留下的永久疤痕。轻微但持续的意识惩罚。</TE_NeuralScar.description>
+
+  <TE_ExtractionCooldown.label>神经恢复锁定</TE_ExtractionCooldown.label>
+  <TE_ExtractionCooldown.description>近期刚提取或注射过。在此消退前再做特性手术不安全。</TE_ExtractionCooldown.description>
+  <TE_ExtractionCooldown.stages.0.label>锁定中</TE_ExtractionCooldown.stages.0.label>
+</LanguageData>
