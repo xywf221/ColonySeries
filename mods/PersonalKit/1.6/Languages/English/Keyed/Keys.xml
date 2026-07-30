@@ -2,12 +2,63 @@
 <LanguageData>
   <PersonalKit_SettingsCategory>Personal Kit</PersonalKit_SettingsCategory>
 
-  <PersonalKit_Section_Trade>Trade</PersonalKit_Section_Trade>
-  <PersonalKit_TradePrice_Desc>RimWorld 1.6 caps TradePriceImprovement at about 40%. Older versions had no hard cap. Restore the uncapped behaviour, or set a custom ceiling.</PersonalKit_TradePrice_Desc>
-  <PersonalKit_TradePrice_Uncapped>No negotiation bonus cap (recommended, old-style)</PersonalKit_TradePrice_Uncapped>
-  <PersonalKit_TradePrice_UncappedTip>Uncheck to set a custom percentage cap.</PersonalKit_TradePrice_UncappedTip>
-  <PersonalKit_TradePrice_UncappedHint>Currently uncapped. Social skill and trait trade bonuses apply fully.</PersonalKit_TradePrice_UncappedHint>
-  <PersonalKit_TradePrice_Max>Negotiation bonus cap: {0}%</PersonalKit_TradePrice_Max>
-  <PersonalKit_ResetDefaults>Reset to mod defaults (uncapped)</PersonalKit_ResetDefaults>
-  <PersonalKit_RestoreVanillaCap>Restore vanilla 40% cap</PersonalKit_RestoreVanillaCap>
+  <PK_Sec_Trade>Trade</PK_Sec_Trade>
+  <PK_Sec_Skills>Skills</PK_Sec_Skills>
+  <PK_Sec_Social>Social</PK_Sec_Social>
+  <PK_Sec_Medical>Medical</PK_Sec_Medical>
+  <PK_Sec_Combat>Combat</PK_Sec_Combat>
+  <PK_Sec_Crafting>Crafting</PK_Sec_Crafting>
+  <PK_Sec_Misc>Misc</PK_Sec_Misc>
+
+  <!-- Trade -->
+  <PK_Trade_Enable>Enable trade negotiation cap override</PK_Trade_Enable>
+  <PK_Trade_EnableTip>When off, vanilla ~40% TradePriceImprovement cap is restored.</PK_Trade_EnableTip>
+  <PK_Trade_Uncapped>No negotiation bonus cap (old-style)</PK_Trade_Uncapped>
+  <PK_Trade_UncappedTip>Uncheck to set a custom percentage cap.</PK_Trade_UncappedTip>
+  <PK_Trade_UncappedHint>Currently uncapped. Social skill and trait trade bonuses apply fully.</PK_Trade_UncappedHint>
+  <PK_Trade_Max>Negotiation bonus cap: {0}%</PK_Trade_Max>
+  <PK_MinBuy_Enable>Enable buy-price floor override</PK_MinBuy_Enable>
+  <PK_MinBuy_EnableTip>When off, vanilla 50% minimum buy price is used.</PK_MinBuy_EnableTip>
+  <PK_MinBuy_Desc>Lower the floor so high negotiation can make traders pay you to take goods.</PK_MinBuy_Desc>
+  <PK_MinBuy_Label>Minimum buy price floor: {0}%</PK_MinBuy_Label>
+
+  <!-- Skills -->
+  <PK_SkillDecay_Enable>Enable skill decay override</PK_SkillDecay_Enable>
+  <PK_SkillDecay_EnableTip>When off, vanilla skill decay is used.</PK_SkillDecay_EnableTip>
+  <PK_SkillDecay_Label>Skill decay rate: {0}%</PK_SkillDecay_Label>
+  <PK_Passion_Enable>Enable passion / learning rate override</PK_Passion_Enable>
+  <PK_Passion_EnableTip>When off, vanilla learning rates are used.</PK_Passion_EnableTip>
+  <PK_Passion_Label>Passion / learning rate multiplier: {0}%</PK_Passion_Label>
+
+  <!-- Social -->
+  <PK_SocialFight_Enable>Enable social fight frequency override</PK_SocialFight_Enable>
+  <PK_SocialFight_EnableTip>When off, vanilla social fight chance is used.</PK_SocialFight_EnableTip>
+  <PK_SocialFight_Label>Social fight frequency: {0}%</PK_SocialFight_Label>
+  <PK_Recruit_Enable>Enable prisoner resistance reduction override</PK_Recruit_Enable>
+  <PK_Recruit_EnableTip>When off, vanilla resistance reduction per talk is used.</PK_Recruit_EnableTip>
+  <PK_Recruit_Label>Prisoner resistance reduction: {0}%</PK_Recruit_Label>
+
+  <!-- Medical -->
+  <PK_Surgery_Enable>Enable surgery success floor</PK_Surgery_Enable>
+  <PK_Surgery_EnableTip>When off, vanilla surgery success rolls are used.</PK_Surgery_EnableTip>
+  <PK_Surgery_Label>Surgery success floor: {0}%</PK_Surgery_Label>
+
+  <!-- Combat -->
+  <PK_KeepWeapon>Keep equipped weapon when downed</PK_KeepWeapon>
+  <PK_KeepWeaponTip>Player pawns recover primary weapon into inventory when downed. Off = vanilla drop.</PK_KeepWeaponTip>
+  <PK_ShuttleTarget>Shuttle is a valid attack target</PK_ShuttleTarget>
+  <PK_ShuttleTargetTip>Enemies target passenger shuttles at building priority. Off = vanilla (rarely targeted). Reload may be needed after toggling.</PK_ShuttleTargetTip>
+
+  <!-- Crafting -->
+  <PK_Quality_Enable>Enable crafting quality floor</PK_Quality_Enable>
+  <PK_Quality_EnableTip>When off, vanilla random quality rolls are used.</PK_Quality_EnableTip>
+  <PK_Quality_Label>Minimum crafting quality: {0}</PK_Quality_Label>
+
+  <!-- Misc -->
+  <PK_Inspiration_Enable>Enable inspiration frequency override</PK_Inspiration_Enable>
+  <PK_Inspiration_EnableTip>When off, vanilla inspiration MTB is used.</PK_Inspiration_EnableTip>
+  <PK_Inspiration_Label>Inspiration frequency: {0}%</PK_Inspiration_Label>
+
+  <PK_ResetDefaults>Reset to defaults</PK_ResetDefaults>
+  <PK_DisableAll>Disable all overrides (vanilla)</PK_DisableAll>
 </LanguageData>

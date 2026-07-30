@@ -2,12 +2,63 @@
 <LanguageData>
   <PersonalKit_SettingsCategory>个人小工具</PersonalKit_SettingsCategory>
 
-  <PersonalKit_Section_Trade>交易</PersonalKit_Section_Trade>
-  <PersonalKit_TradePrice_Desc>原版 1.6 将「交易价格改善」(TradePriceImprovement) 的上限锁在约 40%。更早版本没有这个硬顶。可在此恢复无上限，或自定义上限。</PersonalKit_TradePrice_Desc>
-  <PersonalKit_TradePrice_Uncapped>不设谈判加成上限（推荐，接近旧版）</PersonalKit_TradePrice_Uncapped>
-  <PersonalKit_TradePrice_UncappedTip>关闭后可手动指定百分比上限。</PersonalKit_TradePrice_UncappedTip>
-  <PersonalKit_TradePrice_UncappedHint>当前：无上限。社交技能与特质带来的交易加成可完整生效。</PersonalKit_TradePrice_UncappedHint>
-  <PersonalKit_TradePrice_Max>谈判加成上限：{0}%</PersonalKit_TradePrice_Max>
-  <PersonalKit_ResetDefaults>恢复本模组默认（无上限）</PersonalKit_ResetDefaults>
-  <PersonalKit_RestoreVanillaCap>恢复原版 40% 上限</PersonalKit_RestoreVanillaCap>
+  <PK_Sec_Trade>交易</PK_Sec_Trade>
+  <PK_Sec_Skills>技能</PK_Sec_Skills>
+  <PK_Sec_Social>社交</PK_Sec_Social>
+  <PK_Sec_Medical>医疗</PK_Sec_Medical>
+  <PK_Sec_Combat>战斗</PK_Sec_Combat>
+  <PK_Sec_Crafting>制作</PK_Sec_Crafting>
+  <PK_Sec_Misc>杂项</PK_Sec_Misc>
+
+  <!-- 交易 -->
+  <PK_Trade_Enable>启用交易谈判上限覆盖</PK_Trade_Enable>
+  <PK_Trade_EnableTip>关闭后恢复原版约 40% 的 TradePriceImprovement 硬顶。</PK_Trade_EnableTip>
+  <PK_Trade_Uncapped>不设谈判加成上限（接近旧版）</PK_Trade_Uncapped>
+  <PK_Trade_UncappedTip>关闭后可手动指定百分比上限。</PK_Trade_UncappedTip>
+  <PK_Trade_UncappedHint>当前：无上限。社交技能与特质带来的交易加成可完整生效。</PK_Trade_UncappedHint>
+  <PK_Trade_Max>谈判加成上限：{0}%</PK_Trade_Max>
+  <PK_MinBuy_Enable>启用买入价地板覆盖</PK_MinBuy_Enable>
+  <PK_MinBuy_EnableTip>关闭后恢复原版 50% 买入价下限。</PK_MinBuy_EnableTip>
+  <PK_MinBuy_Desc>降低地板价，让高谈判技能下买东西时对面甚至倒贴钱。</PK_MinBuy_Desc>
+  <PK_MinBuy_Label>买入价地板：{0}%</PK_MinBuy_Label>
+
+  <!-- 技能 -->
+  <PK_SkillDecay_Enable>启用技能衰减覆盖</PK_SkillDecay_Enable>
+  <PK_SkillDecay_EnableTip>关闭后使用原版技能衰减。</PK_SkillDecay_EnableTip>
+  <PK_SkillDecay_Label>技能衰减速率：{0}%</PK_SkillDecay_Label>
+  <PK_Passion_Enable>启用激情 / 学习速率覆盖</PK_Passion_Enable>
+  <PK_Passion_EnableTip>关闭后使用原版学习速率。</PK_Passion_EnableTip>
+  <PK_Passion_Label>激情 / 学习速率倍率：{0}%</PK_Passion_Label>
+
+  <!-- 社交 -->
+  <PK_SocialFight_Enable>启用社交冲突频率覆盖</PK_SocialFight_Enable>
+  <PK_SocialFight_EnableTip>关闭后使用原版社交打架概率。</PK_SocialFight_EnableTip>
+  <PK_SocialFight_Label>社交冲突频率：{0}%</PK_SocialFight_Label>
+  <PK_Recruit_Enable>启用囚犯抗性削减覆盖</PK_Recruit_Enable>
+  <PK_Recruit_EnableTip>关闭后使用原版每次谈话削减的抗性。</PK_Recruit_EnableTip>
+  <PK_Recruit_Label>囚犯抗性削减：{0}%</PK_Recruit_Label>
+
+  <!-- 医疗 -->
+  <PK_Surgery_Enable>启用手术成功率保底</PK_Surgery_Enable>
+  <PK_Surgery_EnableTip>关闭后使用原版手术成功率判定。</PK_Surgery_EnableTip>
+  <PK_Surgery_Label>手术成功率保底：{0}%</PK_Surgery_Label>
+
+  <!-- 战斗 -->
+  <PK_KeepWeapon>倒地时保留装备武器</PK_KeepWeapon>
+  <PK_KeepWeaponTip>己方殖民者倒地时主武器收入背包。关闭 = 原版掉落。</PK_KeepWeaponTip>
+  <PK_ShuttleTarget>穿梭机可被敌人锁定</PK_ShuttleTarget>
+  <PK_ShuttleTargetTip>敌人将客用穿梭机视为合法目标，优先级与建筑相同。关闭 = 原版（几乎不锁）。切换后可能需重载。</PK_ShuttleTargetTip>
+
+  <!-- 制作 -->
+  <PK_Quality_Enable>启用制作品质下限</PK_Quality_Enable>
+  <PK_Quality_EnableTip>关闭后使用原版随机品质判定。</PK_Quality_EnableTip>
+  <PK_Quality_Label>制作品质下限：{0}</PK_Quality_Label>
+
+  <!-- 杂项 -->
+  <PK_Inspiration_Enable>启用灵感频率覆盖</PK_Inspiration_Enable>
+  <PK_Inspiration_EnableTip>关闭后使用原版灵感触发间隔。</PK_Inspiration_EnableTip>
+  <PK_Inspiration_Label>灵感触发频率：{0}%</PK_Inspiration_Label>
+
+  <PK_ResetDefaults>恢复默认</PK_ResetDefaults>
+  <PK_DisableAll>全部关闭（纯原版）</PK_DisableAll>
 </LanguageData>

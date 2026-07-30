@@ -6,6 +6,6 @@
   <PropertyGroup>
     <AssemblyName>PersonalKit</AssemblyName>
     <RootNamespace>PersonalKit</RootNamespace>
-    <ColonySeriesNeedsHarmony>false</ColonySeriesNeedsHarmony>
+    <ColonySeriesNeedsHarmony>true</ColonySeriesNeedsHarmony>
   </PropertyGroup>
 </Project>

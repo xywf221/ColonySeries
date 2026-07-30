@@ -3,7 +3,7 @@
   "series": "ColonySeries",
   "game": "RimWorld",
   "targetVersion": "1.6",
-  "generated": "2026-07-28",
+  "generated": "2026-07-30",
   "packCount": 14,
   "packs": [
     {
@@ -88,10 +88,10 @@
       "name": "个人小工具 PersonalKit",
       "packageId": "personal.kit",
       "author": "ColonySeries",
-      "needsHarmony": false,
+      "needsHarmony": true,
       "hasDll": true,
       "hasCsproj": true,
-      "hasDeviations": false,
+      "hasDeviations": true,
       "path": "mods/PersonalKit"
     },
     {
