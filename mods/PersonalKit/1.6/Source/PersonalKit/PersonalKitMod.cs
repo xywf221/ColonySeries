@@ -218,9 +218,8 @@ namespace PersonalKit
 
         public static void ApplyShuttleAsAttackTarget()
         {
-            // Odyssey / Royalty shuttle building. Skip if DLC/def absent.
-            ThingDef shuttleDef = DefDatabase<ThingDef>.GetNamedSilentFail("Shuttle")
-                                  ?? DefDatabase<ThingDef>.GetNamedSilentFail("PassengerShuttle");
+            // Odyssey player craftable shuttle. Imperial "Shuttle" is a different Building.
+            ThingDef shuttleDef = DefDatabase<ThingDef>.GetNamedSilentFail("PassengerShuttle");
             if (shuttleDef == null) return;
             if (shuttleDef.thingClass != typeof(Building_PassengerShuttle)
                 && shuttleDef.thingClass != typeof(Building_PassengerShuttle_Aggro))

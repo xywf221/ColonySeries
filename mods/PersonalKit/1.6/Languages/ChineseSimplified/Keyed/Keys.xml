@@ -56,8 +56,8 @@
 
   <!-- 杂项 -->
   <PK_Inspiration_Enable>启用灵感频率覆盖</PK_Inspiration_Enable>
-  <PK_Inspiration_EnableTip>关闭后使用原版灵感触发间隔。</PK_Inspiration_EnableTip>
-  <PK_Inspiration_Label>灵感触发频率：{0}%</PK_Inspiration_Label>
+  <PK_Inspiration_EnableTip>关闭后使用原版灵感触发间隔。百分比越高 = 触发越频繁（MTB 越短）。</PK_Inspiration_EnableTip>
+  <PK_Inspiration_Label>灵感触发频率倍率：{0}%（越高越常触发）</PK_Inspiration_Label>
 
   <PK_ResetDefaults>恢复默认</PK_ResetDefaults>
   <PK_DisableAll>全部关闭（纯原版）</PK_DisableAll>

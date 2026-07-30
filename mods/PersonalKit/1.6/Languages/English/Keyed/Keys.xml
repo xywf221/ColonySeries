@@ -56,8 +56,8 @@
 
   <!-- Misc -->
   <PK_Inspiration_Enable>Enable inspiration frequency override</PK_Inspiration_Enable>
-  <PK_Inspiration_EnableTip>When off, vanilla inspiration MTB is used.</PK_Inspiration_EnableTip>
-  <PK_Inspiration_Label>Inspiration frequency: {0}%</PK_Inspiration_Label>
+  <PK_Inspiration_EnableTip>When off, vanilla inspiration MTB is used. Higher % = more frequent (shorter MTB).</PK_Inspiration_EnableTip>
+  <PK_Inspiration_Label>Inspiration frequency mult: {0}% (higher = more often)</PK_Inspiration_Label>
 
   <PK_ResetDefaults>Reset to defaults</PK_ResetDefaults>
   <PK_DisableAll>Disable all overrides (vanilla)</PK_DisableAll>

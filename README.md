@@ -114,7 +114,7 @@ ColonySeries/
 ```
 
 - `TargetFramework=net472`、输出到 `1.6/Assemblies/`、游戏程序集引用 → `Directory.Build.*`
-- `ColonySeriesNeedsHarmony=false` 仅用于无 Harmony 代码的包（PersonalKit、TraitExtractor）
+- `ColonySeriesNeedsHarmony=false` 仅用于无 Harmony 代码的包（现：TraitExtractor）
 - RimWorldDir 解析：`-p` / `RIMWORLD_DIR` / 同级游戏根 / 部署后的四级上溯
 
 ---

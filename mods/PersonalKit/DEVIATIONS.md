@@ -17,7 +17,7 @@ PersonalKit 需要 Harmony 来 patch 多个原版方法。About.xml 声明了 `b
 | 7 | `Recipe_Surgery.CheckSurgeryFail` | Prefix | 按保底概率强制成功（跳过失败判定） |
 | 8 | `Pawn_HealthTracker.MakeDowned` | Postfix | 倒地后将 `droppedWeapon` 收回背包并清空引用 |
 | 9 | `QualityUtility.GenerateQualityCreatedByPawn(int,bool)` | Postfix | 强制最低制作品质 |
-| 10 | ThingDef.thingClass swap | runtime | Shuttle → `Building_PassengerShuttle_Aggro`（`IAttackTarget`，0.4f） |
+| 10 | ThingDef.thingClass swap | runtime | Odyssey `PassengerShuttle` → `Building_PassengerShuttle_Aggro`（`IAttackTarget`，0.4f） |
 
 ### 设计说明
 

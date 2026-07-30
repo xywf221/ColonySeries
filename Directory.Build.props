@@ -5,7 +5,7 @@
 
     Per-mod csproj should ONLY set:
       AssemblyName, RootNamespace
-      optional: ColonySeriesNeedsHarmony=false (PersonalKit, TraitExtractor)
+      optional: ColonySeriesNeedsHarmony=false (TraitExtractor only)
   -->
 
   <PropertyGroup>

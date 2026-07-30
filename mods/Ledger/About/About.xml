@@ -9,8 +9,8 @@
   <description>
 Ledger v2 — colony credit &amp; debt leverage.
 
-Open debt when silver runs short, repay or extend from colonist gizmos, default burns credit and goodwill.
-No power tax. No permanent global markup. Reserve mood opt-in only.
+Draw Credit from colonist gizmos (spawn silver, open dated debt), then repay or extend.
+Default on debt burns credit and goodwill. No power tax. No permanent global markup. Reserve mood opt-in only.
   </description>
   <modDependencies>
     <li>

@@ -336,7 +336,14 @@ namespace Ledger
                 return false;
             }
 
-            ConsumeSilver(map, d.amount);
+            // Consume first; only clear debt if fully paid (CountSilver and Consume must agree).
+            if (!ConsumeSilver(map, d.amount))
+            {
+                Messages.Message("LD_Msg_NeedSilver".Translate(d.amount, CountSilver(map)),
+                    MessageTypeDefOf.RejectInput, historical: false);
+                return false;
+            }
+
             debts.Remove(d);
             AdjustCredit(4f + Mathf.Min(6f, d.amount / 100f));
             Faction f = d.Faction;
@@ -511,25 +518,30 @@ namespace Ledger
                 return 0;
             }
 
-            // Prefer resourceCounter (colony-counted) then fall back to lister sum.
-            int counted = map.resourceCounter.GetCount(ThingDefOf.Silver);
-            if (counted > 0)
-            {
-                return counted;
-            }
-
+            // Same source as ConsumeSilver so UI and repay cannot desync.
             int sum = 0;
             List<Thing> list = map.listerThings.ThingsOfDef(ThingDefOf.Silver);
             for (int i = 0; i < list.Count; i++)
             {
-                sum += list[i].stackCount;
+                Thing t = list[i];
+                if (t == null || t.Destroyed || t.stackCount <= 0)
+                {
+                    continue;
+                }
+                sum += t.stackCount;
             }
 
             return sum;
         }
 
-        public static void ConsumeSilver(Map map, int amount)
+        /// <summary>Destroy silver stacks until amount is paid. Returns false if short.</summary>
+        public static bool ConsumeSilver(Map map, int amount)
         {
+            if (map == null || amount <= 0)
+            {
+                return amount <= 0;
+            }
+
             int left = amount;
             List<Thing> list = map.listerThings.ThingsOfDef(ThingDefOf.Silver).ToList();
             // Prefer unforbidden stacks first
@@ -553,12 +565,20 @@ namespace Ledger
                 }
 
                 Thing t = list[i];
+                if (t == null || t.Destroyed || t.stackCount <= 0)
+                {
+                    continue;
+                }
+
                 int take = Mathf.Min(left, t.stackCount);
                 t.SplitOff(take).Destroy(DestroyMode.Vanish);
                 left -= take;
             }
+
+            return left <= 0;
         }
 
+        /// <summary>Spawn silver in legal stacks (stackLimit chunks) near actor.</summary>
         public static bool SpawnSilverNear(Map map, int amount, Pawn actor)
         {
             if (map == null || amount <= 0)
@@ -566,8 +586,6 @@ namespace Ledger
                 return false;
             }
 
-            Thing silver = ThingMaker.MakeThing(ThingDefOf.Silver);
-            silver.stackCount = amount;
             IntVec3 cell = actor != null && actor.Spawned && actor.Map == map
                 ? actor.Position
                 : map.Center;
@@ -576,7 +594,43 @@ namespace Ledger
                 cell = map.Center;
             }
 
-            return GenPlace.TryPlaceThing(silver, cell, map, ThingPlaceMode.Near);
+            int stackLimit = ThingDefOf.Silver.stackLimit;
+            if (stackLimit <= 0)
+            {
+                stackLimit = 75;
+            }
+
+            int left = amount;
+            int placed = 0;
+            while (left > 0)
+            {
+                int chunk = Mathf.Min(left, stackLimit);
+                Thing silver = ThingMaker.MakeThing(ThingDefOf.Silver);
+                silver.stackCount = chunk;
+                if (!GenPlace.TryPlaceThing(silver, cell, map, ThingPlaceMode.Near))
+                {
+                    // Best-effort: destroy any already-placed chunks on total failure of first chunk.
+                    if (placed == 0)
+                    {
+                        if (!silver.Destroyed)
+                        {
+                            silver.Destroy(DestroyMode.Vanish);
+                        }
+                        return false;
+                    }
+                    // Partial place: still return true if some silver landed; caller already opened debt.
+                    // Prefer not to leave zero silver after debt.
+                    if (placed < amount / 2)
+                    {
+                        return false;
+                    }
+                    break;
+                }
+                placed += chunk;
+                left -= chunk;
+            }
+
+            return placed > 0;
         }
 
         public static Faction PickCreditorFaction()

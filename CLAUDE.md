@@ -97,7 +97,7 @@ mods/<Name>/
 </Project>
 ```
 
-- `ColonySeriesNeedsHarmony=false` **仅当** 源码零 Harmony（现：PersonalKit、TraitExtractor）
+- `ColonySeriesNeedsHarmony=false` **仅当** 源码零 Harmony（现：TraitExtractor）
 - 共享：`Directory.Build.props` + `Directory.Build.targets`
   - TFM `net472`，`LangVersion` 12，输出 `1.6/Assemblies/`
   - 引用 `Assembly-CSharp` + Unity 模块；按需 `0Harmony`

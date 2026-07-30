@@ -47,7 +47,7 @@ ColonySeries/
 ```
 
 Set `ColonySeriesNeedsHarmony` to `false` only when the pack has **zero**
-`HarmonyLib` / `Harmony(` usage (today: PersonalKit, TraitExtractor).
+`HarmonyLib` / `Harmony(` usage (today: TraitExtractor).
 
 **Do not** re-declare `TargetFramework`, `OutputPath`, or game references in
 the csproj — they come from `Directory.Build.*`.
