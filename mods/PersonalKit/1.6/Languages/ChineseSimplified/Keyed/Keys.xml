@@ -40,8 +40,8 @@
 
   <!-- 医疗 -->
   <PK_Surgery_Enable>启用手术成功率保底</PK_Surgery_Enable>
-  <PK_Surgery_EnableTip>关闭后使用原版手术成功率判定。</PK_Surgery_EnableTip>
-  <PK_Surgery_Label>手术成功率保底：{0}%</PK_Surgery_Label>
+  <PK_Surgery_EnableTip>关闭后使用原版手术成功率判定。开启后：每次手术有该概率强制成功，剩余概率仍走原版判定。</PK_Surgery_EnableTip>
+  <PK_Surgery_Label>手术强制成功概率：{0}%</PK_Surgery_Label>
 
   <!-- 战斗 -->
   <PK_KeepWeapon>倒地时保留装备武器</PK_KeepWeapon>

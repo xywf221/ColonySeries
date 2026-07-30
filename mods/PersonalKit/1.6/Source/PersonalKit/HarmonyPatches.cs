@@ -30,6 +30,7 @@ namespace PersonalKit
             bool patched = false;
             foreach (CodeInstruction instr in instructions)
             {
+                // Only replace the first 0.5f — the MinimumBuyPrice clamp.
                 if (!patched && instr.opcode == OpCodes.Ldc_R4 && instr.operand is float f && f == 0.5f)
                 {
                     yield return new CodeInstruction(
@@ -44,7 +45,7 @@ namespace PersonalKit
     }
 
     // ══════════════════════════════════════════════════════════════════
-    //  2. Skill Decay Rate
+    //  2. Skill Decay Rate — scale negative XP from decay only
     // ══════════════════════════════════════════════════════════════════
     [HarmonyPatch(typeof(SkillRecord), nameof(SkillRecord.Learn))]
     public static class Patch_SkillRecord_Learn
@@ -53,6 +54,7 @@ namespace PersonalKit
         {
             PersonalKitSettings s = PersonalKitMod.Settings;
             if (s == null || !s.enableSkillDecay) return;
+            // Decay is negative XP from SkillRecord.Interval (direct=false).
             if (xp < 0f && !direct)
             {
                 xp *= s.skillDecayRateMult;
@@ -61,7 +63,7 @@ namespace PersonalKit
     }
 
     // ══════════════════════════════════════════════════════════════════
-    //  3. Passion / learning rate
+    //  3. Passion / learning rate multiplier
     // ══════════════════════════════════════════════════════════════════
     [HarmonyPatch(typeof(SkillRecord), nameof(SkillRecord.LearnRateFactor))]
     public static class Patch_SkillRecord_LearnRateFactor
@@ -92,7 +94,7 @@ namespace PersonalKit
     }
 
     // ══════════════════════════════════════════════════════════════════
-    //  5. Inspiration Frequency
+    //  5. Inspiration Frequency (MTB ÷ mult → higher mult = more frequent)
     // ══════════════════════════════════════════════════════════════════
     [HarmonyPatch(typeof(InspirationHandler), "get_StartInspirationMTBDays")]
     public static class Patch_InspirationMTB
@@ -112,45 +114,40 @@ namespace PersonalKit
 
     // ══════════════════════════════════════════════════════════════════
     //  6. Prisoner Recruitment — scale resistance reduction
+    //     Robust Prefix/Postfix (no fragile IL match on guest.resistance).
+    //     After vanilla reduces resistance by R, we adjust so net reduction
+    //     is R * recruitMult.
     // ══════════════════════════════════════════════════════════════════
     [HarmonyPatch(typeof(InteractionWorker_RecruitAttempt), nameof(InteractionWorker_RecruitAttempt.Interacted))]
     public static class Patch_RecruitResistance
     {
-        /// <summary>Called from patched IL. Returns 1 when feature disabled.</summary>
-        public static float GetRecruitMult()
+        public static void Prefix(Pawn recipient, out float __state)
         {
-            return PersonalKitMod.Settings?.EffectiveRecruitMult ?? 1f;
+            __state = recipient?.guest?.resistance ?? -1f;
         }
 
-        public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        public static void Postfix(Pawn recipient, float __state)
         {
-            var list = new List<CodeInstruction>(instructions);
+            PersonalKitSettings s = PersonalKitMod.Settings;
+            if (s == null || !s.enableRecruit) return;
+            if (__state < 0f || recipient?.guest == null) return;
 
-            for (int i = 0; i < list.Count - 3; i++)
-            {
-                if (list[i].opcode == OpCodes.Ldfld
-                    && list[i].operand is FieldInfo fi1 && fi1.Name == "guest"
-                    && list[i + 1].opcode == OpCodes.Ldfld
-                    && list[i + 1].operand is FieldInfo fi2 && fi2.Name == "resistance")
-                {
-                    // Insert: call GetRecruitMult, mul  (on top of num5 before guest.resistance load for Min)
-                    var injected = new List<CodeInstruction>
-                    {
-                        new CodeInstruction(
-                            OpCodes.Call,
-                            AccessTools.Method(typeof(Patch_RecruitResistance), nameof(GetRecruitMult))),
-                        new CodeInstruction(OpCodes.Mul)
-                    };
-                    list.InsertRange(i, injected);
-                    break;
-                }
-            }
-            return list;
+            float mult = s.recruitMult;
+            if (Mathf.Abs(mult - 1f) < 0.001f) return;
+
+            // Vanilla reduced resistance by (before - after). Scale that delta.
+            float reduced = __state - recipient.guest.resistance;
+            if (reduced <= 0f) return; // no reduction happened (tame path / inspired / etc.)
+
+            float extra = reduced * (mult - 1f);
+            recipient.guest.resistance = Mathf.Max(0f, recipient.guest.resistance - extra);
         }
     }
 
     // ══════════════════════════════════════════════════════════════════
     //  7. Surgery Success Floor
+    //     "Floor" here = chance to force success (skip fail check).
+    //     Remaining probability still uses vanilla outcome.
     // ══════════════════════════════════════════════════════════════════
     [HarmonyPatch(typeof(Recipe_Surgery), "CheckSurgeryFail")]
     public static class Patch_SurgeryFloor
@@ -171,7 +168,9 @@ namespace PersonalKit
     }
 
     // ══════════════════════════════════════════════════════════════════
-    //  8. Keep Weapon on Down
+    //  8. Keep Weapon on Down — move dropped primary into inventory
+    //     MakeDowned clears then re-sets mindState.droppedWeapon via
+    //     DropAndForbidEverything(rememberPrimary: true). Postfix runs after.
     // ══════════════════════════════════════════════════════════════════
     [HarmonyPatch(typeof(Pawn_HealthTracker), "MakeDowned")]
     public static class Patch_KeepWeaponOnDown
@@ -183,18 +182,28 @@ namespace PersonalKit
             PersonalKitSettings s = PersonalKitMod.Settings;
             if (s == null || !s.keepWeaponOnDown) return;
 
-            Pawn pawn = PawnField.GetValue(__instance) as Pawn;
-            if (pawn?.Faction != Faction.OfPlayer) return;
-            if (pawn.inventory == null) return;
+            Pawn pawn = PawnField?.GetValue(__instance) as Pawn;
+            if (pawn == null || pawn.Faction != Faction.OfPlayer) return;
+            if (pawn.inventory?.innerContainer == null) return;
+            if (pawn.mindState == null) return;
 
-            Thing weapon = pawn.mindState?.droppedWeapon;
+            Thing weapon = pawn.mindState.droppedWeapon;
             if (weapon == null || weapon.Destroyed || !weapon.Spawned) return;
+            // Must be on same map (paranoia).
+            if (weapon.Map != pawn.MapHeld) return;
+
+            // Unforbid so it is usable from inventory later.
+            if (weapon.TryGetComp<CompForbiddable>() is CompForbiddable forbid && forbid.Forbidden)
+            {
+                forbid.Forbidden = false;
+            }
 
             weapon.DeSpawn();
             if (!pawn.inventory.innerContainer.TryAdd(weapon))
             {
                 GenPlace.TryPlaceThing(weapon, pawn.PositionHeld, pawn.MapHeld, ThingPlaceMode.Near);
             }
+            // Clear so JobGiver_PickupDroppedWeapon does not try to re-equip from ground.
             pawn.mindState.droppedWeapon = null;
         }
     }

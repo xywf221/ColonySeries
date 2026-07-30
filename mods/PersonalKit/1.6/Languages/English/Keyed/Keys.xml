@@ -40,8 +40,8 @@
 
   <!-- Medical -->
   <PK_Surgery_Enable>Enable surgery success floor</PK_Surgery_Enable>
-  <PK_Surgery_EnableTip>When off, vanilla surgery success rolls are used.</PK_Surgery_EnableTip>
-  <PK_Surgery_Label>Surgery success floor: {0}%</PK_Surgery_Label>
+  <PK_Surgery_EnableTip>When off, vanilla surgery success rolls are used. When on: each surgery has this chance to force success; the rest still uses vanilla.</PK_Surgery_EnableTip>
+  <PK_Surgery_Label>Surgery force-success chance: {0}%</PK_Surgery_Label>
 
   <!-- Combat -->
   <PK_KeepWeapon>Keep equipped weapon when downed</PK_KeepWeapon>

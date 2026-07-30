@@ -218,23 +218,26 @@ namespace PersonalKit
 
         public static void ApplyShuttleAsAttackTarget()
         {
-            ThingDef shuttleDef = DefDatabase<ThingDef>.GetNamed("Shuttle", false);
+            // Odyssey / Royalty shuttle building. Skip if DLC/def absent.
+            ThingDef shuttleDef = DefDatabase<ThingDef>.GetNamedSilentFail("Shuttle")
+                                  ?? DefDatabase<ThingDef>.GetNamedSilentFail("PassengerShuttle");
             if (shuttleDef == null) return;
+            if (shuttleDef.thingClass != typeof(Building_PassengerShuttle)
+                && shuttleDef.thingClass != typeof(Building_PassengerShuttle_Aggro))
+            {
+                // Another mod already replaced the class — do not stomp.
+                return;
+            }
 
             if (Settings != null && Settings.shuttleAsAttackTarget)
             {
-                if (shuttleDef.thingClass == typeof(Building_PassengerShuttle))
-                {
-                    shuttleDef.thingClass = typeof(Building_PassengerShuttle_Aggro);
-                }
+                shuttleDef.thingClass = typeof(Building_PassengerShuttle_Aggro);
             }
             else
             {
-                // Restore vanilla class when disabled (existing spawned instances keep their type until reload).
-                if (shuttleDef.thingClass == typeof(Building_PassengerShuttle_Aggro))
-                {
-                    shuttleDef.thingClass = typeof(Building_PassengerShuttle);
-                }
+                // Restore vanilla class when disabled.
+                // Already-spawned instances keep their runtime type until map reload.
+                shuttleDef.thingClass = typeof(Building_PassengerShuttle);
             }
         }
     }
