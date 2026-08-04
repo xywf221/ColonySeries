@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Restores old-style extract: surgery lowers psylink by 1 and yields a neuroformer.
+       Availability is gated in Recipe_ExtractPsylinkLevel.AvailableOnNow (PersonalKit setting).
+       MayRequire: Core ships PsychicAmplifier under Royalty|Biotech. -->
+  <RecipeDef MayRequireAnyOf="Ludeon.RimWorld.Royalty,Ludeon.RimWorld.Biotech" ParentName="SurgeryRemoveImplantBase">
+    <defName>PK_ExtractPsylinkLevel</defName>
+    <label>extract psylink level</label>
+    <description>Surgically reduce the patient's psylink by one level and recover a psylink neuroformer. Level 6 becomes 5, and so on; extracting the last level removes the psylink entirely.</description>
+    <descriptionHyperlinks>
+      <ThingDef>PsychicAmplifier</ThingDef>
+      <HediffDef>PsychicAmplifier</HediffDef>
+    </descriptionHyperlinks>
+    <workerClass>PersonalKit.Recipe_ExtractPsylinkLevel</workerClass>
+    <jobString>Extracting psylink level.</jobString>
+    <workAmount>2500</workAmount>
+    <surgerySuccessChanceFactor>1</surgerySuccessChanceFactor>
+    <skillRequirements>
+      <Medicine>8</Medicine>
+    </skillRequirements>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>Medicine</li>
+          </categories>
+        </filter>
+        <count>2</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+    </fixedIngredientFilter>
+  </RecipeDef>
+
+</Defs>

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Reflection;
 using HarmonyLib;
 using RimWorld;
@@ -13,6 +14,7 @@ namespace PersonalKit
 
         public const float VanillaTradePriceMax = 0.395f;
         public const float VanillaMinBuyPrice = 0.5f;
+        public const float VanillaHarmonizerRange = 30f;
 
         public PersonalKitMod(ModContentPack content) : base(content)
         {
@@ -27,7 +29,7 @@ namespace PersonalKit
         public override void DoSettingsWindowContents(Rect inRect)
         {
             Rect scrollOuter = new Rect(inRect.x, inRect.y, inRect.width, inRect.height - 36f);
-            Rect view = new Rect(0f, 0f, scrollOuter.width - 20f, 2200f);
+            Rect view = new Rect(0f, 0f, scrollOuter.width - 20f, 2500f);
             Widgets.BeginScrollView(scrollOuter, ref settingsScroll, view);
 
             Listing_Standard listing = new Listing_Standard();
@@ -152,6 +154,44 @@ namespace PersonalKit
                 Settings.qualityFloor = qRaw;
             }
 
+            // ── Psychic / Royalty ──
+            listing.Gap(12f);
+            listing.Label("PK_Sec_Psychic".Translate().Colorize(ColoredText.TipSectionTitleColor));
+            listing.GapLine();
+
+            listing.CheckboxLabeled("PK_HarmonizerRange_Enable".Translate(), ref Settings.enableHarmonizerRange,
+                "PK_HarmonizerRange_EnableTip".Translate());
+            if (Settings.enableHarmonizerRange)
+            {
+                listing.Label("PK_HarmonizerRange_Label".Translate(Settings.harmonizerRange.ToString("F0")));
+                Settings.harmonizerRange = listing.Slider(Settings.harmonizerRange, 5f, 500f);
+            }
+
+            listing.Gap(4f);
+            listing.CheckboxLabeled("PK_HarmonizerMood_Enable".Translate(), ref Settings.enableHarmonizerMood,
+                "PK_HarmonizerMood_EnableTip".Translate());
+            if (Settings.enableHarmonizerMood)
+            {
+                listing.Label("PK_HarmonizerMood_Label".Translate((Settings.harmonizerMoodMult * 100f).ToString("F0")));
+                Settings.harmonizerMoodMult = listing.Slider(Settings.harmonizerMoodMult, 0f, 10f);
+            }
+
+            listing.Gap(4f);
+            listing.CheckboxLabeled("PK_HarmonizerStack".Translate(), ref Settings.harmonizerAllowStack,
+                "PK_HarmonizerStackTip".Translate());
+
+            listing.Gap(4f);
+            listing.CheckboxLabeled("PK_ExtractPsylink".Translate(), ref Settings.extractPsylinkLevel,
+                "PK_ExtractPsylinkTip".Translate());
+
+            // ── Ideology ──
+            listing.Gap(12f);
+            listing.Label("PK_Sec_Ideology".Translate().Colorize(ColoredText.TipSectionTitleColor));
+            listing.GapLine();
+
+            listing.CheckboxLabeled("PK_DisableMorbidStyle".Translate(), ref Settings.disableMorbidStyle,
+                "PK_DisableMorbidStyleTip".Translate());
+
             // ── Misc ──
             listing.Gap(12f);
             listing.Label("PK_Sec_Misc".Translate().Colorize(ColoredText.TipSectionTitleColor));
@@ -187,6 +227,82 @@ namespace PersonalKit
         {
             ApplyTradePriceImprovementCap();
             ApplyShuttleAsAttackTarget();
+            ApplyHarmonizerRange();
+            ApplyMorbidStyleBlock();
+        }
+
+        /// <summary>
+        /// When disableMorbidStyle is on: drop cached Morbid styles on ideos and
+        /// clear StyleDef on already-spawned things that use the Morbid category.
+        /// Vanilla path (no mod): Ideology → edit ideoligion → style categories.
+        /// </summary>
+        public static void ApplyMorbidStyleBlock()
+        {
+            if (!ModsConfig.IdeologyActive) return;
+            if (Settings == null || !Settings.disableMorbidStyle) return;
+            if (Find.IdeoManager == null) return;
+
+            StyleCategoryDef morbid = DefDatabase<StyleCategoryDef>.GetNamedSilentFail("Morbid");
+            if (morbid?.thingDefStyles == null) return;
+
+            foreach (Ideo ideo in Find.IdeoManager.IdeosListForReading)
+            {
+                if (ideo?.style == null) continue;
+                for (int i = 0; i < morbid.thingDefStyles.Count; i++)
+                {
+                    ThingDef td = morbid.thingDefStyles[i].ThingDef;
+                    if (td != null)
+                    {
+                        ideo.style.ResetStyleForThing(td);
+                    }
+                }
+            }
+
+            if (Current.ProgramState != ProgramState.Playing || Find.Maps == null) return;
+
+            // One-shot settings apply — not a hot path.
+            for (int m = 0; m < Find.Maps.Count; m++)
+            {
+                Map map = Find.Maps[m];
+                if (map?.listerThings?.AllThings == null) continue;
+                List<Thing> all = map.listerThings.AllThings;
+                for (int i = 0; i < all.Count; i++)
+                {
+                    Thing t = all[i];
+                    ThingStyleDef style = t.StyleDef;
+                    if (style == null) continue;
+                    if (style.Category == morbid || (style.Category != null && style.Category.defName == "Morbid"))
+                    {
+                        t.StyleDef = null;
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Mutate PsychicHarmonizer hediff comp range (vanilla 30). Affects both
+        /// application and Thought_PsychicHarmonizer.ShouldDiscard distance checks.
+        /// </summary>
+        public static void ApplyHarmonizerRange()
+        {
+            HediffDef def = DefDatabase<HediffDef>.GetNamedSilentFail("PsychicHarmonizer");
+            if (def?.comps == null) return;
+
+            for (int i = 0; i < def.comps.Count; i++)
+            {
+                if (def.comps[i] is HediffCompProperties_PsychicHarmonizer props)
+                {
+                    if (Settings != null && Settings.enableHarmonizerRange)
+                    {
+                        props.range = Mathf.Clamp(Settings.harmonizerRange, 1f, 1000f);
+                    }
+                    else
+                    {
+                        props.range = VanillaHarmonizerRange;
+                    }
+                    return;
+                }
+            }
         }
 
         public static void ApplyTradePriceImprovementCap()
@@ -274,6 +390,19 @@ namespace PersonalKit
         public bool enableQualityFloor;
         public int qualityFloor; // 0-6 QualityCategory when enabled
 
+        // Psychic / Royalty
+        public bool enableHarmonizerRange;
+        public float harmonizerRange = PersonalKitMod.VanillaHarmonizerRange;
+        public bool enableHarmonizerMood;
+        public float harmonizerMoodMult = 1f;
+        public bool harmonizerAllowStack;
+        /// <summary>Allow surgery that lowers psylink 1 level and spawns a neuroformer.</summary>
+        public bool extractPsylinkLevel;
+
+        // Ideology
+        /// <summary>Skip Morbid style category so tables/chairs use next style or vanilla.</summary>
+        public bool disableMorbidStyle;
+
         // Misc
         public bool enableInspiration;
         public float inspirationMtbdMult = 1f;
@@ -302,6 +431,13 @@ namespace PersonalKit
             shuttleAsAttackTarget = false;
             enableQualityFloor = false;
             qualityFloor = 0;
+            enableHarmonizerRange = false;
+            harmonizerRange = PersonalKitMod.VanillaHarmonizerRange;
+            enableHarmonizerMood = false;
+            harmonizerMoodMult = 1f;
+            harmonizerAllowStack = false;
+            extractPsylinkLevel = false;
+            disableMorbidStyle = false;
             enableInspiration = false;
             inspirationMtbdMult = 1f;
         }
@@ -318,6 +454,11 @@ namespace PersonalKit
             keepWeaponOnDown = false;
             shuttleAsAttackTarget = false;
             enableQualityFloor = false;
+            enableHarmonizerRange = false;
+            enableHarmonizerMood = false;
+            harmonizerAllowStack = false;
+            extractPsylinkLevel = false;
+            disableMorbidStyle = false;
             enableInspiration = false;
         }
 
@@ -343,6 +484,13 @@ namespace PersonalKit
             Scribe_Values.Look(ref shuttleAsAttackTarget, "shuttleAsAttackTarget", false);
             Scribe_Values.Look(ref enableQualityFloor, "enableQualityFloor", false);
             Scribe_Values.Look(ref qualityFloor, "qualityFloor", 0);
+            Scribe_Values.Look(ref enableHarmonizerRange, "enableHarmonizerRange", false);
+            Scribe_Values.Look(ref harmonizerRange, "harmonizerRange", PersonalKitMod.VanillaHarmonizerRange);
+            Scribe_Values.Look(ref enableHarmonizerMood, "enableHarmonizerMood", false);
+            Scribe_Values.Look(ref harmonizerMoodMult, "harmonizerMoodMult", 1f);
+            Scribe_Values.Look(ref harmonizerAllowStack, "harmonizerAllowStack", false);
+            Scribe_Values.Look(ref extractPsylinkLevel, "extractPsylinkLevel", false);
+            Scribe_Values.Look(ref disableMorbidStyle, "disableMorbidStyle", false);
             Scribe_Values.Look(ref enableInspiration, "enableInspiration", false);
             Scribe_Values.Look(ref inspirationMtbdMult, "inspirationMtbdMult", 1f);
         }

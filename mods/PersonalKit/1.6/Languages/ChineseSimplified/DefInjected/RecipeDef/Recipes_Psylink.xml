@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PK_ExtractPsylinkLevel.label>拆除启灵等级</PK_ExtractPsylinkLevel.label>
+  <PK_ExtractPsylinkLevel.description>通过手术将患者的启灵（心灵链接）降低 1 级，并回收一个启灵装置。6 级变为 5 级，依此类推；拆除最后一级会完全移除启灵。</PK_ExtractPsylinkLevel.description>
+  <PK_ExtractPsylinkLevel.jobString>正在拆除启灵等级。</PK_ExtractPsylinkLevel.jobString>
+</LanguageData>

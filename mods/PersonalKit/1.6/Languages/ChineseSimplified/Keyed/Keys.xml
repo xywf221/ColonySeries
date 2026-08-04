@@ -8,6 +8,8 @@
   <PK_Sec_Medical>医疗</PK_Sec_Medical>
   <PK_Sec_Combat>战斗</PK_Sec_Combat>
   <PK_Sec_Crafting>制作</PK_Sec_Crafting>
+  <PK_Sec_Psychic>心灵</PK_Sec_Psychic>
+  <PK_Sec_Ideology>意识形态</PK_Sec_Ideology>
   <PK_Sec_Misc>杂项</PK_Sec_Misc>
 
   <!-- 交易 -->
@@ -53,6 +55,22 @@
   <PK_Quality_Enable>启用制作品质下限</PK_Quality_Enable>
   <PK_Quality_EnableTip>关闭后使用原版随机品质判定。</PK_Quality_EnableTip>
   <PK_Quality_Label>制作品质下限：{0}</PK_Quality_Label>
+
+  <!-- 心灵 / Royalty -->
+  <PK_HarmonizerRange_Enable>启用心灵同调装置范围覆盖</PK_HarmonizerRange_Enable>
+  <PK_HarmonizerRange_EnableTip>关闭后使用原版 30 格范围。需要 Royalty。</PK_HarmonizerRange_EnableTip>
+  <PK_HarmonizerRange_Label>心灵同调装置范围：{0} 格</PK_HarmonizerRange_Label>
+  <PK_HarmonizerMood_Enable>启用心灵同调心情加成比例</PK_HarmonizerMood_Enable>
+  <PK_HarmonizerMood_EnableTip>关闭后使用原版心情传递强度。会缩放最终心情偏移（好坏都乘）。需要 Royalty。</PK_HarmonizerMood_EnableTip>
+  <PK_HarmonizerMood_Label>心灵同调心情加成比例：{0}%</PK_HarmonizerMood_Label>
+  <PK_HarmonizerStack>允许多个心灵同调互相叠加</PK_HarmonizerStack>
+  <PK_HarmonizerStackTip>原版：已植入同调装置的人不会再接收他人同调。开启后：附近每个同调携带者各自施加一条心情（可叠加）。需要 Royalty。</PK_HarmonizerStackTip>
+  <PK_ExtractPsylink>允许手术拆除启灵等级</PK_ExtractPsylink>
+  <PK_ExtractPsylinkTip>恢复旧版玩法：手术将启灵（心灵链接）降 1 级并获得一个启灵装置（6→5 得一件，依此类推）。关闭后手术不出现。需要 Royalty 或 Biotech。</PK_ExtractPsylinkTip>
+
+  <!-- 意识形态 -->
+  <PK_DisableMorbidStyle>关闭病态桌椅风格</PK_DisableMorbidStyle>
+  <PK_DisableMorbidStyleTip>原版位置：意识形态 → 编辑教义 → 风格分类（部分模因会强制病态）。开启后跳过「病态」风格，桌椅/灯等用下一项风格或纯原版外观，并清理已有病态外观。需要 Ideology。</PK_DisableMorbidStyleTip>
 
   <!-- 杂项 -->
   <PK_Inspiration_Enable>启用灵感频率覆盖</PK_Inspiration_Enable>

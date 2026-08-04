@@ -8,6 +8,8 @@
   <PK_Sec_Medical>Medical</PK_Sec_Medical>
   <PK_Sec_Combat>Combat</PK_Sec_Combat>
   <PK_Sec_Crafting>Crafting</PK_Sec_Crafting>
+  <PK_Sec_Psychic>Psychic</PK_Sec_Psychic>
+  <PK_Sec_Ideology>Ideology</PK_Sec_Ideology>
   <PK_Sec_Misc>Misc</PK_Sec_Misc>
 
   <!-- Trade -->
@@ -53,6 +55,22 @@
   <PK_Quality_Enable>Enable crafting quality floor</PK_Quality_Enable>
   <PK_Quality_EnableTip>When off, vanilla random quality rolls are used.</PK_Quality_EnableTip>
   <PK_Quality_Label>Minimum crafting quality: {0}</PK_Quality_Label>
+
+  <!-- Psychic / Royalty -->
+  <PK_HarmonizerRange_Enable>Enable psychic harmonizer range override</PK_HarmonizerRange_Enable>
+  <PK_HarmonizerRange_EnableTip>When off, vanilla range of 30 cells is used. Requires Royalty.</PK_HarmonizerRange_EnableTip>
+  <PK_HarmonizerRange_Label>Psychic harmonizer range: {0} cells</PK_HarmonizerRange_Label>
+  <PK_HarmonizerMood_Enable>Enable psychic harmonizer mood mult</PK_HarmonizerMood_Enable>
+  <PK_HarmonizerMood_EnableTip>When off, vanilla mood transfer strength is used. Scales the final mood offset (good and bad). Requires Royalty.</PK_HarmonizerMood_EnableTip>
+  <PK_HarmonizerMood_Label>Psychic harmonizer mood mult: {0}%</PK_HarmonizerMood_Label>
+  <PK_HarmonizerStack>Allow multiple harmonizers to stack</PK_HarmonizerStack>
+  <PK_HarmonizerStackTip>Vanilla: a pawn with a harmonizer implant never receives mood from other carriers. On: each nearby carrier applies its own thought (can stack). Requires Royalty.</PK_HarmonizerStackTip>
+  <PK_ExtractPsylink>Allow extract psylink level surgery</PK_ExtractPsylink>
+  <PK_ExtractPsylinkTip>Restores old-style surgery: lower psylink by 1 and recover a neuroformer (6→5 yields one item, etc.). Off = recipe hidden. Requires Royalty or Biotech.</PK_ExtractPsylinkTip>
+
+  <!-- Ideology -->
+  <PK_DisableMorbidStyle>Disable morbid furniture style</PK_DisableMorbidStyle>
+  <PK_DisableMorbidStyleTip>Vanilla: Ideology → edit ideoligion → style categories (some memes force Morbid). On: skip Morbid so tables/chairs/lamps use the next style or plain vanilla. Clears morbid look on existing things when toggled. Requires Ideology.</PK_DisableMorbidStyleTip>
 
   <!-- Misc -->
   <PK_Inspiration_Enable>Enable inspiration frequency override</PK_Inspiration_Enable>
