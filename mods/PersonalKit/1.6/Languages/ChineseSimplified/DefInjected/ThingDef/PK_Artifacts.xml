@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- EN: psychic shock pulser -->
+  <PK_PsychicShockPulser.label>心灵冲击脉冲发生器</PK_PsychicShockPulser.label>
+  <!-- EN: A one-use broad-wave psychic effector. The psychic pulse floods every hostile mind on the map with chaotic imagery, dropping them into a state of psychic shock. Your own people are shielded by the emitter's tuning, as are neutrals and guests. Anyone already shocked, and creatures whose minds are already gone, are unaffected. -->
+  <PK_PsychicShockPulser.description>一次性使用的大范围心灵效应器。脉冲会将混乱的意象灌入地图上每一个敌对者的脑海，使其陷入心灵冲击状态而倒地。发射器的调谐会保护你自己的人，中立者与访客同样不受影响。已经倒地的人，以及心智早已不存的生物，不会受到影响。</PK_PsychicShockPulser.description>
+
+</LanguageData>

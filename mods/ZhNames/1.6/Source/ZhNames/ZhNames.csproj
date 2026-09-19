@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>ZhNames</AssemblyName>
+    <RootNamespace>ZhNames</RootNamespace>
+    <ColonySeriesNeedsHarmony>true</ColonySeriesNeedsHarmony>
+  </PropertyGroup>
+</Project>

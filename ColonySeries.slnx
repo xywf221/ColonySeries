@@ -15,6 +15,11 @@
   <Folder Name="/mods/DeadDrop/1.6/Source/">
     <Project Path="mods/DeadDrop/1.6/Source/DeadDrop/DeadDrop.csproj" />
   </Folder>
+  <Folder Name="/mods/FanWheel/" />
+  <Folder Name="/mods/FanWheel/1.6/" />
+  <Folder Name="/mods/FanWheel/1.6/Source/">
+    <Project Path="mods/FanWheel/1.6/Source/FanWheel/FanWheel.csproj" />
+  </Folder>
   <Folder Name="/mods/Fieldcraft/" />
   <Folder Name="/mods/Fieldcraft/1.6/" />
   <Folder Name="/mods/Fieldcraft/1.6/Source/">
@@ -54,6 +59,11 @@
   <Folder Name="/mods/SalvageAtlas/1.6/" />
   <Folder Name="/mods/SalvageAtlas/1.6/Source/">
     <Project Path="mods/SalvageAtlas/1.6/Source/SalvageAtlas/SalvageAtlas.csproj" />
+  </Folder>
+  <Folder Name="/mods/TickPerf/" />
+  <Folder Name="/mods/TickPerf/1.6/" />
+  <Folder Name="/mods/TickPerf/1.6/Source/">
+    <Project Path="mods/TickPerf/1.6/Source/TickPerf/TickPerf.csproj" />
   </Folder>
   <Folder Name="/mods/TraitExtractor/" />
   <Folder Name="/mods/TraitExtractor/1.6/" />

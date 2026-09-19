@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>粉丝转盘 FanWheel</name>
+  <author>ColonySeries</author>
+  <packageId>fanwheel.colonyseries</packageId>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <description>
+为主播设计：维护一个粉丝名称池（批量添加 / 清空 / 单个删除），在「重命名小人」对话框点「转盘」按钮，
+弹出粉丝名称大转盘——动画转停后把抽中的名称写进昵称输入框，并把该名称移出奖池。
+点「确定」才真正改名，点「取消」不变。不碰其它命名规则。
+
+Streamer tool: keep a pool of fan names (batch add / clear / remove), click the "转盘" button in the
+rename-pawn dialog to spin a prize wheel — the winning name fills the nickname box and leaves the pool.
+Only applies when you press Accept.
+  </description>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+    <li>Ludeon.RimWorld</li>
+  </loadAfter>
+</ModMetaData>

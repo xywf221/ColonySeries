@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!-- Inject PK_PsychicShockPulser into the loot pools that list artifacts by
+       explicit defName. Where the shock pulser already appears with no patching
+       at all (all inherited from ArtifactBase): caravan / orbital / settlement
+       traders via StockGenerator_Tag with tradeTag "Artifact"; MapGen_AncientTempleContents
+       (ancient danger), which filters by thingCategories "Artifacts"; and the
+       generic RewardStandardHighFreq reward pool via thingSetMakerTags.
+
+       Only the hard-coded lists need an explicit add. Verified against the game
+       XML: the inner xpath below matches exactly 6 filters
+         - Ideology  MapGen_AncientComplexRoomLoot_Better, MapGen_AncientComplex_SecurityCrate
+         - Anomaly   MapGen_FleshSackLoot, Reward_GrayBox
+         - Odyssey   Reward_AncientSafe, MapGen_HighValueCrate
+
+       PatchOperationConditional (rather than MayRequire) is what makes this safe
+       without the DLCs: PatchOperation.Complete logs "patch operation failed"
+       for any operation whose xpath never matched, and MayRequire is only
+       honoured on def nodes, never on patches. Here the outer xpath tests for
+       the existence of any of those lists, so with no relevant DLC the inner
+       Add never runs and nothing is logged.
+
+       The inner xpath must stay anchored to a defName. PatchOperationAdd.Apply
+       appends to EVERY node the xpath matches, so a pair of unanchored xpaths
+       would add one copy per matching pool instead of one copy each. -->
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>
+      /Defs/ThingSetMakerDef/root/options/li/thingSetMaker[@Class="ThingSetMaker_StackCount"]/fixedParams/filter/thingDefs[li="PsychicSoothePulser"]
+    </xpath>
+    <match Class="PatchOperationSequence">
+      <operations>
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ThingSetMakerDef[defName="MapGen_AncientComplexRoomLoot_Better"]/root/options/li/thingSetMaker[@Class="ThingSetMaker_StackCount"]/fixedParams/filter/thingDefs[li="PsychicSoothePulser"]</xpath>
+          <value><li>PK_PsychicShockPulser</li></value>
+        </li>
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ThingSetMakerDef[defName="MapGen_AncientComplex_SecurityCrate"]/root/options/li/thingSetMaker[@Class="ThingSetMaker_StackCount"]/fixedParams/filter/thingDefs[li="PsychicSoothePulser"]</xpath>
+          <value><li>PK_PsychicShockPulser</li></value>
+        </li>
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ThingSetMakerDef[defName="MapGen_FleshSackLoot"]/root/options/li/thingSetMaker[@Class="ThingSetMaker_StackCount"]/fixedParams/filter/thingDefs[li="PsychicSoothePulser"]</xpath>
+          <value><li>PK_PsychicShockPulser</li></value>
+        </li>
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ThingSetMakerDef[defName="Reward_GrayBox"]/root/options/li/thingSetMaker[@Class="ThingSetMaker_StackCount"]/fixedParams/filter/thingDefs[li="PsychicSoothePulser"]</xpath>
+          <value><li>PK_PsychicShockPulser</li></value>
+        </li>
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ThingSetMakerDef[defName="Reward_AncientSafe"]/root/options/li/thingSetMaker[@Class="ThingSetMaker_StackCount"]/fixedParams/filter/thingDefs[li="PsychicSoothePulser"]</xpath>
+          <value><li>PK_PsychicShockPulser</li></value>
+        </li>
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ThingSetMakerDef[defName="MapGen_HighValueCrate"]/root/options/li/thingSetMaker[@Class="ThingSetMaker_StackCount"]/fixedParams/filter/thingDefs[li="PsychicSoothePulser"]</xpath>
+          <value><li>PK_PsychicShockPulser</li></value>
+        </li>
+      </operations>
+    </match>
+  </Operation>
+
+</Patch>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- ThingSetMakerDef declares no label at all in vanilla: none of the 28
+       RandomOption pools has one, which is why the settings dropdown showed raw
+       defNames. The official Chinese language tarball ships no ThingSetMakerDef
+       DefInjected package either, so these names are ours.
+
+       Only pools whose root is ThingSetMaker_RandomOption appear here, since
+       those are the ones PersonalKit offers for editing. Names describe what the
+       pool drops, because the defName mostly describes where it is used. -->
+
+  <!-- Ideology: ancient complex loot -->
+  <MapGen_AncientComplexRoomLoot_Default.label>远古建筑房间掉落（普通）</MapGen_AncientComplexRoomLoot_Default.label>
+  <MapGen_AncientComplexRoomLoot_Better.label>远古建筑房间掉落（高级）</MapGen_AncientComplexRoomLoot_Better.label>
+  <MapGen_AncientComplex_SecurityCrate.label>远古建筑安保箱</MapGen_AncientComplex_SecurityCrate.label>
+
+  <!-- Anomaly -->
+  <MapGen_FleshSackLoot.label>血肉袋掉落</MapGen_FleshSackLoot.label>
+  <MapGen_ScarlandsHermeticCrate.label>疤地密封箱</MapGen_ScarlandsHermeticCrate.label>
+  <Reward_GrayBox.label>灰盒奖励</Reward_GrayBox.label>
+  <Reward_GrayBoxLowReward.label>灰盒奖励（低价值）</Reward_GrayBoxLowReward.label>
+
+  <!-- Odyssey: ancient crates and containers -->
+  <Reward_AncientSafe.label>远古保险箱</Reward_AncientSafe.label>
+  <Reward_AncientSealedContainer.label>远古密封容器</Reward_AncientSealedContainer.label>
+  <Reward_AncientSealedCrateBase_Gravlite.label>远古密封箱（重力石）</Reward_AncientSealedCrateBase_Gravlite.label>
+  <Reward_AncientSealedCrate_Shells.label>远古密封箱（炮弹）</Reward_AncientSealedCrate_Shells.label>
+  <Reward_AncientChemfuelCanister.label>远古化学燃料罐</Reward_AncientChemfuelCanister.label>
+  <Reward_AncientPallet_SteelSlag.label>远古货盘（钢渣）</Reward_AncientPallet_SteelSlag.label>
+  <Reward_AncientBox_ComponentIndustrial.label>远古箱（工业元件）</Reward_AncientBox_ComponentIndustrial.label>
+  <Reward_AncientBox_ComponentSpacer.label>远古箱（航天元件）</Reward_AncientBox_ComponentSpacer.label>
+  <Reward_AncientBox_SteelSlag.label>远古箱（钢渣）</Reward_AncientBox_SteelSlag.label>
+  <Reward_ArcheanSeed.label>太古种子</Reward_ArcheanSeed.label>
+  <Reward_GravshipUpgrade.label>重力舰升级</Reward_GravshipUpgrade.label>
+  <Reward_MalfunctioningTransportPod.label>故障运输舱</Reward_MalfunctioningTransportPod.label>
+  <MapGen_HighValueCrate.label>高价值箱</MapGen_HighValueCrate.label>
+
+  <!-- Rewards and pallets -->
+  <Reward_Pallet_Medicine.label>货盘（药品）</Reward_Pallet_Medicine.label>
+  <Reward_Pallet_SurvivalMeals.label>货盘（生存口粮）</Reward_Pallet_SurvivalMeals.label>
+  <VisitorGift.label>访客赠礼</VisitorGift.label>
+
+  <!-- Rare fishing catches by biome -->
+  <RareFishingCatches_Cold.label>稀有渔获（寒冷）</RareFishingCatches_Cold.label>
+  <RareFishingCatches_Temperate.label>稀有渔获（温带）</RareFishingCatches_Temperate.label>
+  <RareFishingCatches_Tropical.label>稀有渔获（热带）</RareFishingCatches_Tropical.label>
+  <RareFishingCatches_Hot.label>稀有渔获（炎热）</RareFishingCatches_Hot.label>
+  <RareFishingCatches_Glowforest.label>稀有渔获（辉光林）</RareFishingCatches_Glowforest.label>
+
+</LanguageData>

@@ -3,8 +3,8 @@
   "series": "ColonySeries",
   "game": "RimWorld",
   "targetVersion": "1.6",
-  "generated": "2026-07-30",
-  "packCount": 14,
+  "generated": "2026-09-01",
+  "packCount": 17,
   "packs": [
     {
       "folder": "ApprenticeBond",
@@ -38,6 +38,17 @@
       "hasCsproj": true,
       "hasDeviations": true,
       "path": "mods/DeadDrop"
+    },
+    {
+      "folder": "FanWheel",
+      "name": "粉丝转盘 FanWheel",
+      "packageId": "fanwheel.colonyseries",
+      "author": "ColonySeries",
+      "needsHarmony": true,
+      "hasDll": true,
+      "hasCsproj": true,
+      "hasDeviations": true,
+      "path": "mods/FanWheel"
     },
     {
       "folder": "Fieldcraft",
@@ -128,6 +139,17 @@
       "path": "mods/SalvageAtlas"
     },
     {
+      "folder": "TickPerf",
+      "name": "Colony TickPerf",
+      "packageId": "colonyseries.tickperf",
+      "author": "ColonySeries",
+      "needsHarmony": true,
+      "hasDll": true,
+      "hasCsproj": true,
+      "hasDeviations": true,
+      "path": "mods/TickPerf"
+    },
+    {
       "folder": "TraitExtractor",
       "name": "特性提取器 Trait Extractor",
       "packageId": "landworks.traitextractor",
@@ -159,6 +181,17 @@
       "hasCsproj": true,
       "hasDeviations": true,
       "path": "mods/WorkshopWear"
+    },
+    {
+      "folder": "ZhNames",
+      "name": "中文姓名 ZhNames",
+      "packageId": "zhnames.colonyseries",
+      "author": "ColonySeries",
+      "needsHarmony": true,
+      "hasDll": true,
+      "hasCsproj": true,
+      "hasDeviations": false,
+      "path": "mods/ZhNames"
     }
   ]
 }

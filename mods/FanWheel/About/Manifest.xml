@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Manifest>
+  <identifier>fanwheel.colonyseries</identifier>
+  <version>0.1.0</version>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+  </loadAfter>
+</Manifest>
