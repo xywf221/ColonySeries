@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Defs>
-  <JobDef>
-    <defName>RM_Commend</defName>
-    <driverClass>RumorMill.JobDriver_Commend</driverClass>
-    <reportString>commending TargetA.</reportString>
-    <allowOpportunisticPrefix>false</allowOpportunisticPrefix>
-  </JobDef>
-</Defs>

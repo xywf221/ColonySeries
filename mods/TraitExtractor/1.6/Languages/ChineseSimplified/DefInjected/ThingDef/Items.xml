@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LanguageData>
-  <TE_ExtractionKit.label>神经提取套件</TE_ExtractionKit.label>
-  <TE_ExtractionKit.description>一次性手术套件，用于将一项人格特性提取进血清瓶。手术时需要熟练医生与闪耀世界级医药。使用后销毁。</TE_ExtractionKit.description>
-
-  <TE_TraitSerum.label>特性血清</TE_TraitSerum.label>
-  <TE_TraitSerum.description>低温稳定的神经图式血清，携带一项人格特性。注射后尝试整合。排异、与现有特性冲突、多日适应不适都很常见。不是玩具。外民据点与异域商人有时会进现成灌装瓶。</TE_TraitSerum.description>
-</LanguageData>

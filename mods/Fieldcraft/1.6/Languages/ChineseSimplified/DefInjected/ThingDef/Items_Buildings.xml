@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LanguageData>
-  <FC_Compost.label>田作堆肥</FC_Compost.label>
-  <FC_Compost.description>腐熟有机物，用于田间追肥，恢复地力预算，而不必整格重铺地形。与重型改地用的垦壤堆肥不同——双开时两种堆肥都可用于追肥。</FC_Compost.description>
-
-  <FC_CompostPit.label>堆肥坑</FC_CompostPit.label>
-  <FC_CompostPit.description>把植物原料沤成田作堆肥的浅坑。比制作点吞吐更高，仍费工。无需电力。味道不好。</FC_CompostPit.description>
-</LanguageData>

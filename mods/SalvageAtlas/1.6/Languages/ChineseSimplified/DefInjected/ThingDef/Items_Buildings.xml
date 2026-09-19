@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LanguageData>
-  <SA_MechFragment.label>机械碎片</SA_MechFragment.label>
-  <SA_MechFragment.description>烧焦的机械体电路碎片。本身不是研究解锁——在残骸台分析后存入图谱进度。</SA_MechFragment.description>
-  <SA_AtlasSchematic.label>图谱示意图</SA_AtlasSchematic.label>
-  <SA_AtlasSchematic.description>一次性逆向工程图纸。解码一次换小包材料——绝不是永久全局战斗加成。</SA_AtlasSchematic.description>
-  <SA_SalvageBench.label>残骸台</SA_SalvageBench.label>
-  <SA_SalvageBench.description>把机械碎片编目为图谱进度并花费解锁有界内容。与原版研究并行——不给予研究点数。</SA_SalvageBench.description>
-</LanguageData>

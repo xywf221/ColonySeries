@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<Manifest>
-  <identifier>landworks.terraforming</identifier>
-  <version>1.0.0</version>
-  <dependencies>
-    <li>brrainz.harmony</li>
-  </dependencies>
-</Manifest>
