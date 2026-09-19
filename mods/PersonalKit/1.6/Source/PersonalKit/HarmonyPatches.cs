@@ -6,6 +6,7 @@ using RimWorld;
 using RimWorld.Planet;
 using UnityEngine;
 using Verse;
+using Verse.AI;
 // ThingStyleCategoryWithPriority lives in Verse
 
 namespace PersonalKit
@@ -243,6 +244,107 @@ namespace PersonalKit
     }
 
     // ══════════════════════════════════════════════════════════════════
+    //  10b. Psychic soothe pulser → ArtifactMoodBoost mood mult
+    //       The artifact gives every pawn on the map a +15 memory for 1 day
+    //       (vanilla). Scale the final mood offset only — duration and stack
+    //       cap come from the def (ApplySoothePulserDef), since there is no
+    //       per-instance hook for them.
+    // ══════════════════════════════════════════════════════════════════
+    //       Patched on the base Thought.BaseMoodOffset getter on purpose:
+    //         - Thought_Situational does not override it (inherits the base),
+    //           and Thought_Memory.MoodOffset() calls base.MoodOffset(), which
+    //           reads it too — so one postfix covers all three soothe sources.
+    //         - It sits *below* effectMultiplyingStat in Thought.MoodOffset(), so
+    //           PsychicSensitivity still applies on top: pawns with 0 psychic
+    //           sensitivity stay immune, as in vanilla. Setting the absolute value
+    //           on MoodOffset() instead would break that immunity.
+    //       PsychicHarmonizer is a separate override with its own patch (#12).
+    [HarmonyPatch(typeof(Thought), "get_BaseMoodOffset")]
+    public static class Patch_PsychicSoothe_BaseMoodOffset
+    {
+        private static bool resolved;
+        private static ThoughtDef emanatorSootheDef;
+        private static ThoughtDef psychicDroneDef;
+        private static ThoughtDef artifactMoodBoostDef;
+
+        private static void Resolve()
+        {
+            if (resolved) return;
+            resolved = true;
+            emanatorSootheDef = DefDatabase<ThoughtDef>.GetNamedSilentFail("PsychicEmanatorSoothe");
+            psychicDroneDef = DefDatabase<ThoughtDef>.GetNamedSilentFail("PsychicDrone");
+            artifactMoodBoostDef = DefDatabase<ThoughtDef>.GetNamedSilentFail("ArtifactMoodBoost");
+        }
+
+        public static void Postfix(Thought __instance, ref float __result)
+        {
+            PersonalKitSettings s = PersonalKitMod.Settings;
+            if (s == null) return;
+            if (!s.enableEmanatorMood && !s.enablePsychicDroneMood && !s.enableSoothePulserMood) return;
+
+            ThoughtDef def = __instance?.def;
+            if (def == null) return;
+            Resolve();
+
+            if (def == emanatorSootheDef)
+            {
+                if (s.enableEmanatorMood) __result = s.emanatorMood;
+            }
+            else if (def == psychicDroneDef)
+            {
+                if (!s.enablePsychicDroneMood) return;
+                // Stage 0 is the positive "psychic soothe"; 1-4 are the negative drone.
+                int stage = __instance.CurStageIndex;
+                __result = stage <= 0
+                    ? s.psychicSootheMood
+                    : PersonalKitMod.DroneMoodAt(stage, s.psychicDroneMood);
+            }
+            else if (def == artifactMoodBoostDef)
+            {
+                if (s.enableSoothePulserMood) __result = s.soothePulserMood;
+            }
+        }
+    }
+
+    // ══════════════════════════════════════════════════════════════════
+    //  10c. Psychic emanator (building) — radius
+    //       Vanilla radius is a hard-coded const (15) in the worker. When the
+    //       range override is on we replace the worker entirely so our radius
+    //       wins; the power-off check and wall-piercing behaviour are preserved.
+    // ══════════════════════════════════════════════════════════════════
+    [HarmonyPatch(typeof(ThoughtWorker_PsychicEmanatorSoothe), "CurrentStateInternal")]
+    public static class Patch_EmanatorSoothe_Range
+    {
+        public static bool Prefix(Pawn p, ref ThoughtState __result)
+        {
+            PersonalKitSettings s = PersonalKitMod.Settings;
+            if (s == null || !s.enableEmanatorRange) return true; // vanilla
+
+            __result = false;
+            if (p == null || !p.Spawned) return false;
+
+            List<Thing> list = p.Map?.listerThings?.ThingsOfDef(ThingDefOf.PsychicEmanator);
+            if (list == null) return false;
+
+            float range = Mathf.Clamp(s.emanatorRange, 0.5f, 1000f);
+            for (int i = 0; i < list.Count; i++)
+            {
+                Thing thing = list[i];
+                if (thing == null) continue;
+                CompPowerTrader power = thing.TryGetComp<CompPowerTrader>();
+                // Same rule as vanilla: no power comp, or powered on.
+                if (power != null && !power.PowerOn) continue;
+                if (p.Position.InHorDistOf(thing.Position, range))
+                {
+                    __result = ThoughtState.ActiveAtStage(0);
+                    return false;
+                }
+            }
+            return false;
+        }
+    }
+
+    // ══════════════════════════════════════════════════════════════════
     //  11. Psychic Harmonizer — allow multiple carriers to stack
     //      Vanilla skips / discards when the *recipient* already has the
     //      PsychicHarmonizer hediff, so carriers never buff each other.
@@ -427,6 +529,224 @@ namespace PersonalKit
 
             __result = null;
             return false;
+        }
+    }
+
+    // ══════════════════════════════════════════════════════════════════
+    //  13. Corpse-worn apparel → treat as clean
+    //      Vanilla marks apparel worn by a corpse as tainted
+    //      (Apparel.Notify_PawnKilled sets wornByCorpseInt); that blocks
+    //      wearing (mood) and selling. When enabled, WornByCorpse reports
+    //      false so such apparel is fully clean: no label marker, no mood
+    //      penalty, sellable at normal price. Covers both newly-tainted and
+    //      already-tainted items, and toggling restores vanilla instantly.
+    // ══════════════════════════════════════════════════════════════════
+    [HarmonyPatch(typeof(Apparel), nameof(Apparel.WornByCorpse), MethodType.Getter)]
+    public static class Patch_Apparel_WornByCorpse
+    {
+        public static bool Prefix(ref bool __result)
+        {
+            PersonalKitSettings s = PersonalKitMod.Settings;
+            if (s == null || !s.noCorpseWornChar) return true; // vanilla getter
+            __result = false;
+            return false; // skip original getter
+        }
+    }
+
+    // ══════════════════════════════════════════════════════════════════
+    //  14. Forced lovin' — bed command gizmo
+    //      When enabled, a double bed (non-medical, non-prisoner, non-slave,
+    //      not for babies) owned by colonists gets an extra command gizmo
+    //      "Initiate lovin'". Clicking it forces the assigned couple to start
+    //      a lovin' job right now:
+    //        - If one partner is already sleeping in the bed, we give THAT
+    //          partner the Lovin job (with the other as target). Their
+    //          JobDriver_Lovin.initAction starts the other partner's Lovin
+    //          job, so both climb in together — the vanilla flow.
+    //        - If nobody is in the bed, we give the Lovin job to the first
+    //          owner; again the driver auto-starts the partner once they
+    //          arrive.
+    //      We also clear canLovinTick (the 1.5–36h cooldown) on both so the
+    //      forced job is not blocked. This only issues a job — it never
+    //      creates love relations or overrides consent; vanilla lovin'
+    //      still checks partner-in-bed / awake on the driver's laydown toil.
+    // ══════════════════════════════════════════════════════════════════
+    [HarmonyPatch(typeof(Building_Bed), nameof(Building_Bed.GetGizmos))]
+    public static class Patch_Building_Bed_ForceLovin
+    {
+        private static Pawn GetPartnerInBed(Building_Bed bed, Pawn self)
+        {
+            foreach (Pawn occupant in bed.CurOccupants)
+            {
+                if (occupant != self
+                    && occupant.RaceProps.Humanlike
+                    && LovePartnerRelationUtility.LovePartnerRelationExists(self, occupant))
+                {
+                    return occupant;
+                }
+            }
+            return null;
+        }
+
+        private static bool IsUsableBed(Building_Bed bed)
+        {
+            return bed != null
+                && bed.SleepingSlotsCount >= 2
+                && !bed.Medical
+                && !bed.ForPrisoners
+                && !bed.ForSlaves
+                && !bed.ForHumanBabies
+                && bed.Faction == Faction.OfPlayer;
+        }
+
+        private static Pawn FirstLovePartner(Pawn pawn)
+        {
+            foreach (DirectPawnRelation rel in pawn.relations.DirectRelations)
+            {
+                if (LovePartnerRelationUtility.IsLovePartnerRelation(rel.def)
+                    && rel.otherPawn != null
+                    && !rel.otherPawn.Destroyed
+                    && rel.otherPawn.RaceProps.Humanlike)
+                {
+                    return rel.otherPawn;
+                }
+            }
+            return null;
+        }
+
+        private static string BedOwnerNames(Building_Bed bed)
+        {
+            List<Pawn> owners = bed.OwnersForReading;
+            if (owners == null || owners.Count == 0)
+            {
+                return "NoBody".Translate();
+            }
+            string names = "";
+            for (int i = 0; i < owners.Count; i++)
+            {
+                if (i > 0) names += ", ";
+                names += owners[i].LabelShort;
+            }
+            return names;
+        }
+
+        public static void Postfix(Building_Bed __instance, ref IEnumerable<Gizmo> __result)
+        {
+            PersonalKitSettings s = PersonalKitMod.Settings;
+            if (s == null || !s.enableForceLovin)
+            {
+                return;
+            }
+            if (__instance == null || !__instance.Spawned)
+            {
+                return;
+            }
+            if (!IsUsableBed(__instance))
+            {
+                return;
+            }
+
+            // Collect the assigned owners who are awake, colonist, adult, and
+            // have at least one living love partner.
+            List<Pawn> eligible = new List<Pawn>();
+            List<Pawn> owners = __instance.OwnersForReading;
+            if (owners == null) return;
+            for (int i = 0; i < owners.Count; i++)
+            {
+                Pawn owner = owners[i];
+                if (owner == null || owner.Destroyed || !owner.RaceProps.Humanlike)
+                {
+                    continue;
+                }
+                if (owner.Faction != Faction.OfPlayer)
+                {
+                    continue;
+                }
+                if (owner.Drafted || owner.InMentalState || !owner.health.capacities.CanBeAwake)
+                {
+                    continue;
+                }
+                if (owner.ageTracker != null && owner.ageTracker.AgeBiologicalYears < 16f)
+                {
+                    continue;
+                }
+                if (FirstLovePartner(owner) == null)
+                {
+                    continue;
+                }
+                eligible.Add(owner);
+            }
+            if (eligible.Count == 0)
+            {
+                return;
+            }
+
+            Command_Action cmd = new Command_Action
+            {
+                defaultLabel = "PK_ForceLovin_CommandLabel".Translate(),
+                defaultDesc = "PK_ForceLovin_CommandDesc".Translate(),
+                icon = FleckDefOf.Heart.graphicData?.Graphic?.MatSingle?.mainTexture as Texture2D,
+                action = delegate
+                {
+                    Building_Bed bed = __instance;
+                    if (bed == null || !bed.Spawned || !IsUsableBed(bed))
+                    {
+                        return;
+                    }
+
+                    // Prefer the partner already lying in the bed: giving THEM
+                    // the Lovin job (target = the other) makes their
+                    // JobDriver_Lovin.initAction start the other's job, so
+                    // both climb in together.
+                    Pawn starter = null;
+                    Pawn target = null;
+                    for (int i = 0; i < eligible.Count; i++)
+                    {
+                        Pawn candidate = eligible[i];
+                        Pawn partner = GetPartnerInBed(bed, candidate);
+                        if (partner != null)
+                        {
+                            starter = candidate;
+                            target = partner;
+                            break;
+                        }
+                    }
+                    if (starter == null)
+                    {
+                        starter = eligible[0];
+                        target = FirstLovePartner(starter);
+                    }
+
+                    if (starter == null || target == null || starter == target)
+                    {
+                        return;
+                    }
+                    if (starter.Destroyed || target.Destroyed
+                        || !starter.health.capacities.CanBeAwake || !target.health.capacities.CanBeAwake)
+                    {
+                        Messages.Message("PK_ForceLovin_Unavailable".Translate(),
+                            new LookTargets(starter, target), MessageTypeDefOf.NeutralEvent);
+                        return;
+                    }
+
+                    // Clear the cooldown so the forced act is not blocked.
+                    Pawn_MindState starterMind = starter.mindState;
+                    Pawn_MindState targetMind = target.mindState;
+                    if (starterMind != null) starterMind.canLovinTick = 0;
+                    if (targetMind != null) targetMind.canLovinTick = 0;
+
+                    Job job = JobMaker.MakeJob(JobDefOf.Lovin, target, bed);
+                    starter.jobs.TryTakeOrderedJob(job, JobTag.Misc);
+
+                    Messages.Message("PK_ForceLovin_Started".Translate(starter.LabelShort, target.LabelShort),
+                        new LookTargets(starter, target), MessageTypeDefOf.PositiveEvent);
+                }
+            };
+
+            // Append after existing gizmos (vanilla prisoner/medical toggles).
+            List<Gizmo> list = new List<Gizmo>(__result);
+            list.Add(cmd);
+            __result = list;
         }
     }
 }

@@ -23,6 +23,9 @@
   <PK_MinBuy_EnableTip>关闭后恢复原版 50% 买入价下限。</PK_MinBuy_EnableTip>
   <PK_MinBuy_Desc>降低地板价，让高谈判技能下买东西时对面甚至倒贴钱。</PK_MinBuy_Desc>
   <PK_MinBuy_Label>买入价地板：{0}%</PK_MinBuy_Label>
+  <PK_OrbitalSilver_Enable>更富有的轨道商人（携带更多白银）</PK_OrbitalSilver_Enable>
+  <PK_OrbitalSilver_EnableTip>关闭后，轨道贸易船携带原版数量白银。开启后按倍率缩放它们带来的白银，适合你囤货过多急需出货时。</PK_OrbitalSilver_EnableTip>
+  <PK_OrbitalSilver_Label>轨道商人白银：{0}%</PK_OrbitalSilver_Label>
 
   <!-- 技能 -->
   <PK_SkillDecay_Enable>启用技能衰减覆盖</PK_SkillDecay_Enable>
@@ -48,8 +51,19 @@
   <!-- 战斗 -->
   <PK_KeepWeapon>倒地时保留装备武器</PK_KeepWeapon>
   <PK_KeepWeaponTip>己方殖民者倒地时主武器收入背包。关闭 = 原版掉落。</PK_KeepWeaponTip>
+  <PK_NoCorpseWornChar>把被尸体穿过的衣物视为干净（不污损）</PK_NoCorpseWornChar>
+  <PK_NoCorpseWornCharTip>原版中，被尸体穿过的衣物会变为污损：标签前显示标记（部分中文包为「亡」），穿上减心情，商人收购价大幅折价。开启后这类衣物按干净对待——无标记、不扣心情、可按原价出售。关闭 = 恢复原版污损。</PK_NoCorpseWornCharTip>
   <PK_ShuttleTarget>穿梭机可被敌人锁定</PK_ShuttleTarget>
   <PK_ShuttleTargetTip>敌人将客用穿梭机视为合法目标，优先级与建筑相同。关闭 = 原版（几乎不锁）。切换后可能需重载。</PK_ShuttleTargetTip>
+  <PK_ForceLovin_Enable>双人床显示「强制滚床单」命令</PK_ForceLovin_Enable>
+  <PK_ForceLovin_EnableTip>开启后，分配给殖民者的双人床（非医疗/非囚犯/非奴隶床）会多一个命令：立即让分配到该床的爱侣开始滚床单，即使他们正在忙别的也会赶来。只下发原版滚床单工作——两人会自己走到床边躺下一起，原版的同意/情境判定照常生效。关闭 = 原版行为。</PK_ForceLovin_EnableTip>
+  <PK_ForceLovin_CommandLabel>强制滚床单</PK_ForceLovin_CommandLabel>
+  <PK_ForceLovin_CommandDesc>命令分配到此床的爱侣立即开始滚床单。仅在至少一名床位主人清醒且有在世恋人的时候可用。</PK_ForceLovin_CommandDesc>
+  <PK_ForceLovin_Unavailable>无法开始滚床单——没有清醒且能行动的情侣。</PK_ForceLovin_Unavailable>
+  <PK_ForceLovin_Started>{0} 和 {1} 正在赶往床上。</PK_ForceLovin_Started>
+  <PK_ShockPulser_Enable>心灵冲击脉冲发生器神器（PK）</PK_ShockPulser_Enable>
+  <PK_ShockPulser_EnableTip>启用「心灵冲击脉冲发生器」神器：让地图上所有敌对与无阵营单位陷入心灵冲击而倒地，己方人员、中立商队与访客不受影响。关闭 = 物品仍存在，但激活时不产生任何效果。</PK_ShockPulser_EnableTip>
+  <PK_ShockPulser_Duration>冲击倒地时长：{0} 小时</PK_ShockPulser_Duration>
 
   <!-- 制作 -->
   <PK_Quality_Enable>启用制作品质下限</PK_Quality_Enable>
@@ -57,6 +71,16 @@
   <PK_Quality_Label>制作品质下限：{0}</PK_Quality_Label>
 
   <!-- 心灵 / Royalty -->
+  <PK_Psycast_SectionLabel>皇权技能参数调整（每个技能独立开关，留空=原版值，悬停技能名查看原版数值）</PK_Psycast_SectionLabel>
+  <PK_Psycast_NeedRoyalty>需要启用 Royalty DLC。</PK_Psycast_NeedRoyalty>
+  <PK_Psycast_Level>等级 {0}</PK_Psycast_Level>
+  <PK_Psycast_Vanilla>原版数值：</PK_Psycast_Vanilla>
+  <PK_Psycast_entropyGain>熵增</PK_Psycast_entropyGain>
+  <PK_Psycast_psyfocusCost>精神力消耗</PK_Psycast_psyfocusCost>
+  <PK_Psycast_duration>持续(秒)</PK_Psycast_duration>
+  <PK_Psycast_effectRadius>作用半径</PK_Psycast_effectRadius>
+  <PK_Psycast_range>施法距离</PK_Psycast_range>
+  <PK_Psycast_warmupTime>施法前摇(秒)</PK_Psycast_warmupTime>
   <PK_HarmonizerRange_Enable>启用心灵同调装置范围覆盖</PK_HarmonizerRange_Enable>
   <PK_HarmonizerRange_EnableTip>关闭后使用原版 30 格范围。需要 Royalty。</PK_HarmonizerRange_EnableTip>
   <PK_HarmonizerRange_Label>心灵同调装置范围：{0} 格</PK_HarmonizerRange_Label>
@@ -68,6 +92,37 @@
   <PK_ExtractPsylink>允许手术拆除启灵等级</PK_ExtractPsylink>
   <PK_ExtractPsylinkTip>恢复旧版玩法：手术将启灵（心灵链接）降 1 级并获得一个启灵装置（6→5 得一件，依此类推）。关闭后手术不出现。需要 Royalty 或 Biotech。</PK_ExtractPsylinkTip>
 
+  <!-- 心灵抚慰脉冲发生器（神器） -->
+  <PK_SoothePulser_Section>心灵抚慰脉冲发生器（神器）</PK_SoothePulser_Section>
+  <PK_SoothePulserMood_Enable>启用心灵抚慰脉冲心情数值覆盖</PK_SoothePulserMood_Enable>
+  <PK_SoothePulserMood_EnableTip>直接设定一次性神器「心灵抚慰脉冲发生器」带来的心情数值（原版 +15）。调成负数，脉冲就从抚慰变成折磨。关闭 = 原版。</PK_SoothePulserMood_EnableTip>
+  <PK_SoothePulserMood_Label>抚慰脉冲心情：{0}</PK_SoothePulserMood_Label>
+  <PK_SoothePulserDuration_Enable>覆盖抚慰脉冲持续时间</PK_SoothePulserDuration_Enable>
+  <PK_SoothePulserDuration_EnableTip>原版持续 1 天。已获得的心情记忆沿用创建时的时长，所以改动在下一次脉冲时生效。</PK_SoothePulserDuration_EnableTip>
+  <PK_SoothePulserDuration_Label>抚慰脉冲持续时间：{0} 天</PK_SoothePulserDuration_Label>
+  <PK_SoothePulserStack_Enable>覆盖抚慰脉冲叠加上限</PK_SoothePulserStack_Enable>
+  <PK_SoothePulserStack_EnableTip>原版心情记忆最多叠 3 层，所以连续使用收益会封顶。调高可持续叠加。</PK_SoothePulserStack_EnableTip>
+  <PK_SoothePulserStack_Label>抚慰脉冲叠加上限：{0} 层</PK_SoothePulserStack_Label>
+
+  <!-- 心灵放射器（建筑） -->
+  <PK_Emanator_Section>心灵放射器（建筑）</PK_Emanator_Section>
+  <PK_EmanatorMood_Enable>启用心灵放射器心情数值覆盖</PK_EmanatorMood_Enable>
+  <PK_EmanatorMood_EnableTip>直接设定通电的心灵放射器给附近小人的心情数值（原版 +5）。调成负数，它就变成吸心情的装置。关闭 = 原版。</PK_EmanatorMood_EnableTip>
+  <PK_EmanatorMood_Label>放射器心情：{0}</PK_EmanatorMood_Label>
+  <PK_EmanatorRange_Enable>启用心灵放射器范围覆盖</PK_EmanatorRange_Enable>
+  <PK_EmanatorRange_EnableTip>原版作用半径 15 格（硬编码）。与原版一样可穿墙。关闭 = 原版 15 格。</PK_EmanatorRange_EnableTip>
+  <PK_EmanatorRange_Label>放射器作用半径：{0} 格</PK_EmanatorRange_Label>
+
+  <!-- 心灵抚慰事件 / 灵能低语 -->
+  <PK_PsychicDrone_Section>心灵抚慰 &amp; 灵能低语（事件）</PK_PsychicDrone_Section>
+  <PK_PsychicDrone_Enable>启用心灵抚慰 / 低语心情数值覆盖</PK_PsychicDrone_Enable>
+  <PK_PsychicDrone_EnableTip>直接设定随机事件「心灵抚慰」（原版 +16）与「灵能低语」各档（原版 -12 至 -40）的心情数值。两者都可正可负——把低语调成正数，袭击期反而全员心情高涨；把抚慰调成负数，好事也变坏事。关闭 = 原版。</PK_PsychicDrone_EnableTip>
+  <PK_PsychicSoothe_Label>心灵抚慰（正面事件）：{0}</PK_PsychicSoothe_Label>
+  <PK_PsychicDrone_Label>灵能低语（最高档）：{0}</PK_PsychicDrone_Label>
+  <PK_PsychicDrone_Breakdown>各档：低 {0} / 中 {1} / 高 {2} / 极高 {3}</PK_PsychicDrone_Breakdown>
+
+  <PK_MoodNegative_Hint>当前为负数：这个来源现在会扣心情，而不是加心情。</PK_MoodNegative_Hint>
+
   <!-- 意识形态 -->
   <PK_DisableMorbidStyle>关闭病态桌椅风格</PK_DisableMorbidStyle>
   <PK_DisableMorbidStyleTip>原版位置：意识形态 → 编辑教义 → 风格分类（部分模因会强制病态）。开启后跳过「病态」风格，桌椅/灯等用下一项风格或纯原版外观，并清理已有病态外观。需要 Ideology。</PK_DisableMorbidStyleTip>
@@ -76,6 +131,24 @@
   <PK_Inspiration_Enable>启用灵感频率覆盖</PK_Inspiration_Enable>
   <PK_Inspiration_EnableTip>关闭后使用原版灵感触发间隔。百分比越高 = 触发越频繁（MTB 越短）。</PK_Inspiration_EnableTip>
   <PK_Inspiration_Label>灵感触发频率倍率：{0}%（越高越常触发）</PK_Inspiration_Label>
+
+  <!-- 战利品表 -->
+  <PK_Loot_SectionLabel>战利品表</PK_Loot_SectionLabel>
+  <PK_Loot_Enable>启用战利品表编辑</PK_Loot_Enable>
+  <PK_Loot_EnableTip>编辑任意战利品池的内容与概率（远古建筑、奖励箱、任务掉落，以及其它模组的池）。池从已加载的 def 自动扫描，不用写死名单。关闭 = 一切保持原版。</PK_Loot_EnableTip>
+  <PK_Loot_Pool>池：</PK_Loot_Pool>
+  <PK_Loot_Hint>点「+」展开分组。左边数字 = 该分组被抽中的权重；右边数字 = 物品在组内的相对概率（填 0 = 永不出现）。灰色数字是原版值。分组没有官方名称，故用其首项物品命名 —— 单物品的分组直接显示物品名，多物品分组额外标注「共 N 项」。</PK_Loot_Hint>
+  <PK_Loot_NoPools>未找到可编辑的战利品池。</PK_Loot_NoPools>
+  <PK_Loot_GroupTip>包含：{0}</PK_Loot_GroupTip>
+  <PK_Loot_ItemsSuffix> 项</PK_Loot_ItemsSuffix>
+  <PK_Loot_MoreItems> ……以及另外 {0} 项</PK_Loot_MoreItems>
+  <PK_Loot_AddItem>+ 添加物品</PK_Loot_AddItem>
+  <PK_Loot_DynamicGroup>动态生成</PK_Loot_DynamicGroup>
+  <PK_Loot_NoFilterGroup>该分组在抽取时动态决定内容（无固定物品名单），只能调整上方的分组权重。</PK_Loot_NoFilterGroup>
+  <PK_Loot_Removed>（已移除）</PK_Loot_Removed>
+  <PK_Loot_AlreadyInPool>（已在池中）</PK_Loot_AlreadyInPool>
+  <PK_Loot_SearchItemLabel>搜索要添加的物品</PK_Loot_SearchItemLabel>
+  <PK_Loot_RestoreAll>全部恢复原版</PK_Loot_RestoreAll>
 
   <PK_ResetDefaults>恢复默认</PK_ResetDefaults>
   <PK_DisableAll>全部关闭（纯原版）</PK_DisableAll>

@@ -23,6 +23,9 @@
   <PK_MinBuy_EnableTip>When off, vanilla 50% minimum buy price is used.</PK_MinBuy_EnableTip>
   <PK_MinBuy_Desc>Lower the floor so high negotiation can make traders pay you to take goods.</PK_MinBuy_Desc>
   <PK_MinBuy_Label>Minimum buy price floor: {0}%</PK_MinBuy_Label>
+  <PK_OrbitalSilver_Enable>Richer orbital traders (more silver)</PK_OrbitalSilver_Enable>
+  <PK_OrbitalSilver_EnableTip>When off, orbital shuttles carry vanilla silver. When on, scale the silver they arrive with — handy when you are overflowing with goods to sell.</PK_OrbitalSilver_EnableTip>
+  <PK_OrbitalSilver_Label>Orbital trader silver: {0}%</PK_OrbitalSilver_Label>
 
   <!-- Skills -->
   <PK_SkillDecay_Enable>Enable skill decay override</PK_SkillDecay_Enable>
@@ -48,8 +51,19 @@
   <!-- Combat -->
   <PK_KeepWeapon>Keep equipped weapon when downed</PK_KeepWeapon>
   <PK_KeepWeaponTip>Player pawns recover primary weapon into inventory when downed. Off = vanilla drop.</PK_KeepWeaponTip>
+  <PK_NoCorpseWornChar>Treat corpse-worn apparel as clean (no taint)</PK_NoCorpseWornChar>
+  <PK_NoCorpseWornCharTip>Vanilla apparel worn by a corpse becomes tainted: it shows a marker (e.g. 亡 in some Chinese packs), wearing it drags mood, and traders buy it at a steep discount. On = such apparel counts as clean, so it has no marker, no mood penalty, and sells at full price. Off = vanilla taint restored.</PK_NoCorpseWornCharTip>
   <PK_ShuttleTarget>Shuttle is a valid attack target</PK_ShuttleTarget>
   <PK_ShuttleTargetTip>Enemies target passenger shuttles at building priority. Off = vanilla (rarely targeted). Reload may be needed after toggling.</PK_ShuttleTargetTip>
+  <PK_ForceLovin_Enable>Force lovin' command on double beds</PK_ForceLovin_Enable>
+  <PK_ForceLovin_EnableTip>When on, a colonist-owned double bed (non-medical, non-prisoner, non-slave) gains a command that starts the assigned love partners on lovin' right away, even while they are busy elsewhere. It only issues the vanilla lovin' job — the pair still walks to the bed and climbs in together, and vanilla consent/situational checks still apply. Off = vanilla behavior.</PK_ForceLovin_EnableTip>
+  <PK_ForceLovin_CommandLabel>Initiate lovin'</PK_ForceLovin_CommandLabel>
+  <PK_ForceLovin_CommandDesc>Order the couple assigned to this bed to start lovin' right now. Only works when at least one owner is awake and has a living love partner.</PK_ForceLovin_CommandDesc>
+  <PK_ForceLovin_Unavailable>Lovin' could not be started — no awake, able partners.</PK_ForceLovin_Unavailable>
+  <PK_ForceLovin_Started>{0} and {1} are on their way to bed.</PK_ForceLovin_Started>
+  <PK_ShockPulser_Enable>Psychic shock pulser artifact (PK)</PK_ShockPulser_Enable>
+  <PK_ShockPulser_EnableTip>Enables the "psychic shock pulser" artifact: drops every hostile and factionless pawn on the map into psychic shock, sparing your own people, neutrals and guests. Off = the item still exists but does nothing when activated.</PK_ShockPulser_EnableTip>
+  <PK_ShockPulser_Duration>Shock downed duration: {0} hours</PK_ShockPulser_Duration>
 
   <!-- Crafting -->
   <PK_Quality_Enable>Enable crafting quality floor</PK_Quality_Enable>
@@ -57,6 +71,16 @@
   <PK_Quality_Label>Minimum crafting quality: {0}</PK_Quality_Label>
 
   <!-- Psychic / Royalty -->
+  <PK_Psycast_SectionLabel>Psycast parameter tweaks (per-skill toggle, blank = vanilla, hover skill name for vanilla values)</PK_Psycast_SectionLabel>
+  <PK_Psycast_NeedRoyalty>Royalty DLC required.</PK_Psycast_NeedRoyalty>
+  <PK_Psycast_Level>Level {0}</PK_Psycast_Level>
+  <PK_Psycast_Vanilla>Vanilla values:</PK_Psycast_Vanilla>
+  <PK_Psycast_entropyGain>Entropy</PK_Psycast_entropyGain>
+  <PK_Psycast_psyfocusCost>Psyfocus cost</PK_Psycast_psyfocusCost>
+  <PK_Psycast_duration>Duration (s)</PK_Psycast_duration>
+  <PK_Psycast_effectRadius>Radius</PK_Psycast_effectRadius>
+  <PK_Psycast_range>Range</PK_Psycast_range>
+  <PK_Psycast_warmupTime>Warmup (s)</PK_Psycast_warmupTime>
   <PK_HarmonizerRange_Enable>Enable psychic harmonizer range override</PK_HarmonizerRange_Enable>
   <PK_HarmonizerRange_EnableTip>When off, vanilla range of 30 cells is used. Requires Royalty.</PK_HarmonizerRange_EnableTip>
   <PK_HarmonizerRange_Label>Psychic harmonizer range: {0} cells</PK_HarmonizerRange_Label>
@@ -68,6 +92,37 @@
   <PK_ExtractPsylink>Allow extract psylink level surgery</PK_ExtractPsylink>
   <PK_ExtractPsylinkTip>Restores old-style surgery: lower psylink by 1 and recover a neuroformer (6→5 yields one item, etc.). Off = recipe hidden. Requires Royalty or Biotech.</PK_ExtractPsylinkTip>
 
+  <!-- Psychic soothe pulser (artifact) -->
+  <PK_SoothePulser_Section>Psychic soothe pulser (artifact)</PK_SoothePulser_Section>
+  <PK_SoothePulserMood_Enable>Enable soothe pulser mood override</PK_SoothePulserMood_Enable>
+  <PK_SoothePulserMood_EnableTip>Sets the mood the one-use "psychic soothe pulser" artifact gives (vanilla +15). Go negative and the pulse tortures instead of soothing. Off = vanilla.</PK_SoothePulserMood_EnableTip>
+  <PK_SoothePulserMood_Label>Soothe pulser mood: {0}</PK_SoothePulserMood_Label>
+  <PK_SoothePulserDuration_Enable>Override soothe pulser duration</PK_SoothePulserDuration_Enable>
+  <PK_SoothePulserDuration_EnableTip>Vanilla lasts 1 day. Existing memories keep the duration they were created with, so changes apply to the next pulse.</PK_SoothePulserDuration_EnableTip>
+  <PK_SoothePulserDuration_Label>Soothe pulser duration: {0} days</PK_SoothePulserDuration_Label>
+  <PK_SoothePulserStack_Enable>Override soothe pulser stack cap</PK_SoothePulserStack_Enable>
+  <PK_SoothePulserStack_EnableTip>Vanilla caps the mood memory at 3 stacks, so pulsing more often stops helping. Raise it to keep stacking.</PK_SoothePulserStack_EnableTip>
+  <PK_SoothePulserStack_Label>Soothe pulser stack cap: {0}</PK_SoothePulserStack_Label>
+
+  <!-- Psychic emanator building -->
+  <PK_Emanator_Section>Psychic emanator (building)</PK_Emanator_Section>
+  <PK_EmanatorMood_Enable>Enable emanator mood override</PK_EmanatorMood_Enable>
+  <PK_EmanatorMood_EnableTip>Sets the mood the powered psychic emanator building gives to nearby pawns (vanilla +5). Go negative and it becomes a mood-draining installation. Off = vanilla.</PK_EmanatorMood_EnableTip>
+  <PK_EmanatorMood_Label>Emanator mood: {0}</PK_EmanatorMood_Label>
+  <PK_EmanatorRange_Enable>Enable emanator radius override</PK_EmanatorRange_Enable>
+  <PK_EmanatorRange_EnableTip>Vanilla radius is 15 cells (hard-coded). Works through walls, same as vanilla. Off = vanilla 15.</PK_EmanatorRange_EnableTip>
+  <PK_EmanatorRange_Label>Emanator radius: {0} cells</PK_EmanatorRange_Label>
+
+  <!-- Psychic soothe / drone game condition -->
+  <PK_PsychicDrone_Section>Psychic soothe &amp; drone (event)</PK_PsychicDrone_Section>
+  <PK_PsychicDrone_Enable>Enable psychic soothe / drone mood override</PK_PsychicDrone_Enable>
+  <PK_PsychicDrone_EnableTip>Sets the mood for the random "psychic soothe" event (vanilla +16) and for the "psychic drone" levels (vanilla -12 to -40). Both can go negative or positive. Off = vanilla.</PK_PsychicDrone_EnableTip>
+  <PK_PsychicSoothe_Label>Psychic soothe (positive event): {0}</PK_PsychicSoothe_Label>
+  <PK_PsychicDrone_Label>Psychic drone (worst level): {0}</PK_PsychicDrone_Label>
+  <PK_PsychicDrone_Breakdown>Levels: low {0} / moderate {1} / high {2} / extreme {3}</PK_PsychicDrone_Breakdown>
+
+  <PK_MoodNegative_Hint>Negative: this now drains mood instead of restoring it.</PK_MoodNegative_Hint>
+
   <!-- Ideology -->
   <PK_DisableMorbidStyle>Disable morbid furniture style</PK_DisableMorbidStyle>
   <PK_DisableMorbidStyleTip>Vanilla: Ideology → edit ideoligion → style categories (some memes force Morbid). On: skip Morbid so tables/chairs/lamps use the next style or plain vanilla. Clears morbid look on existing things when toggled. Requires Ideology.</PK_DisableMorbidStyleTip>
@@ -76,6 +131,24 @@
   <PK_Inspiration_Enable>Enable inspiration frequency override</PK_Inspiration_Enable>
   <PK_Inspiration_EnableTip>When off, vanilla inspiration MTB is used. Higher % = more frequent (shorter MTB).</PK_Inspiration_EnableTip>
   <PK_Inspiration_Label>Inspiration frequency mult: {0}% (higher = more often)</PK_Inspiration_Label>
+
+  <!-- Loot tables -->
+  <PK_Loot_SectionLabel>Loot tables</PK_Loot_SectionLabel>
+  <PK_Loot_Enable>Enable loot table editing</PK_Loot_Enable>
+  <PK_Loot_EnableTip>Edit the contents and odds of any loot pool (ancient complexes, reward crates, quest drops and any other mod's pools). Pools are auto-detected from the loaded defs. Off = everything stays exactly vanilla.</PK_Loot_EnableTip>
+  <PK_Loot_Pool>Pool:</PK_Loot_Pool>
+  <PK_Loot_Hint>Expand a group with +. Left number = how likely the group is picked; right number = an item's odds inside the group (0 = never). Grey = vanilla value. Groups have no official name, so each is labelled by its first item: single-item groups just show that item, multi-item groups get a "N items" count.</PK_Loot_Hint>
+  <PK_Loot_NoPools>No editable loot pools found.</PK_Loot_NoPools>
+  <PK_Loot_GroupTip>Contains: {0}</PK_Loot_GroupTip>
+  <PK_Loot_ItemsSuffix> items</PK_Loot_ItemsSuffix>
+  <PK_Loot_MoreItems> … and {0} more</PK_Loot_MoreItems>
+  <PK_Loot_AddItem>+ Add item</PK_Loot_AddItem>
+  <PK_Loot_DynamicGroup>Dynamic roll</PK_Loot_DynamicGroup>
+  <PK_Loot_NoFilterGroup>This group decides its contents at roll time (no fixed item list), so only its group weight can be changed.</PK_Loot_NoFilterGroup>
+  <PK_Loot_Removed>(removed)</PK_Loot_Removed>
+  <PK_Loot_AlreadyInPool>(already in pool)</PK_Loot_AlreadyInPool>
+  <PK_Loot_SearchItemLabel>Search for an item to add</PK_Loot_SearchItemLabel>
+  <PK_Loot_RestoreAll>Restore all vanilla</PK_Loot_RestoreAll>
 
   <PK_ResetDefaults>Reset to defaults</PK_ResetDefaults>
   <PK_DisableAll>Disable all overrides (vanilla)</PK_DisableAll>
