@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Identity only. Shared build lives in ColonySeries/Directory.Build.* -->
+  <PropertyGroup>
+    <AssemblyName>LWOP</AssemblyName>
+    <RootNamespace>LWOP</RootNamespace>
+    <ColonySeriesNeedsHarmony>true</ColonySeriesNeedsHarmony>
+  </PropertyGroup>
+</Project>
